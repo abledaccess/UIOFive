@@ -1,0 +1,165 @@
+/*
+Theme Name: FSSFive
+Theme URI: http://github.org/abledaccess/fssfive
+Description: An HTML5 WordPress theme employing Fluid's Skinning System -- Inclusion is the answer.
+Author: Johnny Taylor
+Author URI: http://abledaccess.com
+Version: 1.0
+*/
+
+/* HTML5 display-role reset for older browsers
+--------------------------------------------------------------------------- */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+/* A mild browser reset
+--------------------------------------------------------------------------- */
+
+body {
+	margin: 0;
+	padding: 0;
+}
+ul, ol {
+	list-style: inside none;
+	margin: 0;
+	padding: 0;
+}
+#branding.header, .content, #sidebar,  #colophon.footer {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0 1.25em;
+}
+
+/* FSSFive theme specific styles
+--------------------------------------------------------------------------- */
+
+#wrapper.fl-container {
+	max-width: 60em;
+	min-width: 30em;
+}
+
+/* Header styles
+--------------------------------------------------------------------------- */
+
+#branding.header hgroup {
+	padding-top: 2em;
+}
+#site-title {
+	float: left;
+}
+#site-description {
+	clear: right;
+	float: right;
+	font-size: 1.25em;
+	font-style: italic;
+	padding-top: 0.75em;
+}
+ul.fl-tabs {
+	border: 0 none;
+	font-weight: bold;
+	padding-bottom: 0.5em;
+}
+ul.fl-tabs li {
+	font-size: 1.25em;
+	padding: 0.25em 0.3em;	
+}
+ul.fl-tabs li a {
+	border: 0 none;
+	padding: 0.25em 0.5em;	
+}
+
+/* Main content styles
+--------------------------------------------------------------------------- */
+
+article.archive,
+article.blog,
+article.page,
+article.search,
+article.single {
+	padding-bottom: 1.25em;
+}
+h2, h3, h4, h5, h6 {
+	font-size: 1.25em;
+}
+article.single .entry-content {
+	padding-bottom: 0.625em;
+}
+#search-results {
+	list-style: none;
+	margin-bottom: 2.5em;
+}
+#search-results li {
+	margin-bottom: 2.5em;
+}
+#next-prev-links {
+	margin-bottom: 5em;
+}
+li.alignleft {
+	float: left;
+}
+li.alignright {
+	float: right;
+}
+
+/* Comment styles
+--------------------------------------------------------------------------- */
+
+#comments-closed,
+#comments,
+#respond {
+	padding-bottom: 2.5em;
+}
+
+/* Form styles
+--------------------------------------------------------------------------- */
+
+#site-search input[type="search"] {
+	padding: 0.25em;
+	width: 60%;
+}
+.commenter-info {
+	margin-bottom: 0.75em;
+}
+label {
+	display: block;
+	margin-bottom: 0.25em;
+}
+.commenter-info input {
+	padding: 0.25em;
+	width: 50%;
+}
+#commenter-comment {
+	width: 100%;
+}
+#commenter-comment textarea {
+	width: 75%;
+	margin-bottom: 0.75em;
+	padding: 0.25em;
+}
+#comment-submit {
+	display: block;
+}
+
+/* Sidebar styles
+--------------------------------------------------------------------------- */
+
+#sidebar {
+	padding-top: 1.75em;
+}
+#sidebar ul {
+	list-style: inside none;
+}
+#sidebar ul li ul {
+	list-style: inside disc;
+	padding-left: 0.625em;
+}
+
+/* Footer styles
+--------------------------------------------------------------------------- */
+
+#colophon.footer {
+	margin-bottom: 2.5em;
+}
