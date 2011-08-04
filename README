@@ -10,14 +10,16 @@ FSSFive employs a lot of the standard WordPress elements, id's and classes, it a
 
 FSSFive's Strength's
 
-As stated above, HTML5 and hNews compatible.
-Inclusion of <a href="http://www.modernizr.com/">Modernizr</a>. Enables HTML5 operability within IE, and a dozen other essential features the modern web demands.
-Still very much under development. Please direct any concerns, suggestions and issues you may be experiencing to the FSSFive theme developer; http://abledaccess.com/contact/. Thanks.
+1. As stated above, HTML5 and hNews compatible.
+2. Still very much under development. Please direct any concerns, suggestions and issues you may be experiencing to the FSSFive theme developer; http://abledaccess.com/contact/. Thanks.
 
 FSSFive's Weakness' (which will continue to be addressed and improved)
 
-Empty mark-up.
-Keyboard navigation hasn't been fully implemented.
-No current page indication in the main navigation menu.
-Lots of unwanted and unneeded id's and class' throughout the mark-up WordPress generates &mdash; in the main navigation menu especially.
-Backwards compatibility? While Infusion boasts support for legacy browsers, IE6 included, and, as of version 3.2, WordPress has dropped support for said browser, FSSFive makes no such guarantees support is provided. FSSFive was developed and has been testing both on recent releases of WordPress &mdash; no earlier than 3.1 &mdash; and with an array of modern browsers. More testing is currently pending.
+1. Empty mark-up.
+2. Keyboard navigation hasn't been fully implemented.
+3. No current page indication in the main navigation menu.
+Lots of unwanted and unneeded id's and class' throughout the mark-up WordPress generates -- in the main navigation menu especially.
+4. Backwards compatibility? While Infusion boasts support for legacy browsers, IE6 included, and, as of version 3.2, WordPress has dropped support for said browser, FSSFive makes no such guarantees support is provided. FSSFive was developed and has been testing both on recent releases of WordPress -- no earlier than 3.1 -- and with an array of modern browsers. More testing is currently pending.
+5. The comments need a ton of work -- both in terms of structure and presentation.
+6. uiOptions; http://wiki.fluidproject.org/display/fluid/UI+Options+API, is coming.
+7. I'm sure there is more...
