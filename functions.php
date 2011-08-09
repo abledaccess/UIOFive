@@ -1,8 +1,7 @@
 <?php
 
-
-// remove wordpress version numbers from head
-	remove_action('wp_head', 'wp_generator');
+// remove unwanted elements from head
+	remove_action( 'wp_head', 'rsd_link' );
 	
 // register main navigation
 	add_action( 'init', 'register_main_nav_menu' );
@@ -34,5 +33,14 @@
 	}
 	
 	add_filter('user_contactmethods', 'FSSFive_contactmethods', 10, 1);
+
+// enable threaded comments
+	function enable_threaded_comments(){
+		if (!is_admin()) {
+			if (is_singular() AND comments_open() AND (get_option('thread_comments') == 1))
+				wp_enqueue_script('comment-reply');
+			}
+	}
+	add_action('get_header', 'enable_threaded_comments');
 
 ?>

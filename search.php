@@ -25,7 +25,18 @@
 						</ol>
 					</section><!-- /.search -->
 
-					<?php include (TEMPLATEPATH . '/inc/posts-nav.php' ); ?>
+					<?php 
+					$next_posts = get_next_posts_link('More results &raquo;');
+					$prev_posts = get_previous_posts_link('&laquo; Previous results');
+					if( $next_posts || $prev_posts ) { ?><nav id="next-prev-links">
+						<ul class="fl-container-flex">
+							<?php if( $next_posts ) echo '<li class="alignright">'.$next_posts.'</li>'; ?>
+
+							<?php if( $prev_posts ) echo '<li class="alignleft">'.$prev_posts.'</li>'; ?>
+
+						</ul>
+					</nav><!-- /#next-prev-links -->
+					<?php } ?>
 
 					<?php else : ?>
 

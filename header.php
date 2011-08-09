@@ -43,8 +43,8 @@
 					<h1 id="site-title"><?php bloginfo('name'); ?></h1>
 					<h2 id="site-description"><?php bloginfo('description'); ?></h2>
 				</hgroup>
-			</header>
 
-			<nav id="access" class="fl-container-flex" role="navigation">
-				<?php wp_nav_menu(array("container" => "ul", "menu_class" => "fl-tabs fl-clearfix fl-tabs-left", "theme_location" => "main_nav")); ?>
-			</nav><!-- /#access -->
+				<nav id="access" class="fl-container-flex" role="navigation">
+					<?php wp_nav_menu(array("container" => "ul", "menu_class" => "fl-tabs fl-clearfix fl-tabs-left", "theme_location" => "main_nav")); ?>
+				</nav><!-- /#access -->
+			</header>

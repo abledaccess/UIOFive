@@ -13,25 +13,28 @@
 			<?php if ($comments) : // there are comments ?>
 
 					<section id="comments">
-						<h3><?php comments_number('No Comments', 'One Comment', '% Comments' ); ?> to &ldquo;<?php the_title(); ?>&rdquo;</h3>
+						<h3><?php comments_number('No Comments', 'One Comment', '% Comments' ); ?> to &quot;<?php the_title(); ?>&quot;</h3>
+						<ol>
+							<li>
 
-						<?php foreach ($comments as $comment) : ?>
+							<?php foreach ($comments as $comment) : ?>
 
-						<div <?php echo $oddcomment; ?>id="comment-<?php comment_ID(); ?>">
-							<header>
-								<h4><?php echo get_avatar( $comment, 32 ); ?> <cite><?php comment_author_link(); ?></cite> &mdash; <a href="#comment-<?php comment_ID(); ?>" title="Directlink for this comment"><time datetime="<?php the_time('Y-m-d') ?>" pubdate="pubdate"><?php comment_date('F jS, Y'); ?></time> at time><?php comment_time(); ?></time></a> <?php edit_comment_link('Edit',' &mdash; ',''); ?></h4>
-								<?php if ($comment->comment_approved == '0') : ?>
-									<p>Your comment is awaiting moderation.</p>
-								<?php endif; ?>
-							</header>
-							<section>
-								<?php comment_text(); ?>
-							</section>
-						</div>
+							<div <?php echo $oddcomment; ?>id="comment-<?php comment_ID(); ?>">
+								<header>
+									<h4><?php echo get_avatar( $comment, 32 ); ?> <cite><?php comment_author_link(); ?></cite> said...&mdash; <a href="#comment-<?php comment_ID(); ?>" title="Directlink to this comment"><time datetime="<?php the_time('Y-m-d') ?>" pubdate="pubdate"><?php comment_date('F jS, Y'); ?></time> at <?php comment_time(); ?></a> <?php edit_comment_link('Edit',' &mdash; ',''); ?></h4>
+									<?php if ($comment->comment_approved == '0') : ?>
+										<p>Your comment is awaiting moderation.</p>
+									<?php endif; ?>
 
-						<?php $oddcomment = (empty($oddcomment)) ? 'class="alt" ' : ''; // alternating comments ?>
-						<?php endforeach; ?>
+								</header>
+								<section>
+									<?php comment_text(); ?>
+								</section>
+							</div>
 
+							<?php $oddcomment = (empty($oddcomment)) ? 'class="alt" ' : ''; // alternating comments ?>
+							<?php endforeach; ?></li>
+						</ol>
 					</section><!-- /#comments -->
 
 			<?php else : // no comments yet ?>

@@ -2,24 +2,24 @@ FSSFive WordPress Theme Read Me...
 
 Summary
 
-The FSSFive is a clean and clear WordPress blogging theme employing two components of The Fluid Project's; http://fluidproject.org/ Infusion framework, Fluid Skinning System (FSS). Giving the user the, potential, ability to customize their experience to suit their preferences and/or needs.
+FSSFive is a clean and clear WordPress blogging theme employing a component of The Fluid Project's; http://fluidproject.org/, Infusion framework, the Fluid Skinning System (FSS).
 
-FSSFive is at it's core an HTML5-based, accessibility driven WordPress theme.
+FSSFive is, at it's core, an HTML5-based, accessibility driven WordPress theme. Not by any stretch of your imagination is it finished — meaning there are more neat and exciting things yet to come. But, like most of everything on the web, it’s a work in progress.
 
 FSSFive employs a lot of the standard WordPress elements, id's and classes, it also has the publishing requirements that adhere to the hNews Microformat.
 
 FSSFive's Strength's
 
 1. As stated above, HTML5 and hNews compatible.
-2. Still very much under development. Please direct any concerns, suggestions and issues you may be experiencing to the FSSFive theme developer; http://abledaccess.com/contact/. Thanks.
+2. uiOptions; http://wiki.fluidproject.org/display/fluid/UI+Options+API, compatible. And coming soon.
+3. Still very much under development. Please direct any concerns, suggestions and issues you may be experiencing to FSSFive developer; http://abledaccess.com/contact/. Thanks.
 
 FSSFive's Weakness' (which will continue to be addressed and improved)
 
-1. Empty mark-up.
-2. Keyboard navigation hasn't been fully implemented.
-3. No current page indication in the main navigation menu.
-Lots of unwanted and unneeded id's and class' throughout the mark-up WordPress generates -- in the main navigation menu especially.
+1. Keyboard navigation hasn't been fully implemented.
+2. No current page indication in the main navigation menu.
+3. Lots of unwanted and unneeded id's and class' throughout the mark-up WordPress generates -- in the main navigation menu especially.
 4. Backwards compatibility? While Infusion boasts support for legacy browsers, IE6 included, and, as of version 3.2, WordPress has dropped support for said browser, FSSFive makes no such guarantees support is provided. FSSFive was developed and has been testing both on recent releases of WordPress -- no earlier than 3.1 -- and with an array of modern browsers. More testing is currently pending.
 5. The comments need a ton of work -- both in terms of structure and presentation.
-6. uiOptions; http://wiki.fluidproject.org/display/fluid/UI+Options+API, is coming.
-7. I'm sure there is more...
+6. No threaded comments.
+

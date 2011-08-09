@@ -40,13 +40,24 @@
 							<?php the_excerpt(); ?>
 						</section><!-- /.entry-content -->
 						<footer class="entry-utility">
-							<p><?php the_tags('Tags: ', ', ', '<br>'); ?> Posted under <?php the_category(', '); ?> &mdash; <?php edit_post_link('Edit', '', ' &mdash; '); ?> <?php comments_popup_link('Respond to this post &raquo;', '1 Response &raquo;', '% Responses &raquo;'); ?></p>
+							<p><?php the_tags('Tags: ', ', ', '<br>'); ?> Posted under <?php the_category(', '); ?> &mdash; <?php edit_post_link('Edit', '', ' &mdash; '); ?> <?php comments_popup_link('Comment on this post &hellip;', '1 comment on this post &hellip;', '% comments &hellip;'); ?></p>
 						</footer><!-- /.entry-utility -->
 					</article><!-- /#post-<?php the_ID(); ?> -->
 
 					<?php endwhile; ?>
 
-					<?php include (TEMPLATEPATH . '/inc/posts-nav.php' ); ?>
+					<?php 
+					$next_posts = get_next_posts_link('&laquo; Older archives');
+					$prev_posts = get_previous_posts_link('Newer archives &raquo;');
+					if( $next_posts || $prev_posts ) { ?><nav id="next-prev-links">
+						<ul class="fl-container-flex">
+							<?php if( $next_posts ) echo '<li class="alignleft">'.$next_posts.'</li>'; ?>
+
+							<?php if( $prev_posts ) echo '<li class="alignright">'.$prev_posts.'</li>'; ?>
+
+						</ul>
+					</nav><!-- /#next-prev-links -->
+					<?php } ?>
 
 					<?php else : ?>
 

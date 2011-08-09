@@ -1,10 +1,10 @@
 /*
 Theme Name: FSSFive
-Theme URI: http://github.org/abledaccess/fssfive
+Theme URI: http://github.com/abledaccess/fssfive
 Description: An HTML5 WordPress theme employing Fluid's Skinning System -- Inclusion is the answer.
 Author: Johnny Taylor
 Author URI: http://abledaccess.com
-Version: 1.0
+Version: 1.0.1
 */
 
 /* HTML5 display-role reset for older browsers
@@ -62,11 +62,15 @@ ul.fl-tabs {
 	font-weight: bold;
 	padding-bottom: 0.5em;
 }
-ul.fl-tabs li {
-	font-size: 1.25em;
-	padding: 0.25em 0.3em;	
+.fl-tabs {
+	border: 0;
+	margin: 0 -1.25em;
 }
-ul.fl-tabs li a {
+.fl-tabs li {
+	font-size: 1.25em;
+	padding: 0.25em 0.3em;
+}
+.fl-tabs li a {
 	border: 0 none;
 	padding: 0.25em 0.5em;	
 }
@@ -116,7 +120,10 @@ li.alignright {
 /* Form styles
 --------------------------------------------------------------------------- */
 
-#site-search input[type="search"] {
+input[type="search"],
+input[type="url"],
+input[type="email"],
+input[type="text"], {
 	padding: 0.25em;
 	width: 60%;
 }

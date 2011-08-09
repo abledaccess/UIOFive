@@ -8,7 +8,7 @@
 
 					<article class="single" id="post-<?php the_ID(); ?>">
 						<header>
-							<h2 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Direct Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+							<h2 class="entry-title"><?php the_title(); ?></h2>
 							<?php include (TEMPLATEPATH . '/inc/meta.php' ); ?>
 						</header>
 						<section class="entry-content">
@@ -42,13 +42,22 @@
 
 					<?php comments_template(); ?>
 
-					<nav id="next-prev-links">
+					<?php
+					$previous_post = get_adjacent_post(false, '', true);
+					$next_post = get_adjacent_post(false, '', false);
+					if( $next_post || $previous_post ) { ?><nav id="next-prev-links">
 						<ul class="fl-container-flex">
-							<li class="alignleft"><?php previous_post_link('&laquo; %link'); ?></li>
-							<li class="alignright"><?php next_post_link('%link &raquo;'); ?></li>
+						<?php if ($previous_post): // if there are older articles ?>
+	<li class="alignleft"><a href="<?php echo (get_permalink($previous_post)); ?>">&laquo; <?php echo get_the_title($previous_post); ?></a></li>
+						<?php endif; ?>
 
-						</ul> 
-					</nav>
+					<?php if ($next_post): // if there are newer articles ?>
+		<li class="alignright"><a href="<?php echo (get_permalink($next_post)); ?>"><?php echo get_the_title($next_post); ?> &raquo; </a></li>
+						<?php endif; ?>
+
+						</ul>
+					</nav><!-- /#next-prev-links -->
+					<?php } ?>
 
 					<?php endwhile; else: ?>
 

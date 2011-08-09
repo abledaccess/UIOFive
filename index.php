@@ -24,7 +24,18 @@
 
 					<?php endwhile; ?>
 
-					<?php include (TEMPLATEPATH . '/inc/posts-nav.php' ); ?>
+					<?php 
+					$next_posts = get_next_posts_link('&laquo; Older articles');
+					$prev_posts = get_previous_posts_link('Newer articles &raquo;');
+					if( $next_posts || $prev_posts ) { ?><nav id="next-prev-links">
+						<ul class="fl-container-flex">
+							<?php if( $next_posts ) echo '<li class="alignleft">'.$next_posts.'</li>'; ?>
+
+							<?php if( $prev_posts ) echo '<li class="alignright">'.$prev_posts.'</li>'; ?>
+
+						</ul>
+					</nav><!-- /#next-prev-links -->
+					<?php } ?>
 
 					<?php else : ?>
 
