@@ -4,7 +4,7 @@ Theme URI: http://github.com/abledaccess/fssfive
 Description: An HTML5 WordPress theme employing Fluid's Skinning System -- Inclusion is the answer.
 Author: Johnny Taylor
 Author URI: http://abledaccess.com
-Version: 1.0.1
+Version: 1.0.2
 */
 
 /* HTML5 display-role reset for older browsers
@@ -38,7 +38,7 @@ ul, ol {
 
 #wrapper.fl-container {
 	max-width: 60em;
-	min-width: 30em;
+	min-width: 40em;
 }
 
 /* Header styles
@@ -50,6 +50,10 @@ ul, ol {
 #site-title {
 	float: left;
 }
+#site-title a {
+	color: #000;
+	text-decoration: none;
+}
 #site-description {
 	clear: right;
 	float: right;
@@ -57,18 +61,19 @@ ul, ol {
 	font-style: italic;
 	padding-top: 0.75em;
 }
-ul.fl-tabs {
+.fl-tabs {
 	border: 0 none;
 	font-weight: bold;
-	padding-bottom: 0.5em;
-}
-.fl-tabs {
-	border: 0;
 	margin: 0 -1.25em;
+	padding-bottom: 0.5em;
 }
 .fl-tabs li {
 	font-size: 1.25em;
 	padding: 0.25em 0.3em;
+}
+.fl-tabs .fl-tabs-active a {
+	padding-left: 0.5em;
+	padding-right: 0.5em;
 }
 .fl-tabs li a {
 	border: 0 none;
@@ -120,12 +125,50 @@ li.alignright {
 /* Form styles
 --------------------------------------------------------------------------- */
 
-input[type="search"],
 input[type="url"],
 input[type="email"],
 input[type="text"], {
 	padding: 0.25em;
 	width: 60%;
+}
+.access {
+    position:absolute;
+    left:-9999px;
+}
+fieldset{
+    -moz-border-radius: 0.25em;
+    -webkit-border-radius: 0.25em;
+    border-radius: 0.25em;
+    border: 2px solid #444;
+    padding: 0;
+    width: 96.5%;
+}
+input{
+    font-size:1em;
+}
+#s,
+#btn {
+    float:left; /* Make the fieldset hug the inputs */
+    cursor:pointer;
+}
+#s {
+    width: 65%;
+    padding: 0.45em;
+    background:none;
+    border:none;
+}
+#s:active,
+#s:focus{
+    outline:none;
+    cursor:text;
+}
+#btn{
+    float:right;
+    position:relative;
+    top: 0.20em;
+    right: 0.4em;
+    width:1.75em;
+    height:1.75em;
 }
 .commenter-info {
 	margin-bottom: 0.75em;
@@ -153,9 +196,6 @@ label {
 /* Sidebar styles
 --------------------------------------------------------------------------- */
 
-#sidebar {
-	padding-top: 1.75em;
-}
 #sidebar ul {
 	list-style: inside none;
 }

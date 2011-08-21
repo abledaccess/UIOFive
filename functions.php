@@ -1,8 +1,11 @@
 <?php
 
-// remove unwanted elements from head
-	remove_action( 'wp_head', 'rsd_link' );
-	
+// remove WordPress version info from head and feeds
+	function complete_version_removal() {
+		return '';
+	}
+	add_filter('the_generator', 'complete_version_removal');
+
 // register main navigation
 	add_action( 'init', 'register_main_nav_menu' );
 
