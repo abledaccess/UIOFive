@@ -1,23 +1,22 @@
 /*
 Theme Name: FSSFive
 Theme URI: http://github.com/abledaccess/fssfive
-Description: An HTML5 WordPress theme employing Fluid's Skinning System -- Inclusion is the answer.
+Description: An HTML5 WordPress theme employing Fluid's Skinning System -- and the solution is inclusion.
 Author: Johnny Taylor
 Author URI: http://abledaccess.com
-Version: 1.0.2
+Version: 1.0.3
 */
-
-/* HTML5 display-role reset for older browsers
---------------------------------------------------------------------------- */
-
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-	display: block;
-}
 
 /* A mild browser reset
 --------------------------------------------------------------------------- */
 
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
 body {
+	background: #fff;
 	margin: 0;
 	padding: 0;
 }
@@ -26,21 +25,23 @@ ul, ol {
 	margin: 0;
 	padding: 0;
 }
-#branding.header, .content, #sidebar,  #colophon.footer {
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	padding: 0 1.25em;
+
+/* HTML5 display-role reset for older browsers
+--------------------------------------------------------------------------- */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
 }
 
 /* FSSFive theme specific styles
 --------------------------------------------------------------------------- */
 
 #wrapper.fl-container {
-	max-width: 60em;
-	min-width: 40em;
+	width: 60em;
 }
-
+header#branding, .content, footer#colophon {
+	padding: 0 0.65em;	
+}
 /* Header styles
 --------------------------------------------------------------------------- */
 
@@ -88,13 +89,11 @@ article.blog,
 article.page,
 article.search,
 article.single {
+	margin-right: 0.25em;
 	padding-bottom: 1.25em;
 }
 h2, h3, h4, h5, h6 {
 	font-size: 1.25em;
-}
-article.single .entry-content {
-	padding-bottom: 0.625em;
 }
 #search-results {
 	list-style: none;
@@ -103,8 +102,12 @@ article.single .entry-content {
 #search-results li {
 	margin-bottom: 2.5em;
 }
+.entry-utility {
+	padding-top: 1.5em;
+	font-style: italic;
+}
 #next-prev-links {
-	margin-bottom: 5em;
+	margin: 2.5em 0 7em;
 }
 li.alignleft {
 	float: left;
@@ -116,10 +119,40 @@ li.alignright {
 /* Comment styles
 --------------------------------------------------------------------------- */
 
-#comments-closed,
-#comments,
-#respond {
-	padding-bottom: 2.5em;
+ol.commentlist img.avatar {
+	float: left;
+	height: 3.75em;
+	margin: 0.15em 1.25em 0 0;
+	width: 3.75em;
+}
+ol.commentlist cite.fn {
+	font-size: 1.25em;
+	font-weight: bold;
+}
+ol.commentlist .comment-content {
+	padding-left: 5em;
+}
+ol.commentlist .comment-meta {
+	clear: left;
+	margin: 0 0 2em 5em;
+}
+ol.commentlist .comment {
+	margin: 0 0.3em 2.5em 0;
+}
+ol.commentlist .comment.depth-2,
+ol.commentlist .comment.depth-3,
+ol.commentlist .comment.depth-4,
+ol.commentlist .comment.depth-4,
+ol.commentlist .comment.depth-5,
+ol.commentlist .comment.depth-7,
+ol.commentlist .comment.depth-8,
+ol.commentlist .comment.depth-9,
+ol.commentlist .comment.depth-10 {
+	clear: left;
+	margin: 0 0 2em 5em;
+}
+ol.commentlist .comment-reply:before {
+	content: "\2008\2014\2008";
 }
 
 /* Form styles
@@ -127,81 +160,29 @@ li.alignright {
 
 input[type="url"],
 input[type="email"],
-input[type="text"], {
-	padding: 0.25em;
-	width: 60%;
-}
-.access {
-    position:absolute;
-    left:-9999px;
-}
-fieldset{
-    -moz-border-radius: 0.25em;
-    -webkit-border-radius: 0.25em;
-    border-radius: 0.25em;
-    border: 2px solid #444;
-    padding: 0;
-    width: 96.5%;
-}
-input{
-    font-size:1em;
-}
-#s,
-#btn {
-    float:left; /* Make the fieldset hug the inputs */
-    cursor:pointer;
-}
-#s {
-    width: 65%;
-    padding: 0.45em;
-    background:none;
-    border:none;
-}
-#s:active,
-#s:focus{
-    outline:none;
-    cursor:text;
-}
-#btn{
-    float:right;
-    position:relative;
-    top: 0.20em;
-    right: 0.4em;
-    width:1.75em;
-    height:1.75em;
-}
-.commenter-info {
-	margin-bottom: 0.75em;
-}
-label {
+input[type="text"] {
 	display: block;
-	margin-bottom: 0.25em;
-}
-.commenter-info input {
+	margin-top: 0.25em;
 	padding: 0.25em;
-	width: 50%;
+	width: 43%;
 }
-#commenter-comment {
-	width: 100%;
-}
-#commenter-comment textarea {
-	width: 75%;
-	margin-bottom: 0.75em;
-	padding: 0.25em;
-}
-#comment-submit {
+textarea {
 	display: block;
+	margin: 0.25 0 0.75em 0;
+	padding: 0.25em;
+	width: 77.3%;
+}
+input#s {
+	cursor: text;
+	display: inline;
+	width: 63.5%;
 }
 
 /* Sidebar styles
 --------------------------------------------------------------------------- */
 
-#sidebar ul {
-	list-style: inside none;
-}
 #sidebar ul li ul {
 	list-style: inside disc;
-	padding-left: 0.625em;
 }
 
 /* Footer styles

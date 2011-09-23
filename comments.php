@@ -1,102 +1,59 @@
-			<?php // Do not delete these lines
-				if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['SCRIPT_FILENAME']))
-					die ('Please do not load this page directly. Thanks!');
-				if (!empty($post->post_password)) {
-					if ($_COOKIE['wp-postpass_' . COOKIEHASH] != $post->post_password) { ?>
-						<p class="nocomments">This post is password protected. Enter the password to view comments.</p>
-						<?php return;
-					}
-				}
-				$oddcomment = 'class="alt" '; // alternating comments
-			?>
 
-			<?php if ($comments) : // there are comments ?>
+				<div id="comments">
+	<?php if ( post_password_required() ) : ?>
+					<p class="nopassword"><?php _e( 'This post is password protected. Enter the password to view any comments.', 'FSSFive' ); ?></p>
+				</div><!-- /#comments -->
+	<?php
+			return;
+		endif;
+	?>
 
-					<section id="comments">
-						<h3><?php comments_number('No Comments', 'One Comment', '% Comments' ); ?> to &quot;<?php the_title(); ?>&quot;</h3>
-						<ol>
-							<li>
+	<?php if ( have_comments() ) : ?>
+				<h3 id="comments-title"><?php
+				printf( _n( 'One Comment to %2$s', '%1$s Comments to %2$s', get_comments_number(), 'FSSFive' ),
+				number_format_i18n( get_comments_number() ), '<em>' . get_the_title() . '</em>' );
+				?></h3>
 
-							<?php foreach ($comments as $comment) : ?>
+	<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
+				<div class="navigation">
+					<div class="alignleft"><?php previous_comments_link( __( '<span class="meta-nav">&larr;</span> Older Comments', 'FSSFive' ) ); ?></div>
+					<div class="alignright"><?php next_comments_link( __( 'Newer Comments <span class="meta-nav">&rarr;</span>', 'FSSFive' ) ); ?></div>
+				</div> <!-- /.navigation -->
+	<?php endif; // check for comment navigation ?>
 
-							<div <?php echo $oddcomment; ?>id="comment-<?php comment_ID(); ?>">
-								<header>
-									<h4><?php echo get_avatar( $comment, 32 ); ?> <cite><?php comment_author_link(); ?></cite> said...&mdash; <a href="#comment-<?php comment_ID(); ?>" title="Directlink to this comment"><time datetime="<?php the_time('Y-m-d') ?>" pubdate="pubdate"><?php comment_date('F jS, Y'); ?></time> at <?php comment_time(); ?></a> <?php edit_comment_link('Edit',' &mdash; ',''); ?></h4>
-									<?php if ($comment->comment_approved == '0') : ?>
-										<p>Your comment is awaiting moderation.</p>
-									<?php endif; ?>
-
-								</header>
-								<section>
-									<?php comment_text(); ?>
-								</section>
-							</div>
-
-							<?php $oddcomment = (empty($oddcomment)) ? 'class="alt" ' : ''; // alternating comments ?>
-							<?php endforeach; ?></li>
+						<ol class="commentlist">
+							<?php
+								wp_list_comments( array( 'callback' => 'FSSFive_comment' ) );
+							?>
 						</ol>
-					</section><!-- /#comments -->
 
-			<?php else : // no comments yet ?>
+	<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
+				<div class="navigation">
+					<div class="alignleft"><?php previous_comments_link( __( '<span class="meta-nav">&larr;</span> Older Comments', 'FSSFive' ) ); ?></div>
+					<div class="alignright"><?php next_comments_link( __( 'Newer Comments <span class="meta-nav">&rarr;</span>', 'FSSFive' ) ); ?></div>
+				</div><!-- /.navigation -->
+	<?php endif; // check for comment navigation ?>
 
-				<?php if ('open' == $post->comment_status) : ?>
-					<!-- [comments are open, but there are no comments] -->
+	<?php else : // or, if we don't have comments:
 
-				 <?php else : ?>
-					<!-- [comments are closed, and no comments] -->
-					<div id="comments-closed">
-						<h2>Comments are closed</h2>
-						<p>Time for comment has come and gone.</p>
-					</div><!-- /#comments-closed -->
+		if ( ! comments_open() ) :
+	?>
+	<?php endif; // end ! comments_open() ?>
 
-				<?php endif; ?>
-			<?php endif; ?>
+	<?php endif; // end have_comments() ?>
 
-			<?php if ('open' == $post->comment_status) : ?>
+	<?php comment_form(array(
+		'title_reply' => __( 'Leave a Comment' ),
+		'title_reply_to' => __( 'Leave a reply to %s\'s comment' ),
+		'cancel_reply_link' => __( 'Cancel your reply&hellip;' ),
+		'comment_notes_before' => '<p class="comment-notes">' . __( 'Your email address will not be published.' ) . '</p>',
+		'logged_in_as' => '<p class="logged-in-as">' . sprintf( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out</a>.' ), admin_url( 'profile.php' ), $user_identity, wp_logout_url( get_permalink() ) ) . '</p>',
+		'fields' => array(
+		'author' => '<p class="comment-form-author">' . '<label for="author">' . __( 'Name' ) . '</label> ' . ( $req ? '<span class="required">(required)</span>' : '' ) . '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30" /></p>',
+		'email' => '<p class="comment-form-email"><label for="email">' . __( 'Email' ) . '</label> ' . ( $req ? '<span class="required">(required)</span>' : '' ) . '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30" /></p>',
+		'url' => '<p class="comment-form-url"><label for="url">' . __( 'Website' ) . '</label>' . '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>'),
+		'twitter' => '<p class="comment-form-twitter"><label for="twitter">' . __( 'Twitter (@username)' ) . '</label><input type="text" id="twitter" name="twitter" value="" size="30" /></p>',
+		'label_submit' => __( 'Post it!' )
+	)); ?>
 
-					<section id="respond">
-						<h3>Leave a Comment</h3>
-
-						<?php if (get_option('comment_registration') && !$user_ID) : ?>
-						<p>You must be <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?redirect_to=<?php echo urlencode(get_permalink()); ?>">logged in</a> to post a comment.</p>
-						<?php else : ?>
-
-						<form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post">
-
-							<?php if ($user_ID) : ?>
-<p>Logged in as <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><span class"fn"><?php echo $user_identity; ?></span></a>. <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?action=logout" title="Log out of this account">Log out &raquo;</a></p>
-							<?php else : ?>
-
-							<div class="commenter-info">
-								<label for="author">Your name <?php if ($req) echo "(required)"; ?></label>
-								<input type="text" name="author" id="author" value="<?php echo $comment_author; ?>" size="55" tabindex="1" <?php if ($req) echo "aria-required='true'"; ?>>
-							</div><!-- /.commenter-info -->
-
-							<div class="commenter-info">
-								<label for="email">Your email (will not be published) <?php if ($req) echo "(required)"; ?></label>
-								<input type="email" name="email" id="email" value="<?php echo $comment_author_email; ?>" size="55" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?>>
-							</div><!-- /.commenter-info -->
-
-							<div class="commenter-info">
-								<label for="url">Your website</label>
-								<input type="url" name="url" id="url" value="<?php echo $comment_author_url; ?>" size="55" tabindex="3">
-							</div><!-- /.commenter-info -->
-
-							<?php endif; ?>
-
-							<!-- p>Allowed <abbr title="HyperText Markup Language">HTML:</abbr> tags: <code><?php echo allowed_tags(); ?></code></p -->
-							<div id="commenter-comment">
-								<label for="comment">Your comment</label>
-								<textarea name="comment" id="comment" cols="55" rows="10" tabindex="4"></textarea>
-
-							</div><!-- /#commenter-comment -->
-
-							<input name="submit" type="submit" id="comment-submit" tabindex="5" value="Submit it!">
-							<input type="hidden" name="comment_post_ID" value="<?php echo $id; ?>">
-							<?php do_action('comment_form', $post->ID); ?>
-
-						</form>
-						<?php endif; ?>
-
-					</section>
-			<?php endif; ?>
+	</div><!-- /#comments -->

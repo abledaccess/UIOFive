@@ -1,5 +1,56 @@
 <?php
 
+// Custom comments
+if ( ! function_exists( 'FSSFive_comment' ) ) :
+function FSSFive_comment( $comment, $args, $depth ) {
+	$GLOBALS['comment'] = $comment;
+	switch ( $comment->comment_type ) :
+		case '' :
+	?>
+	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
+		<div id="comment-<?php comment_ID(); ?>">
+			<header class="comment-header comment-author vcard">
+				<p><?php echo get_avatar( $comment, '60', '', 'Comment authors avatar' ); ?>
+				<?php printf( __( '%s says:', 'FSSFive' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?></p>
+			</header><!-- /.comment-author /.vcard -->
+			<?php if ( $comment->comment_approved == '0' ) : ?>
+				<em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation...', 'FSSFive' ); ?></em>
+			<?php endif; ?>
+
+		<section class="comment-content"><?php comment_text(); ?></section>
+
+		<footer class="comment-utility comment-meta">
+			<p>Comment posted <time datetime="<?php the_time('Y-m-d') ?>" pubdate="pubdate"><?php printf( __( '%1$s', 'FSSFive' ), get_comment_date() ); ?></time><?php edit_comment_link( __( 'Edit', 'FSSFive' ), ' ' ); ?><?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?></p>
+		</footer><!-- /.comment-meta -->
+
+	</div><!-- /#comment-##  -->
+
+	<?php
+			break;
+		case 'pingback'  :
+		case 'trackback' :
+	?>
+	<li class="post pingback">
+		<p><?php _e( 'Pingback:', 'FSSFive' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( '(Edit)', 'FSSFive' ), ' ' ); ?></p>
+	<?php
+			break;
+	endswitch;
+}
+endif;
+
+// Customized comment reply link
+function my_replylink($c='',$post=null) {
+  global $comment;
+  // bypass
+  if (!comments_open() || $comment->comment_type == "trackback" || $comment->comment_type == "pingback") return $c;
+  // patch
+  $id = $comment->comment_ID;
+  $reply = 'Reply to this comment...';
+  $o = '<span class="comment-reply"><a class="comment-reply-link" href="'.get_permalink().'?replytocom='.$id.'#respond">'.$reply.'</a></span>';
+  return $o;
+}
+add_filter('comment_reply_link', 'my_replylink');
+
 // remove WordPress version info from head and feeds
 	function complete_version_removal() {
 		return '';

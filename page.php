@@ -1,38 +1,38 @@
 <?php get_header(); ?>
 
-			<div class="fl-container fl-container-flex fl-push">
+		<div class="fl-container fl-container-flex fl-push">
 
-				<section id="nav:content" class="content fl-col fl-container-flex70" role="main">
+			<section id="nav:content" class="content fl-col fl-container-flex75" role="main">
 
-					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-					<article class="page" id="post-<?php the_ID(); ?>">
+				<article class="page" id="post-<?php the_ID(); ?>">
 
-						<header>
-							<h2 class="entry-title"><?php the_title(); ?></h2>
-						</header>
+					<header>
+						<h2 class="entry-title"><?php the_title(); ?></h2>
+					</header>
 
-						<section class="entry-content">
+					<section class="entry-content">
 
-							<?php the_content(); ?>
-							<?php wp_link_pages(array('before' => 'Pages: ', 'next_or_number' => 'number')); ?>
+						<?php the_content(); ?>
+						<?php wp_link_pages(array('before' => 'Pages: ', 'next_or_number' => 'number')); ?>
 
-						</section><!-- /.entry-content -->
-						<footer class="entry-utility">
+					</section><!-- /.entry-content -->
+					<footer class="entry-utility">
 
-							<?php include (TEMPLATEPATH . '/inc/meta.php' ); ?>
+						<?php include (TEMPLATEPATH . '/inc/meta.php' ); ?>
 
-						</footer><!-- /.entry-utility -->
+					</footer><!-- /.entry-utility -->
 
-					</article><!-- /#post-<?php the_ID(); ?> -->
+				</article><!-- /#post-<?php the_ID(); ?> -->
 
-					<?php endwhile; else: ?>
+				<?php endwhile; else: ?>
 
-						<?php include (TEMPLATEPATH . '/inc/not-found.php' ); ?>
+					<?php include (TEMPLATEPATH . '/inc/not-found.php' ); ?>
 
-					<?php endif; ?>
+				<?php endif; ?>
 
-				</section><!-- /#nav:content -->
+			</section><!-- /#nav:content -->
 
 <?php get_sidebar(); ?>
 
