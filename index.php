@@ -6,7 +6,7 @@
 
 				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-				<article class="blog" id="post-<?php the_ID(); ?>">
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<header>
 						<h2 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Direct Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 						<?php include (TEMPLATEPATH . '/inc/meta.php' ); ?>

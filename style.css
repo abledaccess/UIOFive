@@ -1,10 +1,10 @@
 /*
 Theme Name: FSSFive
-Theme URI: http://github.com/abledaccess/fssfive
+Theme URI: http://github.com/abledaccess/fssfive/uiOptions
 Description: An HTML5 WordPress theme employing Fluid's Skinning System -- and the solution is inclusion.
 Author: Johnny Taylor
 Author URI: http://abledaccess.com
-Version: 1.0.3
+Version: 1.1 &mdash; uiOptions Enabled
 */
 
 /* A mild browser reset
@@ -37,7 +37,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 --------------------------------------------------------------------------- */
 
 #wrapper.fl-container {
-	width: 60em;
+	max-width: 60em;
 }
 header#branding, .content, footer#colophon {
 	padding: 0 0.65em;	
@@ -46,7 +46,7 @@ header#branding, .content, footer#colophon {
 --------------------------------------------------------------------------- */
 
 #branding.header hgroup {
-	padding-top: 2em;
+	padding-top: 1.5em;
 }
 #site-title {
 	float: left;
@@ -60,7 +60,7 @@ header#branding, .content, footer#colophon {
 	float: right;
 	font-size: 1.25em;
 	font-style: italic;
-	padding-top: 0.75em;
+	padding-top: 0.4em;
 }
 .fl-tabs {
 	border: 0 none;
@@ -103,7 +103,7 @@ h2, h3, h4, h5, h6 {
 	margin-bottom: 2.5em;
 }
 .entry-utility {
-	padding-top: 1.5em;
+	padding-top: 0.1em;
 	font-style: italic;
 }
 #next-prev-links {
@@ -175,7 +175,7 @@ textarea {
 input#s {
 	cursor: text;
 	display: inline;
-	width: 63.5%;
+	width: 60%;
 }
 
 /* Sidebar styles

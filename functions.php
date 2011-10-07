@@ -1,5 +1,10 @@
 <?php
 
+// Deregister jQuery that ships with WordPress, Infusion ships with it's own copy
+if( !is_admin()){
+	wp_deregister_script('jquery');
+}
+
 // Custom comments
 if ( ! function_exists( 'FSSFive_comment' ) ) :
 function FSSFive_comment( $comment, $args, $depth ) {

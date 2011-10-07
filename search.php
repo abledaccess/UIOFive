@@ -8,7 +8,7 @@
 
 				<h2>Search Results for &quot;<?php the_search_query(); ?>&quot;</h2>
 
-				<section class="search" id="post-<?php the_ID(); ?>">
+				<section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 					<ol id="search-results">
 
