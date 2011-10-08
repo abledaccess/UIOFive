@@ -84,11 +84,7 @@ header#branding, .content, footer#colophon {
 /* Main content styles
 --------------------------------------------------------------------------- */
 
-article.archive,
-article.blog,
-article.page,
-article.search,
-article.single {
+article {
 	margin-right: 0.25em;
 	padding-bottom: 1.25em;
 }
