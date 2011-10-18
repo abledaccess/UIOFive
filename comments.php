@@ -1,5 +1,5 @@
 
-				<div id="comments">
+				<section id="comments">
 	<?php if ( post_password_required() ) : ?>
 					<p class="nopassword"><?php _e( 'This post is password protected. Enter the password to view any comments.', 'FSSFive' ); ?></p>
 				</div><!-- /#comments -->
@@ -25,7 +25,7 @@
 							<?php
 								wp_list_comments( array( 'callback' => 'FSSFive_comment' ) );
 							?>
-						</ol>
+						</ol><!-- /.commentlist -->
 
 	<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
 				<div class="navigation">
@@ -53,7 +53,7 @@
 		'email' => '<p class="comment-form-email"><label for="email">' . __( 'Email' ) . '</label> ' . ( $req ? '<span class="required">(required)</span>' : '' ) . '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30" /></p>',
 		'url' => '<p class="comment-form-url"><label for="url">' . __( 'Website' ) . '</label>' . '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>'),
 		'twitter' => '<p class="comment-form-twitter"><label for="twitter">' . __( 'Twitter (@username)' ) . '</label><input type="text" id="twitter" name="twitter" value="" size="30" /></p>',
-		'label_submit' => __( 'Post it!' )
+		'label_submit' => __( 'Post!' )
 	)); ?>
 
-	</div><!-- /#comments -->
+	</section><!-- /#comments -->

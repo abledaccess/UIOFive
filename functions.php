@@ -1,5 +1,10 @@
 <?php
 
+// Deregister jQuery that ships with WordPress, Infusion ships with it's own copy
+if( !is_admin()){
+	wp_deregister_script('jquery');
+}
+
 // Custom comments
 if ( ! function_exists( 'FSSFive_comment' ) ) :
 function FSSFive_comment( $comment, $args, $depth ) {
@@ -67,7 +72,7 @@ add_filter('comment_reply_link', 'my_replylink');
 // register sidebar widget
 	if (function_exists('register_sidebar')) {
 		register_sidebar(array(
-			'before_widget' => '<li class="fl-widget %2$s">',
+			'before_widget' => '<li class="fl-clearfix fl-widget %2$s">',
 			'after_widget' => '</li>',
 			'before_title' => '<h2 class="widgettitle">',
 			'after_title' => '</h2>',
