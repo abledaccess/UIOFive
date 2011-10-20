@@ -59,16 +59,17 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* Global FSSFive theme specific container and body styles
 --------------------------------------------------------------------------- */
 
+html {
+	background: #000;
+}
 body {
+	background: #fff;
 	line-height: 1.4;
 	font-family: Georgia, serif;
 }
 #wrapper {
-	max-width: 60em;
-	padding: 0 3%;
-}
-#site-title, #site-description, .fl-tabs, #content-container, #colophon {
-	padding: 0 1%;
+	max-width: 58.5em;
+	padding: 0 3.5%;
 }
 
 /* Global FSSFive text styles
@@ -77,6 +78,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
 	font-size: 1.75em;
 	font-weight: bold;
+	line-height: 1.2em;
 	margin-bottom: 0.75em;
 }
 h1 {
@@ -146,15 +148,18 @@ body {
 --------------------------------------------------------------------------- */
 
 article {
-	margin-right: 1.4%;
 	padding-bottom: 1.25em;
+}
+article,
+section.post {
+	margin-right: 0.5%;
 }
 body.home h2.entry-title,
 body.blog h2.entry-title,
 body.single h2.entry-title,
 body.search h3.entry-title,
 body.archive h3.entry-title {
-	margin:  0;
+	margin-bottom: 0.15em;
 }
 #search-results {
 	font-weight: bold;
@@ -169,7 +174,8 @@ ol#search-results li p {
 }
 .entry-utility ul {
 	font-style: italic;
-	list-style: disc;
+	list-style: inside disc;
+	margin-left:0.2%;
 }
 .entry-utility p {
 	font-style: italic;
@@ -243,6 +249,7 @@ legend {
 }
 input[type="url"],
 input[type="email"],
+input[type="search"],
 input[type="text"] {
 	display: block;
 	font-size: large;
@@ -277,14 +284,14 @@ input#s {
 	padding-bottom: 1.25em;
 }
 #sidebar > ul {
-	padding-left: 2.5%;
+	margin-left: -2.5%;
 }
 #sidebar h2, #sidebar h3, #sidebar h4, #sidebar h5, #sidebar h6 {
 	font-size: 1.2em;
 	margin-bottom: 0.5em;
 }
 #sidebar ul li ul li {
-	list-style: outside disc;
+	list-style: inside disc;
 }
 .fl-widget {
 		padding-left: 1.45em;
@@ -293,11 +300,14 @@ input#s {
 /* Footer styles
 --------------------------------------------------------------------------- */
 
-#colophon.footer {
-	margin: 2em 0 4em;
+body {
+	border-bottom: 1em solid #000;
+}
+#colophon {
+	padding: 2em 0;
 }
 
-/* Responsive screen styles for viewports from as little as 320px and exceeding 1200px
+/* Responsive screen styles for viewports from as little as 320px (mobile) and exceeding 1200px (desktop and beyond)
 --------------------------------------------------------------------------- */
 
 @media screen and (max-width: 1024px) {
@@ -307,9 +317,6 @@ input#s {
 }
 
 @media screen and (max-width: 768px) {
-	.entry-utility ul {
-		list-style: none;
-	}
 	ol.commentlist .comment.depth-2,
 	ol.commentlist .comment.depth-3,
 	ol.commentlist .comment.depth-4,
@@ -321,21 +328,18 @@ input#s {
 	ol.commentlist .comment.depth-10 {
 		margin: 0;
 	}
-	ol.commentlist .comment.depth-1 {
+	ol.commentlist .comment.depth-2 {
 		padding-left: 5em;
-	}
-	#sidebar ul li ul li {
-		list-style: none;
-	}
-	.fl-widget {
-		padding-left: 0;
 	}
 }
 
-@media screen and (max-width: 600px) {
-	.fl-container-flex74,
-	.fl-container-flex26 {
+@media screen and (max-width: 640px) {
+	.fl-container-flex75,
+	.fl-container-flex25 {
 		float: none;
+	}
+	#sidebar > ul{
+		margin-left: 0;
 	}
 	.fl-widget {
 		float: left;
@@ -343,11 +347,23 @@ input#s {
 		width: 50%;
 	}
 	.widget_search {
-		padding: 2em 0;
+		margin-bottom: 2em;
 		width: 100%;
 	}
 	input#s {
 		width: 70%;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	input[type="url"],
+	input[type="email"],
+	input[type="search"],
+	input[type="text"] {
+		width: 96%;
+	}
+	textarea {
+		width: 96%;
 	}
 }
 
@@ -357,13 +373,19 @@ input#s {
 	}
 	.fl-tabs {
 		padding: 0;
+		margin-bottom: 0.5em;
 		text-align: center;
 	}
 	.fl-tabs li {
+		clear: left;
 		display: block;
-		margin-bottom:  0.5em;
+		float: left;
+		margin: 0 auto 0.25em;
 	}
 	.fl-tabs li a {
-		margin: 0 20%;
+		clear: left;
+		display: block;
+		float: left;
+		min-width: 10em;
 	}
 }

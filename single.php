@@ -2,7 +2,7 @@
 
 		<div id="content-container" class="fl-clearfix fl-container fl-container-flex fl-push">
 
-			<section id="nav:content" class="fl-clearfix fl-col fl-container-flex74" role="main">
+			<section id="nav:content" class="fl-clearfix fl-col fl-container-flex75" role="main">
 
 				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -46,7 +46,7 @@
 				$previous_post = get_adjacent_post(false, '', true);
 				$next_post = get_adjacent_post(false, '', false);
 				if( $next_post || $previous_post ) { ?><nav id="next-prev-links" class="fl-push">
-					<ul class="fl-container-flex">
+					<ul class="fl-container-flex fl-clearfix">
 					<?php if ($previous_post): // if there are older articles ?>
 <li class="alignleft"><a href="<?php echo (get_permalink($previous_post)); ?>">&laquo; <?php echo get_the_title($previous_post); ?></a></li>
 					<?php endif; ?>

@@ -2,7 +2,7 @@
 
 		<div id="content-container" class="fl-clearfix fl-container fl-container-flex fl-push">
 
-			<section id="nav:content" class="fl-clearfix fl-col fl-container-flex74" role="main">
+			<section id="nav:content" class="fl-clearfix fl-col fl-container-flex75" role="main">
 
 				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -20,7 +20,7 @@
 							<ul>
 								<li><a href="<?php the_permalink() ?>" rel="bookmark" title="Direct Link to <?php the_title_attribute(); ?>">Direct link to &quot;<?php the_title(); ?>&quot;</a></li>
 								<li>Filed under <?php the_category(', '); ?> &mdash; <?php comments_popup_link('Comment on this post &hellip;', '1 comment on this post &hellip;', '% comments &hellip;'); ?></li>
-							</ul>
+								</ul>
 
 					</footer><!-- /.entry-utility -->
 				</article><!-- /#post-<?php the_ID(); ?> -->
