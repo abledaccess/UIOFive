@@ -33,9 +33,6 @@ time, mark, audio, video {
 body {
 	line-height: 1;
 }
-ol, ul {
-	list-style: none;
-}
 blockquote, q {
 	quotes: none;
 }
@@ -85,7 +82,7 @@ h1 {
 	font-size: 2.5em;
 	margin: 0;
 }
-p, ul, ol, blockquote {
+p, ul, ol, blockquote, figure {
 	margin-bottom: 1em;
 }
 i, em {
@@ -139,7 +136,8 @@ body {
 	text-decoration: none;
 }
 /* 2 pixel downward shift on active tab links */
-.fl-tabs li a:active {
+.fl-tabs li a:active,
+input[type="submit"]:active {
 	position: relative;
 	top: 2px;
 }
@@ -160,6 +158,9 @@ body.single h2.entry-title,
 body.search h3.entry-title,
 body.archive h3.entry-title {
 	margin-bottom: 0.15em;
+}
+figure {
+	margin: 0 1.35% 1em;
 }
 #search-results {
 	font-weight: bold;
@@ -185,9 +186,11 @@ ol#search-results li p {
 	margin-bottom: 2.5em;
 }
 li.alignleft {
+	list-style: none;
 	float: left;
 }
 li.alignright {
+	list-style: none;
 	float: right;
 }
 
@@ -199,6 +202,10 @@ li.alignright {
 }
 #reply-title {
 	margin: 0;
+}
+ol.commentlist,
+ol.commentlist ul {
+	list-style: none;
 }
 ol.commentlist img.avatar {
 	float: left;
@@ -251,30 +258,52 @@ input[type="url"],
 input[type="email"],
 input[type="search"],
 input[type="text"] {
+	border: 2px solid #000;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
 	display: block;
 	font-size: large;
 	margin: 0.25em 0 0.75em;
+	outline: 0 none;
 	padding: 0.25em;
-	width: 40.5%;
+	width: 41.5%;
 }
 textarea {
+	border: 2px solid #000;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
 	display: block;
 	font-size: large;
 	margin: 0.25 0 0.75em;
+	outline: 0 none;
 	padding: 0.25em;
-	width: 74.9%;
-}
-input[type="checkbox"] {
-	font-size: 1em;
+	width: 76.1%;
 }
 input[type="submit"] {
+	background: #fff;
+	-webkit-border-radius: 2em;
+	-moz-border-radius: 2em;
+	border-radius: 2em;
+	border: 2px solid #000;
+	color: #000;
+	cursor: pointer;
+	font-family: Georgia, serif;
+	font-size: medium;
+	font-weight: bold;
+	padding: 0.25em 0.75em;
+}
+article input[type="submit"] {
 	margin-top: 0.5em;
-	font-size: 1em;
+}
+input[type="checkbox"] {
+	font-size: large;
 }
 input#s {
 	display: inline;
 	margin: 0;
-	width: 60%;
+	width: 50%;
 }
 
 /* Sidebar styles
@@ -284,6 +313,7 @@ input#s {
 	padding-bottom: 1.25em;
 }
 #sidebar > ul {
+	list-style: none;
 	margin-left: -2.5%;
 }
 #sidebar h2, #sidebar h3, #sidebar h4, #sidebar h5, #sidebar h6 {
@@ -307,7 +337,7 @@ body {
 	padding: 2em 0;
 }
 
-/* Responsive screen styles for viewports from as little as 320px (mobile) and exceeding 1200px (desktop and beyond)
+/* Responsive screen styles for viewports from as little as 320px (small screen) and exceeding 1200px (desktop and beyond)
 --------------------------------------------------------------------------- */
 
 @media screen and (max-width: 1024px) {
@@ -317,6 +347,11 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+	input#s {
+		display: block;
+		margin-bottom: 0.25em;
+		width: 80%;
+	}
 	ol.commentlist .comment.depth-2,
 	ol.commentlist .comment.depth-3,
 	ol.commentlist .comment.depth-4,
@@ -338,6 +373,9 @@ body {
 	.fl-container-flex25 {
 		float: none;
 	}
+	figure {
+		margin: 0 0 0.75em;
+	}
 	#sidebar > ul{
 		margin-left: 0;
 	}
@@ -351,6 +389,8 @@ body {
 		width: 100%;
 	}
 	input#s {
+		display: inline;
+		margin: 0;
 		width: 70%;
 	}
 }
@@ -363,7 +403,7 @@ body {
 		width: 96%;
 	}
 	textarea {
-		width: 96%;
+		width: 97%;
 	}
 }
 
