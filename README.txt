@@ -4,6 +4,8 @@ Summary
 
 FSSFive is a clean, simple and accessible WordPress blogging theme, employing components of The Fluid Project's <http://fluidproject.org/> Infusion framework, the Fluid Skinning System (FSS) and User Interface Options (uiOptions), just to name two. FSSFive is also HTML5-based. 
 
+To see it in action visit http://abledaccess.com.
+
 This is, or it is my hope that one day it will be, a solid a starting point. Granted much of what FSSFive uses to function as an accessible platform, mainly FSS and uiOptions, is still being developed. This will become ever more stable as time goes on. Both the work of the Fluid Project as well as my own, especially. I encourage users to build upon what is already here. And share what you have done. We're all in this together.
 
 Not by any stretch of your imagination is it finished -- meaning there are more neat and exciting things yet to come. But, like most of everything on the web, it’s a work in progress.

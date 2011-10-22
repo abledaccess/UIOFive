@@ -181,6 +181,15 @@ body.archive h3.entry-title {
 .entry-title a {
 	border: 0;
 }
+figure {
+	margin: 0 0.55em 1em;
+}
+figure img {
+	width: 100%;
+}
+img.bio {
+	border: 2px solid #000;
+}
 #search-results {
 	font-weight: bold;
 	margin-left: 2em;

@@ -6,29 +6,27 @@
 
 <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>">
 
-<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/fss-layout.css" />
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/fss-text.css" />
+<?php if(is_home() && (!$paged || $paged == 1) || is_single() || is_page()) { ?>
+<meta name="googlebot" content="index,archive,follow,noodp" />
+<meta name="robots" content="all,index,follow" />
+<meta name="msnbot" content="all,index,follow" />
+<?php } else { ?>
+<meta name="googlebot" content="noindex,noarchive,follow,noodp" />
+<meta name="robots" content="noindex,follow" />
+<meta name="msnbot" content="noindex,follow" />
+<?php } ?>
+
+<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+
+<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/fss-layout.css" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/fss-text.css" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" media="all" />
 
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/modernizr.js"></script>
 
-<title> <?php if (function_exists('is_tag') && is_tag()) {
-single_tag_title('Tag Archive for &quot;'); echo '&quot; &mdash; '; } elseif (is_archive()) {
-wp_title(''); echo ' Archive &mdash; '; } elseif (is_search()) {
-echo 'Search for &quot;'.wp_specialchars($s).'&quot; &mdash; '; } elseif (!(is_404()) && (is_single()) || (is_page())) {
-wp_title(''); echo ' &mdash; '; } elseif (is_404()) {
-echo 'Unable to be found... &mdash; ';
-} if (is_home()) {
-bloginfo('name'); echo ' &mdash; '; bloginfo('description'); } else {
-bloginfo('name');
-} if ($paged > 1) {
-echo ' &mdash; Page '. $paged;
-} ?> </title>
-
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" media="all" />
+<title><?php if (function_exists('is_tag') && is_tag()) { single_tag_title("Tag Archive for &quot;"); echo'&quot; &mdash; '; } elseif (is_archive()) { wp_title(''); echo ' Archive &mdash; '; } elseif (is_search()) { echo 'Search for &quot;'.esc_html($s).'&quot; &mdash; '; } elseif (!(is_404()) && (is_single()) || (is_page())) { wp_title(''); echo ' &mdash; '; } elseif (is_404()) { echo 'Not Found &mdash; '; } if (is_home()) { bloginfo('name'); echo ' &mdash; '; bloginfo('description'); } else { bloginfo('name'); } ?><?php if ($paged>1) { echo ' &mdash; page '. $paged; } ?></title>
 
 <link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="<?php bloginfo('template_url'); ?>/apple-touch-icon.png"/>
