@@ -22,7 +22,8 @@ FSSFive's Strength's
 6. A full CSS3 and HTML5 custom build of Modernizr <http://modernizr.com> is running on FSSFive. Including response.js to handle (as in allowing) media queries to function in IE 8 and below. 
 7. Plenty, but not all, regular id and class hooks throughout the theme to allow for predictable and additional WordPress customization.
 8. SEO friendly page titles.
-9. Still very much under development. Please direct any concerns, suggestions and issues you may be experiencing to FSSFive developer; http://abledaccess.com/contact/. Or here, my Github repo. Thanks.
+9. FSSFive employs Harry Roberts' Vanilla CSS "restart" <https://github.com/csswizardry/vanilla> (well, the first bit of it anyway).
+10. Still very much under development. Please direct any concerns, suggestions and issues you may be experiencing to FSSFive developer; http://abledaccess.com/contact/. Or here, my Github repo. Thanks.
 
 
 
