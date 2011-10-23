@@ -74,8 +74,8 @@ add_filter('comment_reply_link', 'my_replylink');
 		register_sidebar(array(
 			'before_widget' => '<li class="fl-clearfix fl-widget %2$s">',
 			'after_widget' => '</li>',
-			'before_title' => '<h2 class="widgettitle">',
-			'after_title' => '</h2>',
+			'before_title' => '<h1 class="widget-title">',
+			'after_title' => '</h1>',
 		));
 	}
 

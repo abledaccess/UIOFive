@@ -8,25 +8,25 @@
 
 				<?php $post = $posts[0]; // hack: set $post so that the_date() works ?>
 				<?php if (is_category()) { ?>
-				<h2>Archive for the &quot;<?php single_cat_title(); ?>&quot; Category</h2>
+				<h1>Archive for the &quot;<?php single_cat_title(); ?>&quot; Category</h1>
 
 				<?php } elseif(is_tag()) { ?>
-				<h2>Posts Tagged &quot;<?php single_tag_title(); ?>&quot;</h2>
+				<h1>Posts Tagged &quot;<?php single_tag_title(); ?>&quot;</h1>
 
 				<?php } elseif (is_day()) { ?>
-				<h2>Archive for <?php the_time('F jS, Y'); ?></h2>
+				<h1>Archive for <?php the_time('F jS, Y'); ?></h1>
 
 				<?php } elseif (is_month()) { ?>
-				<h2>Archive for <?php the_time('F, Y'); ?></h2>
+				<h1>Archive for <?php the_time('F, Y'); ?></h1>
 
 				<?php } elseif (is_year()) { ?>
-				<h2>Archive for <?php the_time('Y'); ?></h2>
+				<h1>Archive for <?php the_time('Y'); ?></h1>
 
 				<?php } elseif (is_author()) { ?>
-				<h2>Author Archive</h2>
+				<h1>Author Archive</h1>
 
 				<?php } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { ?>
-				<h2>Blog Archives</h2>
+				<h1>Blog Archives</h1>
 
 			<?php } ?>
 			<?php query_posts($query_string . '&posts_per_page=10'); ?><?php while (have_posts()) : the_post(); ?>

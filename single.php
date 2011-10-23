@@ -8,7 +8,7 @@
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<header>
-						<h2 class="entry-title"><?php the_title(); ?></h2>
+						<h1 class="entry-title"><?php the_title(); ?></h1>
 						<?php include (TEMPLATEPATH . '/inc/meta.php' ); ?>
 					</header>
 					<section class="entry-content">

@@ -103,10 +103,6 @@ h1, h2, h3, h4, h5, h6 {
 	line-height: 1.2em;
 	margin-bottom: 0.75em;
 }
-h1 {
-	font-size: 2.5em;
-	margin: 0;
-}
 p, ul, ol, blockquote, figure {
 	margin-bottom: 1em;
 }
@@ -127,6 +123,10 @@ body {
 }
 #branding {
 	padding: 2em 0 1em;
+}
+#site-title {
+	font-size: 2.5em;
+	margin: 0;
 }
 #site-title a {
 	border: 0;
@@ -171,24 +171,15 @@ article,
 section.post {
 	margin-right: 0.5%;
 }
-body.home h2.entry-title,
-body.blog h2.entry-title,
-body.single h2.entry-title,
-body.search h3.entry-title,
-body.archive h3.entry-title {
+body.home h1.entry-title,
+body.blog h1.entry-title,
+body.single h1.entry-title,
+body.search h2.entry-title,
+body.archive h2.entry-title {
 	margin-bottom: 0;
 }
 .entry-title a {
 	border: 0;
-}
-figure {
-	margin: 0 0.55em 1em;
-}
-figure img {
-	width: 100%;
-}
-img.bio {
-	border: 2px solid #000;
 }
 #search-results {
 	font-weight: bold;

@@ -6,7 +6,7 @@
 
 				<?php if (have_posts()) : ?>
 
-				<h2>Search Results for &quot;<?php the_search_query(); ?>&quot;</h2>
+				<h1>Search Results for &quot;<?php the_search_query(); ?>&quot;</h1>
 
 				<section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
@@ -16,7 +16,7 @@
 
 						<li>
 							<header>
-								<h3 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Direct Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+								<h2 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Direct Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 								<p class="entry-meta">Posted <time datetime="<?php the_time('Y-m-d') ?>" pubdate="pubdate"><?php the_time('F jS, Y') ?></time> by <?php the_author(); ?></p>
 							</header>
 							<section class="entry-content">
