@@ -79,6 +79,18 @@ add_filter('comment_reply_link', 'my_replylink');
 		));
 	}
 
+// prevent duplicate content for comments
+	function noDuplicateContentforComments() {
+		global $cpage, $post;
+		if($cpage > 1) {
+		echo "\n".'<link rel="canonical" href="'.get_permalink($post->ID).'" />'."\n";
+		}
+	}
+	add_action('wp_head', 'noDuplicateContentforComments');
+
+// Remove the Login Error Message
+add_filter('login_errors',create_function('$a', "return null;"));
+
 // Credit
 	function custom_admin_footer() {
 		echo 'FSSFive is developed by <a href="http://abledaccess.com/">Abledaccess</a> in partnership with <a href="http://fluidproject.org/">The Fluid Project</a>.';

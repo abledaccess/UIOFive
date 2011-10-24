@@ -4,7 +4,7 @@ Theme URI: http://github.com/abledaccess/fssfive
 Description: An HTML5 WordPress theme employing Fluid's Skinning System -- and the solution is inclusion.
 Author: Johnny Taylor
 Author URI: http://abledaccess.com
-Version: 1.5.3
+Version: 1.5.4
 */
 
 /* CSS browser "restart", c/o Harry Roberts; https://github.com/csswizardry/vanilla
@@ -288,6 +288,15 @@ input[type="text"] {
 	padding: 0.25em;
 	width: 41.5%;
 }
+input[type="url"]:focus,
+input[type="email"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+textarea:focus,
+input[type="submit"]:focus {
+	border: 2px solid #00f;
+	outline: 0 none;
+}
 textarea {
 	border: 2px solid #000;
 	display: block;
@@ -332,8 +341,8 @@ input#s {
 	list-style: none;
 	margin-left: -2.5%;
 }
-#sidebar h2, #sidebar h3, #sidebar h4, #sidebar h5, #sidebar h6 {
-	font-size: 1.2em;
+#sidebar h1, #sidebar h2, #sidebar h3, #sidebar h4, #sidebar h5, #sidebar h6 {
+	font-size: 1.25em;
 	margin-bottom: 0.5em;
 }
 #sidebar ul li ul li {
@@ -363,7 +372,7 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-	input#s {
+input#s {
 		display: block;
 		margin-bottom: 0.25em;
 		width: 80%;
