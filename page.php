@@ -28,8 +28,6 @@
 
 				<?php endwhile; else: ?>
 
-					<?php include (TEMPLATEPATH . '/inc/not-found.php' ); ?>
-
 				<?php endif; ?>
 
 			</section><!-- /#nav:content -->

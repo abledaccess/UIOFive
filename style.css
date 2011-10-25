@@ -181,6 +181,9 @@ body.archive h2.entry-title {
 .entry-title a {
 	border: 0;
 }
+.top {
+	font-style: normal;
+}
 #search-results {
 	font-weight: bold;
 	margin-left: 2em;
@@ -192,14 +195,16 @@ ol#search-results li {
 ol#search-results li p {
 	font-weight: normal;
 }
-.entry-utility ul {
+.entry-utility ul,
+.comment-utility ul {
 	font-style: italic;
 	list-style: inside disc;
 	margin-left:0.2%;
 }
-.entry-utility p {
-	font-style: italic;
-	
+#search-results .entry-utility ul li {
+	font-weight: normal;
+	list-style: inside disc;
+	margin: 0 0 0 0.2em;
 }
 #next-prev-links {
 	margin-bottom: 2.5em;
@@ -239,7 +244,7 @@ ol.commentlist cite.fn {
 ol.commentlist .comment-content {
 	padding-left: 5em;
 }
-ol.commentlist .comment-meta {
+ol.commentlist .comment-utility {
 	clear: left;
 	margin: 0 0 2em 5em;
 }
@@ -430,6 +435,9 @@ input#s {
 }
 
 @media screen and (max-width: 320px) {
+	body {
+		border: 0;
+	}
 	#branding {
 		padding: 1em 0 0;
 	}

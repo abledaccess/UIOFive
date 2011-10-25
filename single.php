@@ -20,7 +20,7 @@
 					<footer class="entry-utility">
 
 						<ul>
-							<li><?php the_tags('Tags: ', ', ', '<br>'); ?></li>
+							<?php the_tags('<li>Tags: ', ', ', '</li>'); ?>
 							<li>This article was posted on <time datetime="<?php the_time('Y-m-d') ?>" pubdate="pubdate" class="updated"><?php the_time('F jS, Y') ?></time> at <?php the_time(); ?> and was filed under <?php the_category(', ') ?>. You can follow any comments to the article above through the <?php post_comments_feed_link('RSS 2.0 Comments Feed'); ?>.
 								<?php if (('open' == $post-> comment_status) && ('open' == $post->ping_status)) {
 									// both comments and pings open ?>
@@ -34,8 +34,9 @@
 							<?php } elseif (!('open' == $post-> comment_status) && !('open' == $post->ping_status)) {
 								// neither comments nor pings are open ?>
 								Both comments and pings are currently closed.</li>
+							<?php } edit_post_link('Edit this article','<li>','.</li>'); ?>
+								<li><span class="top"><a href="#nav:page-top" title="Return to the TOP of this page">TOP</a></span></li>
 							</ul>
-							<?php } edit_post_link('Edit this article','<p>','.</p>'); ?>
 
 					</footer><!-- /.entry-utility -->
 				</article><!-- /#post-<?php the_ID(); ?> -->

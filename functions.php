@@ -24,9 +24,11 @@ function FSSFive_comment( $comment, $args, $depth ) {
 
 		<section class="comment-content"><?php comment_text(); ?></section>
 
-		<footer class="comment-utility comment-meta">
-			<p>Comment posted <time datetime="<?php the_time('Y-m-d') ?>" pubdate="pubdate"><?php printf( __( '%1$s', 'FSSFive' ), get_comment_date() ); ?></time><?php edit_comment_link( __( 'Edit', 'FSSFive' ), ' ' ); ?><?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?></p>
-		</footer><!-- /.comment-meta -->
+		<footer class="comment-utility">
+			<ul>
+				<li>Comment posted <time datetime="<?php the_time('Y-m-d') ?>" pubdate="pubdate"><?php printf( __( '%1$s', 'FSSFive' ), get_comment_date() ); ?></time><?php edit_comment_link( __( 'Edit', 'FSSFive' ), ' ' ); ?><?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?> &mdash; <span class="top"><a href="#nav:page-top" title="Return to the TOP of this page">TOP</a></span></li>
+			</ul>
+		</footer><!-- /.comment-utility -->
 
 	</div><!-- /#comment-##  -->
 
