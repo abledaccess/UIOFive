@@ -126,7 +126,11 @@ body {
 }
 #site-title {
 	font-size: 2.5em;
+	font-weight: bold;
 	margin: 0;
+}
+h1#site-title {
+	padding: 0.1em 0;
 }
 #site-title a {
 	border: 0;
@@ -134,6 +138,7 @@ body {
 }
 #site-description {
 	font-size: 1.25em;
+	font-weight: bold;
 	margin: 0;
 }
 .fl-tabs {
@@ -171,7 +176,7 @@ article,
 section.post {
 	margin-right: 0.5%;
 }
-body.home h1.entry-title,
+body.home h2.entry-title,
 body.blog h1.entry-title,
 body.single h1.entry-title,
 body.search h2.entry-title,
@@ -457,5 +462,10 @@ input#s {
 		display: block;
 		float: left;
 		min-width: 10em;
+	}
+	input#s {
+		display: inline;
+		margin: 0;
+		width: 50%;
 	}
 }

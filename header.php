@@ -30,11 +30,11 @@
 
 <link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="<?php bloginfo('template_url'); ?>/apple-touch-icon.png"/>
-		
-<link rel="alternate" type="text/xml" title="<?php bloginfo('name'); ?> RSS 0.92 Feed" href="<?php bloginfo('rss_url'); ?>">
-<link rel="alternate" type="application/atom+xml" title="<?php bloginfo('name'); ?> Atom Feed" href="<?php bloginfo('atom_url'); ?>">
-<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS 2.0 Feed" href="<?php bloginfo('rss2_url'); ?>">
-<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
+
+<link rel="alternate" type="text/xml" title="<?php bloginfo('name'); ?> RSS 0.92 Feed" href="<?php bloginfo('rss_url'); ?>" />
+<link rel="alternate" type="application/atom+xml" title="<?php bloginfo('name'); ?> Atom Feed" href="<?php bloginfo('atom_url'); ?>" />
+<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS 2.0 Feed" href="<?php bloginfo('rss2_url'); ?>" />
+<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
 <?php if ( is_singular() && get_option( 'thread_comments' ) )
 	wp_enqueue_script( 'comment-reply' );
@@ -48,10 +48,10 @@
 	<div id="wrapper" class="fl-container fl-centered">
 
 		<header id="branding" class="header fl-container-flex" role="banner">
-			<hgroup>
-				<h1 id="site-title"><a href="/"><?php bloginfo('name'); ?></a></h1>
-				<h2 id="site-description"><?php bloginfo('description'); ?></h2>
-			</hgroup>
+			<?php $heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'div'; ?>
+
+			<<?php echo $heading_tag; ?> id="site-title"><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></<?php echo $heading_tag; ?>>
+			<p id="site-description"><?php bloginfo('description'); ?></p>
 
 			<nav id="access" class="fl-container-flex" role="navigation">
 				<?php wp_nav_menu(array(
