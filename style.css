@@ -4,12 +4,11 @@ Theme URI: http://github.com/abledaccess/fssfive
 Description: An HTML5 WordPress theme employing Fluid's Skinning System -- and the solution is inclusion.
 Author: Johnny Taylor
 Author URI: http://abledaccess.com
-Version: 1.5.4
+Version: 1.5.5
 */
 
 /* CSS browser "restart", c/o Harry Roberts; https://github.com/csswizardry/vanilla
 --------------------------------------------------------------------------- */
-
 html,body,div,span,applet,object,iframe,
 h1,h2,h3,h4,h5,h6,p,blockquote,pre,hr,
 a,abbr,address,cite,code,
@@ -45,15 +44,28 @@ em,i,cite,q,address,var{
 	font-weight:inherit;
 }
 abbr[title],dfn[title]{
-	cursor:help;
 	border-bottom:1px dotted;
+	cursor:help;
+	padding-bottom:0.2em;
+	
 }
 ins{
 	border-bottom:1px solid;
 }
 a,u,ins{
+	border-bottom:1px solid;
 	text-decoration:none;
-	border-bottom: 1px solid;
+}
+a:hover{
+	background-color:#ffc;
+}
+a:active{
+	outline:none 0;
+}
+a:focus{
+	border:0;
+	outline:2px solid #f00;
+	text-decoration:none;
 }
 del,s{
 	text-decoration:line-through;
@@ -69,101 +81,96 @@ img{
 	font-style:italic;
 }
 input,select,textarea{
-	-webkit-border-radius: 0;
-	-moz-border-radius: 0;
-	border-radius: 0;
+	-webkit-border-radius:0;
+	-moz-border-radius:0;
+	border-radius:0;
 	font:inherit;
 }
-fieldset {
-	border: 0;
+fieldset{
+	border:0;
+}
+sup,sub{
+	font-size:75%;
+	vertical-align:top;
+}
+sub{
+	vertical-align:bottom;
 }
 
 /* Global FSSFive theme specific container and body styles
 --------------------------------------------------------------------------- */
-
-html {
-	background: #000;
-}
-body {
-	background: #fff;
-	line-height: 1.4;
-	font-family: Georgia, serif;
+body{
+	background:#fff;
+	border-top:0.5em solid #000;
+	line-height:1.4;
+	font-family:Georgia, serif;
 }
 #wrapper {
-	max-width: 58.5em;
-	padding: 0 3.5%;
+	max-width:58.5em;
+	padding:0 3.5%;
 }
 
 /* Global FSSFive text styles
 --------------------------------------------------------------------------- */
-
-h1, h2, h3, h4, h5, h6 {
-	font-size: 1.75em;
-	font-weight: bold;
-	line-height: 1.2em;
-	margin-bottom: 0.75em;
+h1,h2,h3,h4,h5,h6{
+	font-size:1.75em;
+	font-weight:bold;
+	line-height:1.2em;
+	margin-bottom:0.75em;
 }
-p, ul, ol, blockquote, figure {
+p,ul,ol,blockquote,figure{
 	margin-bottom: 1em;
 }
-sup {
-	font-size: 75%;
-	vertical-align: top;
-}
-sub {
-	font-size: 75%;
-	vertical-align: bottom;
-}
 
-/* Header styles
+/* Header branding styles
 --------------------------------------------------------------------------- */
-
-body {
-	border-top: 0.5em solid #000;
+#branding{
+	padding:2em 0 1em;
 }
-#branding {
-	padding: 2em 0 1em;
+#site-title{
+	font-size:2.5em;
+	font-weight:bold;
+	margin:0;
 }
-#site-title {
-	font-size: 2.5em;
-	font-weight: bold;
-	margin: 0;
+h1#site-title{
+	padding:0.1em 0;
 }
-h1#site-title {
-	padding: 0.1em 0;
+#site-title a{
+	border:0;
+	color:#000;
 }
-#site-title a {
-	border: 0;
-	color: #000;
+#site-description{
+	font-size:1.25em;
+	font-weight:bold;
+	margin:0;
 }
-#site-description {
-	font-size: 1.25em;
-	font-weight: bold;
-	margin: 0;
+.fl-tabs{
+	border:0 none;
+	font-weight:bold;
+	padding:1em 0.55em 0.5em;
 }
-.fl-tabs {
-	border: 0 none;
-	font-weight: bold;
-	padding: 1em 0.55em 0.5em;
+.fl-tabs li{
+	font-size:1.25em;
+	padding:0.25em 0.3em;
 }
-.fl-tabs li {
-	font-size: 1.25em;
-	padding: 0.25em 0.3em;
+.fl-tabs li a{
+	-webkit-border-radius:2em;
+	-moz-border-radius:2em;
+	border-radius:2em;
+	border-width:2px;
+	color:#000;
+	padding:0.20em 0.75em 0.25em;
+	text-decoration:none;
 }
-.fl-tabs li a {
-	-webkit-border-radius: 2em;
-	-moz-border-radius: 2em;
-	border-radius: 2em;
-	border-width: 2px;
-	color: #000;
-	padding: 0.20em 0.75em 0.25em;
-	text-decoration: none;
+.fl-tabs li a:focus{
+	border:2px solid #f00;
+	outline:0 none;
 }
 /* 2 pixel downward shift on active tab links */
 .fl-tabs li a:active,
 input[type="submit"]:active {
-	position: relative;
-	top: 2px;
+	position:relative;
+	top:2px;
 }
 
 /* Main content styles
@@ -202,14 +209,14 @@ ol#search-results li p {
 }
 .entry-utility ul,
 .comment-utility ul {
-	font-style: italic;
-	list-style: inside disc;
+	font-style:italic;
+	list-style:inside disc;
 	margin-left:0.2%;
 }
 #search-results .entry-utility ul li {
-	font-weight: normal;
-	list-style: inside disc;
-	margin: 0 0 0 0.2em;
+	font-weight:normal;
+	list-style:inside disc;
+	margin:0 0 0 0.2em;
 }
 #next-prev-links {
 	margin-bottom: 2.5em;
@@ -304,8 +311,12 @@ input[type="search"]:focus,
 input[type="text"]:focus,
 textarea:focus,
 input[type="submit"]:focus {
-	border: 2px solid #00f;
+	border: 2px solid #f00;
 	outline: 0 none;
+}
+input[type="checkbox"]:focus {
+	border: 0 none;
+	outline: 2px solid #f00;
 }
 textarea {
 	border: 2px solid #000;
@@ -356,7 +367,7 @@ input#s {
 	margin-bottom: 0.5em;
 }
 #sidebar ul li ul li {
-	list-style: inside disc;
+	list-style:inside disc;
 }
 .fl-widget {
 		padding-left: 1.45em;
@@ -365,11 +376,8 @@ input#s {
 /* Footer styles
 --------------------------------------------------------------------------- */
 
-body {
-	border-bottom: 1em solid #000;
-}
 #colophon {
-	padding: 2em 0;
+	padding-bottom: 2em;
 }
 
 /* Responsive screen styles for viewports from 320px (small screen) and exceeding 1024px (desktop and beyond)
@@ -400,6 +408,9 @@ input#s {
 	}
 	ol.commentlist .comment.depth-2 {
 		padding-left: 5em;
+	}
+	#colophon ul li {
+		width: 50%;
 	}
 }
 

@@ -6,7 +6,7 @@
 
 				<?php if (have_posts()) : ?>
 
-				<h1>Search Results for &quot;<?php the_search_query(); ?>&quot;</h1>
+				<h1>Search results for &quot;<?php the_search_query(); ?>&quot;</h1>
 
 				<section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
