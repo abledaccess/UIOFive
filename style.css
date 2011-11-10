@@ -1,10 +1,10 @@
 /*
-Theme Name: FSSFive
-Theme URI: http://github.com/abledaccess/fssfive
-Description: An HTML5 WordPress theme employing Fluid's Skinning System -- and the solution is inclusion.
-Author: Johnny Taylor
-Author URI: http://abledaccess.com
-Version: 1.5.5
+Theme Name:FSSFive
+Theme URI:http://github.com/abledaccess/fssfive
+Description:An HTML5 WordPress theme employing Fluid's Skinning System -- and the solution is inclusion.
+Author:Johnny Taylor
+Author URI:http://abledaccess.com
+Version:1.5.5
 */
 
 /* CSS browser "restart", c/o Harry Roberts; https://github.com/csswizardry/vanilla
@@ -85,9 +85,6 @@ input,select,textarea{
 	-moz-border-radius:0;
 	border-radius:0;
 	font:inherit;
-}
-fieldset{
-	border:0;
 }
 sup,sub{
 	font-size:75%;
@@ -176,307 +173,257 @@ input[type="submit"]:active {
 /* Main content styles
 --------------------------------------------------------------------------- */
 
-article {
-	padding-bottom: 1.25em;
+article{
+	padding-bottom:1.25em;
 }
-article,
-section.post {
-	margin-right: 0.5%;
+article,section.post{
+	margin-right:0.5%;
 }
-body.home h2.entry-title,
-body.blog h1.entry-title,
-body.single h1.entry-title,
-body.search h2.entry-title,
-body.archive h2.entry-title {
-	margin-bottom: 0;
+body.home h2.entry-title,body.blog h1.entry-title,body.single h1.entry-title,body.search h2.entry-title,body.archive h2.entry-title{
+	margin-bottom:0;
 }
-.entry-title a {
-	border: 0;
+.top{
+	font-style:normal;
 }
-.top {
-	font-style: normal;
+#search-results{
+	font-weight:bold;
+	margin-left:2em;
 }
-#search-results {
-	font-weight: bold;
-	margin-left: 2em;
+ol#search-results li{
+	list-style:decimal;
+	margin-bottom:2.5em;
 }
-ol#search-results li {
-	list-style: decimal;
-	margin-bottom: 2.5em;
+ol#search-results li p{
+	font-weight:normal;
 }
-ol#search-results li p {
-	font-weight: normal;
-}
-.entry-utility ul,
-.comment-utility ul {
+.entry-utility ul,.comment-utility ul{
 	font-style:italic;
 	list-style:inside disc;
 	margin-left:0.2%;
 }
-#search-results .entry-utility ul li {
+#search-results .entry-utility ul li{
 	font-weight:normal;
 	list-style:inside disc;
 	margin:0 0 0 0.2em;
 }
-#next-prev-links {
-	margin-bottom: 2.5em;
+#next-prev-links{
+	margin-bottom:2.5em;
 }
-li.alignleft {
-	list-style: none;
-	float: left;
+li.alignleft{
+	list-style:none;
+	float:left;
 }
-li.alignright {
-	list-style: none;
-	float: right;
+li.alignright{
+	list-style:none;
+	float:right;
 }
 
 /* Comment styles
 --------------------------------------------------------------------------- */
-
-#comments {
-	margin-right: 1.4%;
+#comments{
+	margin-right:1.4%;
 }
-#reply-title {
-	margin: 0;
+#reply-title{
+	margin:0;
 }
-ol.commentlist,
-ol.commentlist ul {
-	list-style: none;
+ol.commentlist,ol.commentlist ul {
+	list-style:none;
 }
-ol.commentlist img.avatar {
-	float: left;
-	height: 3.75em;
-	margin: 0.15em 1.25em 0 0;
-	width: 3.75em;
+ol.commentlist img.avatar{
+	float:left;
+	height:3.75em;
+	margin:0.15em 1.25em 0 0;
+	width:3.75em;
 }
-ol.commentlist cite.fn {
-	font-size: 1.25em;
-	font-weight: bold;
+ol.commentlist cite.fn{
+	font-size:1.25em;
+	font-weight:bold;
 }
-ol.commentlist .comment-content {
-	padding-left: 5em;
+ol.commentlist .comment-content{
+	padding-left:5em;
 }
-ol.commentlist .comment-utility {
-	clear: left;
-	margin: 0 0 2em 5em;
+ol.commentlist .comment-utility{
+	clear:left;
+	margin:0 0 2em 5em;
 }
-ol.commentlist .comment {
-	margin: 0 0.3em 2.5em 0;
+ol.commentlist .comment{
+	margin:0 0.3em 2.5em 0;
 }
-ol.commentlist .comment.depth-2,
-ol.commentlist .comment.depth-3,
-ol.commentlist .comment.depth-4,
-ol.commentlist .comment.depth-4,
-ol.commentlist .comment.depth-5,
-ol.commentlist .comment.depth-7,
-ol.commentlist .comment.depth-8,
-ol.commentlist .comment.depth-9,
-ol.commentlist .comment.depth-10 {
-	clear: left;
-	margin: 0 0 2em 5em;
+ol.commentlist .comment.depth-2,ol.commentlist .comment.depth-3,ol.commentlist .comment.depth-4,ol.commentlist .comment.depth-4,ol.commentlist .comment.depth-5,ol.commentlist .comment.depth-7,ol.commentlist .comment.depth-8,ol.commentlist .comment.depth-9,ol.commentlist .comment.depth-10{
+	clear:left;
+	margin:0 0 2em 5em;
 }
-ol.commentlist .comment-reply:before {
-	content: "\2008\2014\2008";
+ol.commentlist .comment-reply:before{
+	content:"\2008\2014\2008";
 }
-#respond {
-	margin-bottom: 2.5em;
+#respond{
+	margin-bottom:2.5em;
 }
 
 /* Form styles
 --------------------------------------------------------------------------- */
-
-fieldset {
-	padding-bottom: 1em;
+fieldset{
+	border:0;
+	padding-bottom:1em;
 }
-legend {
+legend{
 	font-size: 1.2em;
 	font-weight: bold;
 	padding-bottom: 0.5em;
 }
-input[type="url"],
-input[type="email"],
-input[type="search"],
-input[type="text"] {
-	border: 2px solid #000;
-	display: block;
-	font-size: large;
-	margin: 0.25em 0 0.75em;
-	outline: 0 none;
-	padding: 0.25em;
-	width: 41.5%;
+input[type="url"],input[type="email"],input[type="search"],input[type="text"],textarea{
+	border:2px solid #000;
+	display:block;
+	font-size:large;
+	margin:0.25em 0 0.75em;
+	outline:0 none;
+	padding:0.25em;
+	width:41.5%;
 }
-input[type="url"]:focus,
-input[type="email"]:focus,
-input[type="search"]:focus,
-input[type="text"]:focus,
-textarea:focus,
-input[type="submit"]:focus {
-	border: 2px solid #f00;
-	outline: 0 none;
+input[type="url"]:focus,input[type="email"]:focus,input[type="search"]:focus,input[type="text"]:focus,textarea:focus,input[type="submit"]:focus{
+	border:2px solid #f00;
+	outline:0 none;
 }
 input[type="checkbox"]:focus {
-	border: 0 none;
-	outline: 2px solid #f00;
+	border:0 none;
+	outline:2px solid #f00;
 }
-textarea {
-	border: 2px solid #000;
-	display: block;
-	font-size: large;
-	margin: 0.25 0 0.75em;
-	outline: 0 none;
-	padding: 0.25em;
-	width: 76.1%;
+textarea{
+	width:76.1%;
 }
-input[type="submit"] {
-	background: #fff;
-	-webkit-border-radius: 2em;
-	-moz-border-radius: 2em;
-	border-radius: 2em;
-	border: 2px solid #000;
-	color: #000;
-	cursor: pointer;
-	font-family: Georgia, serif;
-	font-size: medium;
-	font-weight: bold;
-	padding: 0.25em 0.75em;
+input[type="submit"]{
+	background:#fff;
+	-webkit-border-radius:2em;
+	-moz-border-radius:2em;
+	border-radius:2em;
+	border:2px solid #000;
+	color:#000;
+	cursor:pointer;
+	font-size:medium;
+	font-weight:bold;
+	padding:0.25em 0.75em;
 }
-article input[type="submit"] {
-	margin-top: 0.5em;
+article input[type="submit"]{
+	margin-top:0.5em;
 }
-input[type="checkbox"] {
-	font-size: large;
+input[type="checkbox"]{
+	font-size:large;
 }
-input#s {
-	display: inline;
-	margin: 0;
-	width: 50%;
+input#s{
+	display:inline;
+	margin:0;
+	width:50%;
 }
 
 /* Sidebar styles
 --------------------------------------------------------------------------- */
-
 #sidebar {
-	padding-bottom: 1.25em;
+	padding-bottom:1.25em;
 }
-#sidebar > ul {
-	list-style: none;
-	margin-left: -2.5%;
+#sidebar>ul{
+	list-style:none;
 }
-#sidebar h1, #sidebar h2, #sidebar h3, #sidebar h4, #sidebar h5, #sidebar h6 {
-	font-size: 1.25em;
-	margin-bottom: 0.5em;
+#sidebar h1,#sidebar h2,#sidebar h3,#sidebar h4,#sidebar h5,#sidebar h6{
+	font-size:1.25em;
+	margin-bottom:0.5em;
 }
-#sidebar ul li ul li {
+#sidebar ul li ul li{
 	list-style:inside disc;
 }
-.fl-widget {
-		padding-left: 1.45em;
+.fl-widget{
+		padding-left: 1.25em;
 }
 
-/* Footer styles
+/* Colophon footer styles
 --------------------------------------------------------------------------- */
-
-#colophon {
-	padding-bottom: 2em;
+#colophon{
+	padding-bottom:2em;
 }
 
 /* Responsive screen styles for viewports from 320px (small screen) and exceeding 1024px (desktop and beyond)
 --------------------------------------------------------------------------- */
-
-@media screen and (max-width: 1024px) {
-	input#s {
-		width: 40%;
+@media screen and (max-width: 1024px){
+	input#s{
+		width:40%;
 	}
 }
 
-@media screen and (max-width: 768px) {
-input#s {
-		display: block;
-		margin-bottom: 0.25em;
-		width: 80%;
+@media screen and (max-width: 768px){
+input#s{
+		display:block;
+		margin-bottom:0.25em;
+		width:80%;
 	}
-	ol.commentlist .comment.depth-2,
-	ol.commentlist .comment.depth-3,
-	ol.commentlist .comment.depth-4,
-	ol.commentlist .comment.depth-4,
-	ol.commentlist .comment.depth-5,
-	ol.commentlist .comment.depth-7,
-	ol.commentlist .comment.depth-8,
-	ol.commentlist .comment.depth-9,
-	ol.commentlist .comment.depth-10 {
-		margin: 0;
+	ol.commentlist .comment.depth-2,ol.commentlist .comment.depth-3,ol.commentlist .comment.depth-4,ol.commentlist .comment.depth-4,ol.commentlist .comment.depth-5,ol.commentlist .comment.depth-7,ol.commentlist .comment.depth-8,ol.commentlist .comment.depth-9,ol.commentlist .comment.depth-10 {
+		margin:0;
 	}
-	ol.commentlist .comment.depth-2 {
-		padding-left: 5em;
+	ol.commentlist .comment.depth-2{
+		padding-left:5em;
 	}
-	#colophon ul li {
-		width: 50%;
+	#colophon ul li{
+		width:50%;
 	}
 }
 
-@media screen and (max-width: 640px) {
-	.fl-container-flex75,
-	.fl-container-flex25 {
-		float: none;
+@media screen and (max-width: 640px){
+	.fl-container-flex75,.fl-container-flex25{
+		float:none;
 	}
-	#sidebar > ul{
-		margin-left: 0;
+	#sidebar>ul{
+		margin-left:0;
 	}
-	.fl-widget {
-		float: left;
-		padding: 0;
-		width: 50%;
+	.fl-widget{
+		float:left;
+		padding:0;
+		width:50%;
 	}
-	.widget_search {
-		margin-bottom: 2em;
-		width: 100%;
+	.widget_search{
+		margin-bottom:2em;
+		width:100%;
 	}
-	input#s {
-		display: inline;
-		margin: 0;
-		width: 70%;
-	}
-}
-
-@media screen and (max-width: 480px) {
-	input[type="url"],
-	input[type="email"],
-	input[type="search"],
-	input[type="text"] {
-		width: 97%;
-	}
-	textarea {
-		width: 97%;
+	input#s{
+		display:inline;
+		margin:0;
+		width:70%;
 	}
 }
 
-@media screen and (max-width: 320px) {
-	body {
-		border: 0;
+@media screen and (max-width: 480px){
+	input[type="url"],input[type="email"],input[type="search"],input[type="text"]{
+		width:97%;
 	}
-	#branding {
-		padding: 1em 0 0;
+	textarea{
+		width:97%;
 	}
-	.fl-tabs {
-		padding: 0;
-		margin-bottom: 0.5em;
-		text-align: center;
+}
+
+@media screen and (max-width: 320px){
+	body{
+		border:0;
 	}
-	.fl-tabs li {
-		clear: left;
-		display: block;
-		float: left;
-		margin: 0 auto 0.25em;
+	#branding{
+		padding:1em 0 0;
 	}
-	.fl-tabs li a {
-		clear: left;
-		display: block;
-		float: left;
-		min-width: 10em;
+	.fl-tabs{
+		padding:0;
+		margin-bottom:0.5em;
+		text-align:center;
 	}
-	input#s {
-		display: inline;
-		margin: 0;
-		width: 50%;
+	.fl-tabs li{
+		clear:left;
+		display:block;
+		float:left;
+		margin:0 auto 0.25em;
+	}
+	.fl-tabs li a{
+		clear:left;
+		display:block;
+		float:left;
+		min-width:10em;
+	}
+	input#s{
+		display:inline;
+		margin:0;
+		width:50%;
 	}
 }
