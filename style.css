@@ -128,7 +128,7 @@ p,ul,ol,blockquote,figure{
 
 /* Header branding styles
 --------------------------------------------------------------------------- */
-#branding{
+.banner{
 	padding:2em 0 1em;
 }
 #site-title{
