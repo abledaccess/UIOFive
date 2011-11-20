@@ -22,10 +22,11 @@
 							<section class="entry-content">
 								<?php the_excerpt(); ?>
 							</section><!-- /.entry-content -->
-							<footer class="entry-utility">	
+							<footer class="entry-utility">
 								<ul>
 									<li><a href="<?php the_permalink() ?>" rel="bookmark" title="Direct Link to <?php the_title_attribute(); ?>">Direct link to &quot;<?php the_title(); ?>&quot;</a></li>
-									<li>Filed under <?php the_category(', '); ?> &mdash; <?php comments_popup_link('Comment on this post&hellip;', '1 comment on this post&hellip;', '% comments&hellip;'); ?> &mdash; <span class="top"><a href="#nav:page-top" title="Return to the TOP of this page">TOP</a></span></li>
+									<li>Filed under <?php the_category(', '); ?> &mdash; <?php comments_popup_link('Comment on this post&hellip;', '1 comment on this post&hellip;', '% comments&hellip;'); ?></li>
+									<li class="top"><a href="#nav:page-top" title="Return to the TOP of this page">TOP</a></li>
 								</ul>
 
 							</footer><!-- /.entry-utility -->

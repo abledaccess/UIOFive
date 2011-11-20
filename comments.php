@@ -43,10 +43,10 @@
 	<?php endif; // end have_comments() ?>
 
 	<?php comment_form(array(
-		'title_reply' => __( 'Leave a Comment' ),
+		'title_reply' => __( 'Got something you\'d like to add?' ),
 		'title_reply_to' => __( 'Leave a reply to %s\'s comment' ),
 		'cancel_reply_link' => __( 'Cancel your reply&hellip;' ),
-		'comment_notes_before' => '<p class="comment-notes">' . __( 'Your email address will not be published.' ) . '</p>',
+		'comment_notes_before' => '<p class="comment-notes">' . __( '... Leave it below. Your email address will not be published.' ) . '</p>',
 		'logged_in_as' => '<p class="logged-in-as">' . sprintf( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out</a>.' ), admin_url( 'profile.php' ), $user_identity, wp_logout_url( get_permalink() ) ) . '</p>',
 		'fields' => array(
 		'author' => '<p class="comment-form-author">' . '<label for="author">' . __( 'Name' ) . '</label> ' . ( $req ? '<span class="required">(required)</span>' : '' ) . '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30" /></p>',

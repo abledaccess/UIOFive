@@ -46,8 +46,6 @@ em,i,cite,q,address,var{
 abbr[title],dfn[title]{
 	border-bottom:1px dotted;
 	cursor:help;
-	padding-bottom:0.2em;
-	
 }
 ins{
 	border-bottom:1px solid;
@@ -66,6 +64,9 @@ a:focus{
 	border:0;
 	outline:2px solid #f00;
 	text-decoration:none;
+}
+a>abbr,a>ins{
+	padding-bottom:0.2em;
 }
 del,s{
 	text-decoration:line-through;
@@ -96,9 +97,15 @@ sub{
 
 /* Global FSSFive theme specific container and body styles
 --------------------------------------------------------------------------- */
+html,body,#wrapper{
+	height:100%;
+}
+body>#wrap{
+	height: auto;
+	min-height:100%;
+}
 body{
 	background:#fff;
-	border-top:0.5em solid #000;
 	line-height:1.4;
 	font-family:Georgia, serif;
 }
@@ -173,7 +180,10 @@ input[type="submit"]:active {
 /* Main content styles
 --------------------------------------------------------------------------- */
 
-article{
+#content-container{
+	padding-bottom:3em;
+}
+.post{
 	padding-bottom:1.25em;
 }
 article,section.post{
@@ -182,8 +192,13 @@ article,section.post{
 body.home h2.entry-title,body.blog h1.entry-title,body.single h1.entry-title,body.search h2.entry-title,body.archive h2.entry-title{
 	margin-bottom:0;
 }
-.top{
-	font-style:normal;
+.entry-title a{
+	border:0;
+}
+blockquote{
+	border-left:5px solid #eee;
+	font-style:italic;
+	padding-left:1.75em;
 }
 #search-results{
 	font-weight:bold;
@@ -205,6 +220,9 @@ ol#search-results li p{
 	font-weight:normal;
 	list-style:inside disc;
 	margin:0 0 0 0.2em;
+}
+.top{
+	font-style:normal;
 }
 #next-prev-links{
 	margin-bottom:2.5em;
@@ -336,8 +354,24 @@ input#s{
 
 /* Colophon footer styles
 --------------------------------------------------------------------------- */
+.contentinfo{
+	height:4em;
+	margin-top:-4em;
+	position:relative;
+}
 #colophon{
-	padding-bottom:2em;
+	margin:0 auto;
+	max-width:58.5em;
+}
+#colophon ul li{
+	display:inline;
+	list-style:none;
+}
+#colophon ul li:before{
+	content:"\2008\2014\2008";
+}
+#colophon ul li:first-child:before{
+	content:"";
 }
 
 /* Responsive screen styles for viewports from 320px (small screen) and exceeding 1024px (desktop and beyond)
