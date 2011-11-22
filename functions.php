@@ -24,9 +24,11 @@ function FSSFive_comment( $comment, $args, $depth ) {
 
 		<section class="comment-content"><?php comment_text(); ?></section>
 
-		<footer class="comment-utility comment-meta">
-			<p>Comment posted <time datetime="<?php the_time('Y-m-d') ?>" pubdate="pubdate"><?php printf( __( '%1$s', 'FSSFive' ), get_comment_date() ); ?></time><?php edit_comment_link( __( 'Edit', 'FSSFive' ), ' ' ); ?><?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?></p>
-		</footer><!-- /.comment-meta -->
+		<footer class="comment-utility">
+			<ul>
+				<li>Comment posted <time datetime="<?php the_time('Y-m-d') ?>" pubdate="pubdate"><?php printf( __( '%1$s', 'FSSFive' ), get_comment_date() ); ?></time><?php edit_comment_link( __( 'Edit', 'FSSFive' ), ' ' ); ?><?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?> &mdash; <span class="top"><a href="#nav:page-top" title="Return to the TOP of this page">TOP</a></span></li>
+			</ul>
+		</footer><!-- /.comment-utility -->
 
 	</div><!-- /#comment-##  -->
 
@@ -72,12 +74,24 @@ add_filter('comment_reply_link', 'my_replylink');
 // register sidebar widget
 	if (function_exists('register_sidebar')) {
 		register_sidebar(array(
-			'before_widget' => '<li class="fl-widget %2$s">',
+			'before_widget' => '<li class="fl-clearfix fl-widget %2$s">',
 			'after_widget' => '</li>',
-			'before_title' => '<h2 class="widgettitle">',
+			'before_title' => '<h2 class="widget-title">',
 			'after_title' => '</h2>',
 		));
 	}
+
+// prevent duplicate content for comments
+	function noDuplicateContentforComments() {
+		global $cpage, $post;
+		if($cpage > 1) {
+		echo "\n".'<link rel="canonical" href="'.get_permalink($post->ID).'" />'."\n";
+		}
+	}
+	add_action('wp_head', 'noDuplicateContentforComments');
+
+// Remove the Login Error Message
+add_filter('login_errors',create_function('$a', "return null;"));
 
 // Credit
 	function custom_admin_footer() {

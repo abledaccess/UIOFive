@@ -1,15 +1,15 @@
 <?php get_header(); ?>
 
-		<div class="fl-container fl-container-flex fl-push">
+		<div id="content-container" class="fl-clearfix fl-container fl-container-flex fl-push">
 
-			<section id="nav:content" class="content fl-col fl-container-flex75" role="main">
+			<section id="nav:content" class="fl-clearfix fl-col fl-container-flex75" role="main">
 
 				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 					<header>
-						<h2 class="entry-title"><?php the_title(); ?></h2>
+						<h1 class="entry-title"><?php the_title(); ?></h1>
 					</header>
 
 					<section class="entry-content">
@@ -27,8 +27,6 @@
 				</article><!-- /#post-<?php the_ID(); ?> -->
 
 				<?php endwhile; else: ?>
-
-					<?php include (TEMPLATEPATH . '/inc/not-found.php' ); ?>
 
 				<?php endif; ?>
 

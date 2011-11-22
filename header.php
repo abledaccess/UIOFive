@@ -10,6 +10,16 @@
 
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 
+<?php if(is_home() && (!$paged || $paged == 1) || is_single() || is_page()) { ?>
+<meta name="googlebot" content="index,archive,follow,noodp" />
+<meta name="robots" content="all,index,follow" />
+<meta name="msnbot" content="all,index,follow" />
+<?php } else { ?>
+<meta name="googlebot" content="noindex,noarchive,follow,noodp" />
+<meta name="robots" content="noindex,follow" />
+<meta name="msnbot" content="noindex,follow" />
+<?php } ?>
+
 <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/infusion/framework/fss/css/fss-layout.css" />
 <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/infusion/framework/fss/css/fss-text.css" />
 <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/infusion/components/uiOptions/css/fss/fss-theme-bw-uio.css" />
@@ -28,18 +38,7 @@
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/infusion/myInfusion.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/modernizr.js"></script>
 
-<title> <?php if (function_exists('is_tag') && is_tag()) {
-single_tag_title('Tag Archive for &quot;'); echo '&quot; &mdash; '; } elseif (is_archive()) {
-wp_title(''); echo ' Archive &mdash; '; } elseif (is_search()) {
-echo 'Search for &quot;'.wp_specialchars($s).'&quot; &mdash; '; } elseif (!(is_404()) && (is_single()) || (is_page())) {
-wp_title(''); echo ' &mdash; '; } elseif (is_404()) {
-echo 'Unable to be found... &mdash; ';
-} if (is_home()) {
-bloginfo('name'); echo ' &mdash; '; bloginfo('description'); } else {
-bloginfo('name');
-} if ($paged > 1) {
-echo ' &mdash; Page '. $paged;
-} ?> </title>
+<title><?php if (function_exists('is_tag') && is_tag()) { single_tag_title("Tag Archive for &quot;"); echo'&quot; &mdash; '; } elseif (is_archive()) { wp_title(''); echo ' Archive &mdash; '; } elseif (is_search()) { echo 'Search for &quot;'.esc_html($s).'&quot; &mdash; '; } elseif (!(is_404()) && (is_single()) || (is_page())) { wp_title(''); echo ' &mdash; '; } elseif (is_404()) { echo '404 Error &mdash; Page not found &mdash; '; } if (is_home()) { bloginfo('name'); echo ' &mdash; '; bloginfo('description'); } else { bloginfo('name'); } ?><?php if ($paged>1) { echo ' &mdash; page '. $paged; } ?></title>
 
 <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" media="all" />
 
@@ -92,17 +91,19 @@ echo ' &mdash; Page '. $paged;
 
 	<div id="wrapper" class="fl-container fl-centered">
 
-		<header id="branding" class="header fl-container-flex" role="banner">
-			<hgroup>
-				<h1 id="site-title"><a href="/"><?php bloginfo('name'); ?></a></h1>
-				<h2 id="site-description"><?php bloginfo('description'); ?></h2>
-			</hgroup>
+		<header class="banner fl-container-flex" role="banner">
+			<section id="branding">
+				<?php $heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'div'; ?>
 
-			<nav id="access" class="fl-container-flex" role="navigation">
+				<<?php echo $heading_tag; ?> id="site-title"><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?> &mdash; Home" rel="home"><?php bloginfo( 'name' ); ?></a></<?php echo $heading_tag; ?>>
+				<p id="site-description"><?php bloginfo('description'); ?></p>
+			</section><!-- /#branding -->
+
+			<nav id="access" class="fl-container-flex fl-clearfix" role="navigation">
 				<?php wp_nav_menu(array(
 					"container" => "ul", 
-					"menu_class" => "fl-tabs fl-clearfix fl-tabs-left", 
+					"menu_class" => "fl-tabs fl-tabs-left", 
 					"theme_location" => "main_nav" )); ?>
 
 			</nav><!-- /#access -->
-		</header>
+		</header><!-- /.banner -->
