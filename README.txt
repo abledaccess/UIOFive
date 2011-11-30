@@ -6,27 +6,21 @@ FSSFive is a clean, simple and accessible WordPress blogging theme, employing co
 
 To see it in action visit http://abledaccess.com.
 
-This is, or it is my hope that one day it will be, a solid a starting point. Granted much of what FSSFive uses to function as an accessible platform, mainly FSS and uiOptions, is still being developed. This will become ever more stable as time goes on. Both the work of the Fluid Project as well as my own, especially. I encourage users to build upon what is already here. And share what you have done. We're all in this together.
-
-Not by any stretch of your imagination is it finished -- meaning there are more neat and exciting things yet to come. But, like most of everything on the web, it’s a work in progress.
+This is, or it is my hope that one day it will be, a solid a starting point. Granted much of what FSSFive uses to function as an accessible platform, mainly FSS and uiOptions, is still being developed. This will become ever more stable as time goes on. Both the work of the Fluid Project as well as my own, especially. Not by any stretch of your imagination is it finished -- meaning there are more neat and exciting things yet to come. But, like most of everything on the web, it’s a work in progress.
 
 FSSFive employs a lot of the standard WordPress elements, id's and classes. Tt also has the publishing requirements that adhere to the hNews Microformat.
-
 
 
 FSSFive's Strength's
 
 1. As stated above, HTML5 and hNews Microformat compatible.
 2. FSSFive is aligned to the 12 column 960 grid system <http://960.gs>. 
-3. Even though comments are functioning/looking properly and are threaded, it is recommended you only allow threaded comments to be threaded 5 levels deep. Any levels deeper comments begin appearing "cramped" (short horizontal reading lines). 
-4. uiOptions <http://wiki.fluidproject.org/display/fluid/UI+Options+API> compatible. And coming soon.
-5. Responsive. Scales from mobile to desktop browsing environments. And everything in between.
-6. A full CSS3 and HTML5 custom build of Modernizr <http://modernizr.com> is running on FSSFive. Including response.js to handle (as in allowing) media queries to function in IE 8 and below. 
-7. Plenty, but not all, regular id and class hooks throughout the theme to allow for predictable and additional WordPress customization.
-8. SEO friendly page titles.
-9. FSSFive employs Harry Roberts' Vanilla CSS "restart" <https://github.com/csswizardry/vanilla> (well, the first bit of it anyway).
-10. Still very much under development. Please direct any concerns, suggestions and issues you may be experiencing to FSSFive developer; http://abledaccess.com/contact/. Or here, my Github repo. Thanks.
-
+3. Comments are functioning/looking properly and are threaded. Though it is recommended you only allow threaded comments to be threaded 5 levels deep. Any levels deeper subsequent comments begin getting "cramped" looking (short horizontal lines). 
+4. uiOptions <http://wiki.fluidproject.org/display/fluid/UI+Options+API> is now active (FSSFive's reason for being). And functioning.
+5. A full CSS3 and HTML5 custom build of Modernizr <http://modernizr.com> is running on FSSFive. Including response.js to handle (as in allowing) media queries to function in IE 8 and below. 
+6. Plenty, but not all, regular id and class hooks throughout the theme to allow for predictable and additional WordPress customization.
+7. SEO benefits straight out of the box (SEO friendly page titles and SEO friendly indexation).
+8. Still very much under development. Please direct any concerns, suggestions and issues you may be experiencing to FSSFive developer; http://abledaccess.com/contact/. Or here, my Github repo. Thanks.
 
 
 FSSFive's Weakness' (which, as I said above, will continue to be addressed and improved)

@@ -1,10 +1,10 @@
 /*
 Theme Name:FSSFive
 Theme URI:http://github.com/abledaccess/fssfive
-Description:An HTML5 WordPress theme employing Fluid's Skinning System -- and the solution is inclusion.
+Description:An HTML5 WordPress theme employing Fluid's Skinning System -- ... And the solution is inclusion
 Author:Johnny Taylor
 Author URI:http://abledaccess.com
-Version:1.5.5
+Version:2.0
 */
 
 /* CSS browser "restart", c/o Harry Roberts; https://github.com/csswizardry/vanilla
@@ -54,9 +54,6 @@ a,u,ins{
 	border-bottom:1px solid;
 	text-decoration:none;
 }
-a:hover{
-	background-color:#ffc;
-}
 a:active{
 	outline:none 0;
 }
@@ -97,13 +94,6 @@ sub{
 
 /* Global FSSFive theme specific container and body styles
 --------------------------------------------------------------------------- */
-html,body,#wrapper{
-	height:100%;
-}
-body>#wrap{
-	height: auto;
-	min-height:100%;
-}
 body{
 	background:#fff;
 	line-height:1.4;
@@ -129,12 +119,13 @@ p,ul,ol,blockquote,figure{
 /* Header branding styles
 --------------------------------------------------------------------------- */
 .banner{
-	padding:2em 0 1em;
+	padding:1em 0;
 }
 #site-title{
 	font-size:2.5em;
 	font-weight:bold;
 	margin:0;
+	padding:0.45em 0;
 }
 h1#site-title{
 	padding:0.1em 0;
@@ -179,15 +170,9 @@ input[type="submit"]:active {
 
 /* Main content styles
 --------------------------------------------------------------------------- */
-
-#content-container{
-	padding-bottom:3em;
-}
-.post{
+.type-post,.type-page{
+	margin-right:0.25em;
 	padding-bottom:1.25em;
-}
-article,section.post{
-	margin-right:0.5%;
 }
 body.home h2.entry-title,body.blog h1.entry-title,body.single h1.entry-title,body.search h2.entry-title,body.archive h2.entry-title{
 	margin-bottom:0;
@@ -292,7 +277,6 @@ legend{
 input[type="url"],input[type="email"],input[type="search"],input[type="text"],textarea{
 	border:2px solid #000;
 	display:block;
-	font-size:large;
 	margin:0.25em 0 0.75em;
 	outline:0 none;
 	padding:0.25em;
@@ -340,6 +324,7 @@ input#s{
 }
 #sidebar>ul{
 	list-style:none;
+	padding-left:0.75em;
 }
 #sidebar h1,#sidebar h2,#sidebar h3,#sidebar h4,#sidebar h5,#sidebar h6{
 	font-size:1.25em;
@@ -348,20 +333,18 @@ input#s{
 #sidebar ul li ul li{
 	list-style:inside disc;
 }
-.fl-widget{
-		padding-left: 1.25em;
-}
 
 /* Colophon footer styles
 --------------------------------------------------------------------------- */
 .contentinfo{
 	height:4em;
-	margin-top:-4em;
+	padding-bottom:2em;
 	position:relative;
 }
 #colophon{
 	margin:0 auto;
 	max-width:58.5em;
+	padding:0 3.5%;
 }
 #colophon ul li{
 	display:inline;
@@ -372,6 +355,142 @@ input#s{
 }
 #colophon ul li:first-child:before{
 	content:"";
+}
+
+/* uiOptions fat panel specific styles
+--------------------------------------------------------------------------- */
+.fl-uiOptions-fatPanel .fl-panelBar{
+	background-color:#000;
+	border:0;
+	height: 0.5em;
+}
+.fl-uiOptions-fatPanel .fl-toggleButton{
+	border:2px solid;
+	border-top-width:0;
+	-webkit-border-radius:0;
+	-moz-border-radius:0;
+	border-radius:0;
+	cursor:pointer;
+	font-family:Georgia, serif;
+	font-size:0.8em;
+	margin-top:0;
+	padding:0.35em 0.55em;
+	position:relative;
+}
+.fl-uiOptions-fatPanel .fl-toggleButton:focus{
+	border:2px solid #f00;
+	border-top-width:0;
+	outline:0 none;
+}
+.fl-text-underline{
+	border:0;
+}
+a.fl-text-underline>abbr{
+	padding:0;
+}
+
+/* uiOptions black on white theme specific styles
+--------------------------------------------------------------------------- */
+.fl-theme-uio-bw abbr{
+	background:transparent !important;
+}
+.fl-theme-uio-bw .fl-uiOptions-fatPanel .fl-panelBar{
+	background-color:#000 !important;
+}
+.fl-theme-uio-bw .fl-tabs li, .fl-theme-uio-wb .fl-inverted-color .fl-tabs li{
+  background-color:#ffffff !important;
+}
+.fl-theme-uio-bw .fl-tabs li a{
+	background:#fff !important;
+	color:#000 !important;
+}
+.fl-theme-uio-bw .fl-tabs li a{  
+	border-color:#000 !important;
+}
+.fl-theme-uio-bw .fl-widget, .fl-theme-uio-wb .fl-inverted-color .fl-widget {
+	background-color:#fff !important;
+	border:0 none !important;
+}
+.fl-theme-uio-bw a.fl-text-underline{
+	background:transparent !important;
+}
+
+/* uiOptions white on black theme specific styles
+--------------------------------------------------------------------------- */
+.fl-theme-uio-wb abbr{
+	background:transparent !important;
+}
+.fl-theme-uio-wb .fl-uiOptions-fatPanel .fl-panelBar{
+	background-color:#fff !important;
+}
+.fl-theme-uio-wb .fl-tabs li, .fl-theme-uio-wb .fl-inverted-color .fl-tabs li{
+  background-color:#000 !important;
+}
+.fl-theme-uio-wb .fl-tabs li a{
+	background:#000 !important;
+	color:#fff !important;
+}
+.fl-theme-uio-wb .fl-tabs li a{  
+	border-color:#fff !important;
+}
+.fl-theme-uio-wb .fl-widget, .fl-theme-uio-wb .fl-inverted-color .fl-widget {
+	background-color:#000 !important;
+	border:0 none !important;
+}
+.fl-theme-uio-wb a.fl-text-underline{
+	background:transparent !important;
+}
+
+/* uiOptions black on yellow theme specific styles
+--------------------------------------------------------------------------- */
+.fl-theme-uio-by abbr{
+	background:transparent !important;
+}
+.fl-theme-uio-by .fl-uiOptions-fatPanel .fl-panelBar{
+	background-color:#000 !important;
+}
+.fl-theme-uio-by .fl-tabs li, .fl-theme-uio-wb .fl-inverted-color .fl-tabs li{
+  background-color:#ff0 !important;
+}
+.fl-theme-uio-by .fl-tabs li a{
+	background:#ff0 !important;
+	color:#000 !important;
+}
+.fl-theme-uio-by .fl-tabs li a{  
+	border-color:#000 !important;
+}
+.fl-theme-uio-by .fl-widget, .fl-theme-uio-wb .fl-inverted-color .fl-widget {
+	background-color:#ff0 !important;
+	border:0 none !important;
+}
+.fl-theme-uio-by a.fl-text-underline{
+	background:transparent !important;
+}
+
+/* uiOptions yellow on black theme specific styles
+--------------------------------------------------------------------------- */
+.fl-theme-uio-yb abbr{
+	background:transparent !important;
+}
+.fl-theme-uio-yb .fl-uiOptions-fatPanel .fl-panelBar{
+	background-color:#ff0 !important;
+}
+.fl-theme-uio-yb .fl-tabs li, .fl-theme-uio-wb .fl-inverted-color .fl-tabs li{
+  background-color:#000 !important;
+}
+.fl-theme-uio-yb .fl-tabs li a{
+	background:#000 !important;
+	color:#ff0 !important;
+}
+.fl-theme-uio-yb .fl-tabs li a{  
+	border-color:#ff0 !important;
+}
+.fl-theme-uio-yb .fl-widget, .fl-theme-uio-wb .fl-inverted-color .fl-widget {
+	background-color:#000 !important;
+	border:0 none !important;
+}
+.fl-theme-uio-yb a.fl-text-underline{
+	background:transparent !important;
 }
 
 /* Responsive screen styles for viewports from 320px (small screen) and exceeding 1024px (desktop and beyond)
@@ -407,9 +526,10 @@ input#s{
 		margin-left:0;
 	}
 	.fl-widget{
-		float:left;
+		display:inline-block;
 		padding:0;
 		width:50%;
+		vertical-align:top;
 	}
 	.widget_search{
 		margin-bottom:2em;

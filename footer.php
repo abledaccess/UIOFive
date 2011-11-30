@@ -13,7 +13,7 @@
 
 	<?php wp_footer(); ?>
 
-	</footer><!-- /#colophon -->
+	</footer><!-- /.contentinfo -->
 
 </body>
 
