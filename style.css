@@ -4,100 +4,21 @@ Theme URI:http://github.com/abledaccess/fssfive
 Description:An HTML5 WordPress theme employing Fluid's Skinning System -- ... And the solution is inclusion
 Author:Johnny Taylor
 Author URI:http://abledaccess.com
-Version:2.0
+Version:2.0.1
 */
 
-/* CSS browser "restart", c/o Harry Roberts; https://github.com/csswizardry/vanilla
+/* HTML5 CSS older browser display reset 
 --------------------------------------------------------------------------- */
-html,body,div,span,applet,object,iframe,
-h1,h2,h3,h4,h5,h6,p,blockquote,pre,hr,
-a,abbr,address,cite,code,
-del,dfn,em,img,ins,kbd,q,s,samp,
-small,strong,sub,sup,tt,var,
-b,u,i,
-dl,dt,dd,ol,ul,li,
-fieldset,form,label,legend,
-table,caption,tbody,tfoot,thead,tr,th,td,
-article,aside,canvas,details,figcaption,figure,
-footer,header,hgroup,menu,nav,section,summary,
-time,mark,audio,video{
-	margin:0;
-	padding:0;
-}
 article,aside,details,figcaption,figure,footer,
 header,hgroup,menu,nav,section{
 	display:block;
 }
-h1,h2,h3,h4,h5,h6{
-	font-size:100%;
-}
-table{
-	border-collapse:collapse;
-	border-spacing:0;
-}
-strong,b,mark{
-	font-weight:bold;
-	font-style:inherit;
-}
-em,i,cite,q,address,var{
-	font-style:italic;
-	font-weight:inherit;
-}
-abbr[title],dfn[title]{
-	border-bottom:1px dotted;
-	cursor:help;
-}
-ins{
-	border-bottom:1px solid;
-}
-a,u,ins{
-	border-bottom:1px solid;
-	text-decoration:none;
-}
-a:active{
-	outline:none 0;
-}
-a:focus{
-	border:0;
-	outline:2px solid #f00;
-	text-decoration:none;
-}
-a>abbr,a>ins{
-	padding-bottom:0.2em;
-}
-del,s{
-	text-decoration:line-through;
-}
-code,samp,kbd{
-	font-family:monospace;
-}
-small{
-	font-size:0.75em;
-}
-img{
-	border:none;
-	font-style:italic;
-}
-input,select,textarea{
-	-webkit-border-radius:0;
-	-moz-border-radius:0;
-	border-radius:0;
-	font:inherit;
-}
-sup,sub{
-	font-size:75%;
-	vertical-align:top;
-}
-sub{
-	vertical-align:bottom;
-}
 
 /* Global FSSFive theme specific container and body styles
 --------------------------------------------------------------------------- */
-body{
+html{
 	background:#fff;
-	line-height:1.4;
-	font-family:Georgia, serif;
+	font:100%/1.4 Georgia, serif;
 }
 #wrapper {
 	max-width:58.5em;
@@ -319,7 +240,7 @@ input#s{
 
 /* Sidebar styles
 --------------------------------------------------------------------------- */
-#sidebar {
+#sidebar{
 	padding-bottom:1.25em;
 }
 #sidebar>ul{
