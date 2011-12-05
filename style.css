@@ -24,6 +24,9 @@ html{
 	max-width:58.5em;
 	padding:0 3.5%;
 }
+a {
+    text-decoration: none;
+}
 
 /* Global FSSFive text styles
 --------------------------------------------------------------------------- */
