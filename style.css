@@ -36,6 +36,12 @@ h1,h2,h3,h4,h5,h6{
 p,ul,ol,blockquote,figure{
 	margin-bottom: 1em;
 }
+a:link{
+	text-decoration:none;
+}
+a:hover{
+	text-decoration:underline;
+}
 
 /* Header branding styles
 --------------------------------------------------------------------------- */
@@ -52,8 +58,10 @@ h1#site-title{
 	padding:0.1em 0;
 }
 #site-title a{
-	border:0;
 	color:#000;
+}
+#site-title a:hover{
+	text-decoration:none;
 }
 #site-description{
 	font-size:1.25em;
@@ -98,9 +106,6 @@ input[type="submit"]:active {
 body.home h2.entry-title,body.blog h1.entry-title,body.single h1.entry-title,body.search h2.entry-title,body.archive h2.entry-title{
 	margin-bottom:0;
 }
-.entry-title a{
-	border:0;
-}
 blockquote{
 	border-left:5px solid #eee;
 	font-style:italic;
@@ -117,9 +122,9 @@ ol#search-results li{
 ol#search-results li p{
 	font-weight:normal;
 }
-.entry-utility ul,.comment-utility ul{
+.entry-utility ul li,.comment-utility ul li{
 	font-style:italic;
-	list-style:inside disc;
+	list-style:disc inside;
 	margin-left:0.2%;
 }
 #search-results .entry-utility ul li{
@@ -194,6 +199,11 @@ legend{
 	font-size: 1.2em;
 	font-weight: bold;
 	padding-bottom: 0.5em;
+}
+input,textarea,select{
+	font-family:inherit;
+	font-size:large;
+	font-weight:inherit;
 }
 input[type="url"],input[type="email"],input[type="search"],input[type="text"],textarea{
 	border:2px solid #000;
@@ -312,6 +322,9 @@ a.fl-text-underline>abbr{
 
 /* uiOptions black on white theme specific styles
 --------------------------------------------------------------------------- */
+.fl-theme-uio-bw a{
+	text-decoration:underline;
+}
 .fl-theme-uio-bw abbr{
 	background:transparent !important;
 }
@@ -338,6 +351,9 @@ a.fl-text-underline>abbr{
 
 /* uiOptions white on black theme specific styles
 --------------------------------------------------------------------------- */
+.fl-theme-uio-wb a{
+	text-decoration:underline;
+}
 .fl-theme-uio-wb abbr{
 	background:transparent !important;
 }
@@ -364,6 +380,9 @@ a.fl-text-underline>abbr{
 
 /* uiOptions black on yellow theme specific styles
 --------------------------------------------------------------------------- */
+.fl-theme-uio-by a{
+	text-decoration:underline;
+}
 .fl-theme-uio-by abbr{
 	background:transparent !important;
 }
@@ -390,6 +409,9 @@ a.fl-text-underline>abbr{
 
 /* uiOptions yellow on black theme specific styles
 --------------------------------------------------------------------------- */
+.fl-theme-uio-yb a{
+	text-decoration:underline;
+}
 .fl-theme-uio-yb abbr{
 	background:transparent !important;
 }
@@ -501,4 +523,27 @@ input#s{
 		margin:0;
 		width:50%;
 	}
+}
+
+/* Custom styles for abledaccess.com
+--------------------------------------------------------------------------- */
+.figure {
+	margin: 0 4.9em 0.75em;
+	position: relative;
+}
+.figure img {
+	width: 100%;
+}
+img.bio {
+	border: 2px solid #000;
+}
+figcaption {
+	background: #000;
+	background-color: rgba(0,0,0,0.5);
+	bottom: 1em;
+	color: #fff;
+	font-size: 75%;
+	right: 0.5em;
+	padding: 0.2em 0.35em;
+	position: absolute;
 }
