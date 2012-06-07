@@ -125,8 +125,6 @@ h1#site-title{
 }
 #site-title a:hover{
 	background:none;
-}
-#site-title a:hover{
 	text-decoration:none;
 }
 #site-description{
@@ -153,8 +151,11 @@ h1#site-title{
 	padding:0.20em 0.75em 0.25em;
 	text-decoration:none;
 }
+.fl-tabs li a:visited{
+	background:#fff;
+}
 .fl-tabs li a:focus{
-	border:2px solid #f00;
+	border:0.2em solid #f00;
 	outline:0 none;
 }
 /* 2 pixel downward shift on active tab links */
