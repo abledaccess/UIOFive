@@ -62,7 +62,7 @@
 
   <div class="flc-uiOptions-fatPanel fl-uiOptions-fatPanel">
       <!-- This is the div that will contain the UI Options component -->
-  	<div id="myUIOptions" class="flc-slidingPanel-panel flc-uiOptions-iframe"></div>     
+  	<div id="myUIOptions" class="flc-slidingPanel-panel flc-uiOptions-iframe"></div>
 
       <!-- This div is for the sliding panel that shows and hides the UI Options controls -->
   	<div class="fl-panelBar">
@@ -76,7 +76,12 @@
 	<script type="text/javascript">
 	    // Instantiate the UI Enhancer component, specifying the table of contents' template URL
 	    fluid.pageEnhancer({
-	        tocTemplate: "<?php bloginfo('template_url'); ?>/infusion/components/tableOfContents/html/TableOfContents.html"
+	        tocTemplate: "<?php bloginfo('template_url'); ?>/infusion/components/tableOfContents/html/TableOfContents.html",
+	        classnameMap: {
+	            theme: {
+	                "default": "uio-demo-theme"
+	            }
+	        }
 	    });
     
 	    // Start up UI Options

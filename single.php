@@ -39,7 +39,12 @@
 							</ul>
 
 					</footer><!-- /.entry-utility -->
+
 				</article><!-- /#post-<?php the_ID(); ?> -->
+
+			</section><!-- /#nav:content -->
+
+<?php get_sidebar(); ?>
 
 				<?php comments_template(); ?>
 
@@ -65,9 +70,5 @@
 					<?php include (TEMPLATEPATH . '/inc/not-found.php' ); ?>
 
 				<?php endif; ?>
-
-			</section><!-- /#nav:content -->
-
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>
