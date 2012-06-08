@@ -2,7 +2,7 @@
 
 		<div id="content-container" class="fl-clearfix fl-container fl-container-flex fl-push">
 
-			<section id="nav:content" class="fl-clearfix fl-col fl-container-flex75" role="main">
+			<section id="nav:content" class="fSS5-main fl-clearfix fl-col fl-container-flex75" role="main">
 
 				<?php if (have_posts()) : ?>
 
@@ -56,7 +56,7 @@
 
 				<?php endif; ?>
 
-			</section><!-- /#nav:content -->
+			</section><!-- /.fSS5-main -->
 
 <?php get_sidebar(); ?>
 

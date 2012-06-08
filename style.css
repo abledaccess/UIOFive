@@ -27,11 +27,11 @@ body{
 .no-js body{
 	border-top:0.5em solid #333;
 }
-#wrapper {
+.fSS5-wrapper {
 	max-width:58.5em;
 	padding:0 3.5%;
 }
-.no-js #wrapper {
+.no-js .fSS5-wrapper {
 	padding-top:1.245em;
 }
 
@@ -102,12 +102,12 @@ textarea{
 	font:inherit;
 }
 
-/* Header branding styles
+/* fSS5-banner styles
 --------------------------------------------------------------------------- */
 .no-js .fl-uiOptions-fatPanel .fl-panelBar {
     display:none;
 }
-.banner{
+.fSS5-banner{
 	padding:1em 0;
 }
 #site-title{
@@ -134,14 +134,17 @@ h1#site-title{
 }
 .fl-tabs{
 	border:0 none;
+	padding:0;
+}
+.fSS5-access{
 	font-weight:bold;
 	padding:1em 0.55em 0.5em;
 }
-.fl-tabs li{
+.fSS5-access li{
 	font-size:1.25em;
 	padding:0.25em 0.3em;
 }
-.fl-tabs li a{
+.fSS5-access li a{
 	-webkit-border-radius:2em;
 	-moz-border-radius:2em;
 	border-radius:2em;
@@ -151,15 +154,15 @@ h1#site-title{
 	padding:0.20em 0.75em 0.25em;
 	text-decoration:none;
 }
-.fl-tabs li a:visited{
+.fSS5-access li a:visited{
 	background:#fff;
 }
-.fl-tabs li a:focus{
+.fSS5-access li a:focus{
 	border:0.2em solid #f00;
 	outline:0 none;
 }
 /* 2 pixel downward shift on active tab links */
-.fl-tabs li a:active,
+.fSS5-access li a:active,
 input[type="submit"]:active {
 	background:#fff;
 	position:relative;
@@ -204,7 +207,11 @@ ol#search-results li p{
 .top{
 	font-style:normal;
 }
-#next-prev-links{
+.article-return{
+	display:none;
+}
+.fSS5-article-nav,
+.fSS5-comments-nav{
 	margin-bottom:2.5em;
 }
 .alignleft{
@@ -325,42 +332,42 @@ input#s{
 	width:50%;
 }
 
-/* Sidebar styles
+/* fSS5-complementry styles
 --------------------------------------------------------------------------- */
-#sidebar{
+.fSS5-complementry{
 	padding-bottom:1.25em;
 }
-#sidebar>ul{
+.fSS5-complementry>ul{
 	list-style:none;
 	padding-left:0.75em;
 }
-#sidebar h1,#sidebar h2,#sidebar h3,#sidebar h4,#sidebar h5,#sidebar h6{
+.fSS5-complementry h1,.fSS5-complementry h2,.fSS5-complementry h3,.fSS5-complementry h4,.fSS5-complementry h5,.fSS5-complementry h6{
 	font-size:1.25em;
 	margin-bottom:0.5em;
 }
-#sidebar ul li ul li{
+.fSS5-complementry ul li ul li{
 	list-style:inside disc;
 }
 
-/* Colophon footer styles
+/* fSS5-colophon footer styles
 --------------------------------------------------------------------------- */
-.contentinfo{
+.fSS5-contentinfo{
 	height:4em;
 	padding-bottom:2em;
 	position:relative;
 }
-#colophon{
+.fSS5-colophon{
 	margin:0 auto;
 	max-width:58.5em;
 }
-#colophon ul li{
+.fSS5-colophon ul li{
 	display:inline;
 	list-style:none;
 }
-#colophon ul li:before{
+.fSS5-colophon ul li:before{
 	content:"\2008\2014\2008";
 }
-#colophon ul li:first-child:before{
+.fSS5-colophon ul li:first-child:before{
 	content:"";
 }
 
@@ -411,14 +418,14 @@ a.fl-text-underline>abbr{
 .fl-theme-uio-bw .fl-uiOptions-fatPanel .fl-panelBar{
 	background-color:#000 !important;
 }
-.fl-theme-uio-bw .fl-tabs li, .fl-theme-uio-wb .fl-inverted-color .fl-tabs li{
+.fl-theme-uio-bw .fSS5-access li, .fl-theme-uio-wb .fl-inverted-color .fSS5-access li{
   background-color:#ffffff !important;
 }
-.fl-theme-uio-bw .fl-tabs li a{
+.fl-theme-uio-bw .fSS5-access li a{
 	background:#fff !important;
 	color:#000 !important;
 }
-.fl-theme-uio-bw .fl-tabs li a{  
+.fl-theme-uio-bw .fSS5-access li a{  
 	border-color:#000 !important;
 }
 .fl-theme-uio-bw .fl-widget, .fl-theme-uio-wb .fl-inverted-color .fl-widget {
@@ -440,14 +447,14 @@ a.fl-text-underline>abbr{
 .fl-theme-uio-wb .fl-uiOptions-fatPanel .fl-panelBar{
 	background-color:#fff !important;
 }
-.fl-theme-uio-wb .fl-tabs li, .fl-theme-uio-wb .fl-inverted-color .fl-tabs li{
+.fl-theme-uio-wb .fSS5-access li, .fl-theme-uio-wb .fl-inverted-color .fSS5-access li{
   background-color:#000 !important;
 }
-.fl-theme-uio-wb .fl-tabs li a{
+.fl-theme-uio-wb .fSS5-access li a{
 	background:#000 !important;
 	color:#fff !important;
 }
-.fl-theme-uio-wb .fl-tabs li a{  
+.fl-theme-uio-wb .fSS5-access li a{  
 	border-color:#fff !important;
 }
 .fl-theme-uio-wb .fl-widget, .fl-theme-uio-wb .fl-inverted-color .fl-widget {
@@ -469,14 +476,14 @@ a.fl-text-underline>abbr{
 .fl-theme-uio-by .fl-uiOptions-fatPanel .fl-panelBar{
 	background-color:#000 !important;
 }
-.fl-theme-uio-by .fl-tabs li, .fl-theme-uio-wb .fl-inverted-color .fl-tabs li{
+.fl-theme-uio-by .fSS5-access li, .fl-theme-uio-wb .fl-inverted-color .fSS5-access li{
   background-color:#ff0 !important;
 }
-.fl-theme-uio-by .fl-tabs li a{
+.fl-theme-uio-by .fSS5-access li a{
 	background:#ff0 !important;
 	color:#000 !important;
 }
-.fl-theme-uio-by .fl-tabs li a{  
+.fl-theme-uio-by .fSS5-access li a{  
 	border-color:#000 !important;
 }
 .fl-theme-uio-by .fl-widget, .fl-theme-uio-wb .fl-inverted-color .fl-widget {
@@ -498,14 +505,14 @@ a.fl-text-underline>abbr{
 .fl-theme-uio-yb .fl-uiOptions-fatPanel .fl-panelBar{
 	background-color:#ff0 !important;
 }
-.fl-theme-uio-yb .fl-tabs li, .fl-theme-uio-wb .fl-inverted-color .fl-tabs li{
+.fl-theme-uio-yb .fSS5-access li, .fl-theme-uio-wb .fl-inverted-color .fSS5-access li{
   background-color:#000 !important;
 }
-.fl-theme-uio-yb .fl-tabs li a{
+.fl-theme-uio-yb .fSS5-access li a{
 	background:#000 !important;
 	color:#ff0 !important;
 }
-.fl-theme-uio-yb .fl-tabs li a{  
+.fl-theme-uio-yb .fSS5-access li a{  
 	border-color:#ff0 !important;
 }
 .fl-theme-uio-yb .fl-widget, .fl-theme-uio-wb .fl-inverted-color .fl-widget {
@@ -545,7 +552,7 @@ input#s{
 	.fl-container-flex75,.fl-container-flex25{
 		float:none;
 	}
-	#sidebar>ul{
+	.fSS5-complementry>ul{
 		margin-left:0;
 	}
 	.fl-widget{
@@ -569,6 +576,9 @@ input#s{
 	input[type="url"],input[type="email"],input[type="search"],input[type="text"]{
 		width:97%;
 	}
+	li.article-return{
+		display:block;
+	}
 	textarea{
 		width:97%;
 	}
@@ -586,13 +596,13 @@ input#s{
 		margin-bottom:0.5em;
 		text-align:center;
 	}
-	.fl-tabs li{
+	.fSS5-access li{
 		clear:left;
 		display:block;
 		float:left;
 		margin:0 auto 0.25em;
 	}
-	.fl-tabs li a{
+	.fSS5-access li a{
 		clear:left;
 		display:block;
 		float:left;
@@ -602,45 +612,5 @@ input#s{
 		display:inline;
 		margin:0;
 		width:50%;
-	}
-}
-
-/* Custom styles for abledaccess.com
---------------------------------------------------------------------------- */
-.figure {
-	margin: 0 4.9em 0.75em;
-	position: relative;
-}
-.figure img {
-	width: 100%;
-}
-img.bio {
-	border: 2px solid #333;
-}
-figcaption {
-	background: #333;
-	background-color: rgba(0,0,0,0.5);
-	bottom: 1em;
-	color: #fff;
-	font-size: 75%;
-	right: 0.5em;
-	padding: 0.2em 0.35em;
-	position: absolute;
-}
-#ec_math_a{
-	width:4em;
-}
-
-/* Custom responsive screen styles for viewports from 320px (small screen) and exceeding 1024px (desktop and beyond) on abledaccess.com
---------------------------------------------------------------------------- */
-@media screen and (max-width: 768px) {
-	.figure {
-		margin: 0 2em 0.75em;
-	}
-}
-
-@media screen and (max-width: 480px) {
-	.figure {
-		margin: 0 1em 0.75em;
 	}
 }

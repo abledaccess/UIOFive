@@ -14,9 +14,9 @@ FSSFive employs a lot of the standard WordPress elements, id's and classes. Tt a
 FSSFive's Strength's
 
 1. As stated above, HTML5 and hNews Microformat compatible.
-2. FSSFive is aligned to the 12 column 960 grid system <http://960.gs>. 
-3. Comments are functioning/looking properly and are threaded. Though it is recommended you only allow threaded comments to be threaded 5 levels deep. Any levels deeper subsequent comments begin getting "cramped" looking (short horizontal lines). 
-4. uiOptions <http://wiki.fluidproject.org/display/fluid/UI+Options+API> is now active (FSSFive's reason for being). And functioning.
+2. FSSFive is aligned to a flexible 12 column 960 grid system <http://960.gs>. 
+3. Comments are functioning/looking properly and are threaded. 
+4. Added an fSS5 name space to specify custom styles should an author wish to further style the theme.
 5. A full CSS3 and HTML5 custom build of Modernizr <http://modernizr.com> is running on FSSFive. Including response.js to handle (as in allowing) media queries to function in IE 8 and below. 
 6. Plenty, but not all, regular id and class hooks throughout the theme to allow for predictable and additional WordPress customization.
 7. SEO benefits straight out of the box (SEO friendly page titles and SEO friendly indexation).

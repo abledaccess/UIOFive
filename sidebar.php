@@ -1,4 +1,4 @@
-			<aside id="sidebar" class="fl-clearfix fl-col fl-container-flex25" role="complementary">
+			<aside class="fSS5-complementry fl-clearfix fl-col fl-container-flex25" role="complementary">
 				<ul>
 				<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar() ) : ?>
 

@@ -15,10 +15,18 @@
 				?></h3>
 
 	<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
-				<div class="navigation">
-					<div class="alignleft"><?php previous_comments_link( __( '<span class="meta-nav">&larr;</span> Older Comments', 'FSSFive' ) ); ?></div>
-					<div class="alignright"><?php next_comments_link( __( 'Newer Comments <span class="meta-nav">&rarr;</span>', 'FSSFive' ) ); ?></div>
-				</div> <!-- /.navigation -->
+				<?php 
+				$next_posts = get_next_posts_link('&laquo; Older articles');
+				$prev_posts = get_previous_posts_link('Newer articles &raquo;');
+				if( $next_posts || $prev_posts ) { ?><nav class="fSS5-comments-nav">
+					<ul class="fl-container-flex fl-clearfix">
+						<?php if( $next_posts ) echo '<li class="alignleft">'.$next_posts.'</li>'; ?>
+
+						<?php if( $prev_posts ) echo '<li class="alignright">'.$prev_posts.'</li>'; ?>
+
+					</ul>
+				</nav><!-- /.fSS5-comments-nav -->
+				<?php } ?>
 	<?php endif; // check for comment navigation ?>
 
 						<ol class="commentlist">
@@ -28,10 +36,18 @@
 						</ol><!-- /.commentlist -->
 
 	<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
-				<div class="navigation">
-					<div class="alignleft"><?php previous_comments_link( __( '<span class="meta-nav">&larr;</span> Older Comments', 'FSSFive' ) ); ?></div>
-					<div class="alignright"><?php next_comments_link( __( 'Newer Comments <span class="meta-nav">&rarr;</span>', 'FSSFive' ) ); ?></div>
-				</div><!-- /.navigation -->
+				<?php 
+				$next_posts = get_next_posts_link('&laquo; Older articles');
+				$prev_posts = get_previous_posts_link('Newer articles &raquo;');
+				if( $next_posts || $prev_posts ) { ?><nav class="fSS5-comments-nav">
+					<ul class="fl-container-flex fl-clearfix">
+						<?php if( $next_posts ) echo '<li class="alignleft">'.$next_posts.'</li>'; ?>
+
+						<?php if( $prev_posts ) echo '<li class="alignright">'.$prev_posts.'</li>'; ?>
+
+					</ul>
+				</nav><!-- /.fSS5-comments-nav -->
+				<?php } ?>
 	<?php endif; // check for comment navigation ?>
 
 	<?php else : // or, if we don't have comments:

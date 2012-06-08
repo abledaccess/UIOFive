@@ -2,7 +2,7 @@
 
 		<div id="content-container" class="fl-clearfix fl-container fl-container-flex fl-push">
 
-			<section id="nav:content" class="fl-clearfix fl-col fl-container-flex75" role="main">
+			<section id="nav:content" class="fSS5-main fl-clearfix fl-col fl-container-flex75" role="main">
 
 				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -35,14 +35,14 @@
 								// neither comments nor pings are open ?>
 								Both comments and pings are currently closed.</li>
 							<?php } edit_post_link('Edit this article','<li>','.</li>'); ?>
-								<li><span class="top"><a href="#nav:page-top" title="Return to the TOP of this page">TOP</a></span></li>
+								<li class="article-return"><a href="#nav:page-top" title="Return to the TOP of this page">TOP</a></li>
 							</ul>
 
 					</footer><!-- /.entry-utility -->
 
 				</article><!-- /#post-<?php the_ID(); ?> -->
 
-			</section><!-- /#nav:content -->
+			</section><!-- /.fSS5-main -->
 
 <?php get_sidebar(); ?>
 
