@@ -10,6 +10,26 @@
 
 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
 
+<title><?php if (function_exists('is_tag') && is_tag()) {
+          single_tag_title('Tag Archive for &quot;'); echo '&quot; &mdash; ';
+    } elseif (is_archive()) {
+          wp_title(''); echo ' Archive &mdash; ';
+    } elseif (is_search()) {
+          echo 'Search for &quot;'.wp_specialchars($s).'&quot; &mdash; ';
+    } elseif (!(is_404()) && (is_single()) || (is_page())) {
+          wp_title(''); echo ' &mdash; ';
+    } elseif (is_404()) {
+          echo '404 Error &mdash; Page not found &mdash; ';
+    }
+    if (is_home()) {
+          bloginfo('name'); echo ' &mdash; '; bloginfo('description');
+    } else {
+          bloginfo('name');
+    }
+    if ($paged > 1) {
+          echo ' &mdash; Page '. $paged;
+    } ?></title>
+
 <?php if(is_home() && (!$paged || $paged == 1) || is_single() || is_page()) { ?>
 <meta name="googlebot" content="index,archive,follow,noodp" />
 <meta name="robots" content="all,index,follow" />
@@ -19,32 +39,31 @@
 <meta name="robots" content="noindex,follow" />
 <meta name="msnbot" content="noindex,follow" />
 <?php } ?>
+<?php $template_url = get_bloginfo( 'template_url', 'display' ); ?>
 
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/infusion/framework/fss/css/fss-reset-global.css" media="all" />
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/infusion/framework/fss/css/fss-layout.css" media="all" />
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/infusion/framework/fss/css/fss-text.css" media="all" />
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/infusion/components/uiOptions/css/fss/fss-theme-bw-uio.css" media="all" />
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/infusion/components/uiOptions/css/fss/fss-theme-wb-uio.css" media="all" />
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/infusion/components/uiOptions/css/fss/fss-theme-by-uio.css" media="all" />
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/infusion/components/uiOptions/css/fss/fss-theme-yb-uio.css" media="all" />
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/infusion/components/uiOptions/css/fss/fss-text-uio.css" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo $template_url; ?>/infusion/framework/fss/css/fss-reset-global.css" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo $template_url; ?>/infusion/framework/fss/css/fss-layout.css" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo $template_url; ?>/infusion/framework/fss/css/fss-text.css" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo $template_url; ?>/infusion/components/uiOptions/css/fss/fss-theme-bw-uio.css" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo $template_url; ?>/infusion/components/uiOptions/css/fss/fss-theme-wb-uio.css" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo $template_url; ?>/infusion/components/uiOptions/css/fss/fss-theme-by-uio.css" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo $template_url; ?>/infusion/components/uiOptions/css/fss/fss-theme-yb-uio.css" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo $template_url; ?>/infusion/components/uiOptions/css/fss/fss-text-uio.css" media="all" />
 
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/infusion/lib/jquery/ui/css/fl-theme-hc/hc.css" media="all" />
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/infusion/lib/jquery/ui/css/fl-theme-hci/hci.css" media="all" />
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/infusion/lib/jquery/ui/css/fl-theme-by/by.css" media="all" />
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/infusion/lib/jquery/ui/css/fl-theme-yb/yb.css" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo $template_url; ?>/infusion/lib/jquery/ui/css/fl-theme-hc/hc.css" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo $template_url; ?>/infusion/lib/jquery/ui/css/fl-theme-hci/hci.css" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo $template_url; ?>/infusion/lib/jquery/ui/css/fl-theme-by/by.css" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo $template_url; ?>/infusion/lib/jquery/ui/css/fl-theme-yb/yb.css" media="all" />
 
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/infusion/components/uiOptions/css/FatPanelUIOptions.css" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo $template_url; ?>/infusion/components/uiOptions/css/FatPanelUIOptions.css" media="all" />
 
 <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" media="all" />
 
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/infusion/MyInfusion.js"></script>
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/modernizr.js"></script>
+<script type="text/javascript" src="<?php echo $template_url; ?>/infusion/MyInfusion.js"></script>
+<script type="text/javascript" src="<?php echo $template_url; ?>/js/modernizr.js"></script>
 
-<title><?php if (function_exists('is_tag') && is_tag()) { single_tag_title("Tag Archive for &quot;"); echo'&quot; &mdash; '; } elseif (is_archive()) { wp_title(''); echo ' Archive &mdash; '; } elseif (is_search()) { echo 'Search for &quot;'.esc_html($s).'&quot; &mdash; '; } elseif (!(is_404()) && (is_single()) || (is_page())) { wp_title(''); echo ' &mdash; '; } elseif (is_404()) { echo '404 Error &mdash; Page not found &mdash; '; } if (is_home()) { bloginfo('name'); echo ' &mdash; '; bloginfo('description'); } else { bloginfo('name'); } ?><?php if ($paged>1) { echo ' &mdash; page '. $paged; } ?></title>
-
-<link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/favicon.ico" type="image/x-icon" />
-<link rel="apple-touch-icon" href="<?php bloginfo('template_url'); ?>/apple-touch-icon.png"/>
+<link rel="shortcut icon" href="<?php echo $template_url; ?>/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" href="<?php echo $template_url; ?>/apple-touch-icon.png"/>
 		
 <link rel="alternate" type="text/xml" title="<?php bloginfo('name'); ?> RSS 0.92 Feed" href="<?php bloginfo('rss_url'); ?>">
 <link rel="alternate" type="application/atom+xml" title="<?php bloginfo('name'); ?> Atom Feed" href="<?php bloginfo('atom_url'); ?>">
@@ -76,7 +95,7 @@
 	<script type="text/javascript">
 	    // Instantiate the UI Enhancer component, specifying the table of contents' template URL
 	    fluid.pageEnhancer({
-	        tocTemplate: "<?php bloginfo('template_url'); ?>/infusion/components/tableOfContents/html/TableOfContents.html",
+	        tocTemplate: "<?php echo $template_url; ?>/infusion/components/tableOfContents/html/TableOfContents.html",
 	        classnameMap: {
 	            theme: {
 	                "default": "uio-demo-theme"
@@ -86,7 +105,7 @@
     
 	    // Start up UI Options
 	    fluid.uiOptions.fatPanel(".flc-uiOptions-fatPanel", {
-	        prefix: "<?php bloginfo('template_url'); ?>/infusion/components/uiOptions/html/"
+	        prefix: "<?php echo $template_url; ?>/infusion/components/uiOptions/html/"
 	    });
 	</script>
 
@@ -96,7 +115,7 @@
 			<section class="fSS5-branding">
 				<?php $heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'div'; ?>
 
-				<<?php echo $heading_tag; ?> id="site-title"><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?> &mdash; Home" rel="home"><?php bloginfo( 'name' ); ?></a></<?php echo $heading_tag; ?>>
+				<<?php echo $heading_tag; ?> id="site-title"><a href="<?php echo esc_url(get_home_url()); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?> &mdash; Home" rel="home"><?php bloginfo( 'name' ); ?></a></<?php echo $heading_tag; ?>>
 				<p id="site-description"><?php bloginfo('description'); ?></p>
 			</section><!-- /.fSS5-branding -->
 
