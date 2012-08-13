@@ -1,26 +1,23 @@
 <?php get_header(); ?>
 
-		<div id="content-container" class="fl-clearfix fl-container fl-container-flex fl-push">
-
-			<section id="nav:content" class="fSS5-main fl-clearfix fl-col fl-container-flex75" role="main">
+			<section id="main" class="fSS5-main fl-clearfix fl-col fl-container-flex75" role="main">
 
 				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<header>
-						<h2 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Direct Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+						<h2 class="entry-title alpha"><?php the_title(); ?></h2>
 						<?php include (TEMPLATEPATH . '/inc/meta.php' ); ?>
 					</header>
-					<section class="entry-content">
+					<div class="entry-content">
 
 						<?php the_content('Continue reading "'.the_title('', '', false).'"...'); ?>
 
-					</section><!-- /.entry-content -->
+					</div><!-- /.entry-content -->
 					<footer class="entry-utility">
 							<ul>
 								<li><a href="<?php the_permalink() ?>" rel="bookmark" title="Direct Link to <?php the_title_attribute(); ?>">Direct link to &quot;<?php the_title(); ?>&quot;</a></li>
 								<li>Filed under <?php the_category(', '); ?> &mdash; <?php comments_popup_link('Comment on this post&hellip;', '1 comment on this post&hellip;', '% comments&hellip;'); ?></li>
-								<li class="article-return"><a href="#nav:page-top" title="Return to the top of this page">TOP</a></li>
 							</ul>
 
 					</footer><!-- /.entry-utility -->

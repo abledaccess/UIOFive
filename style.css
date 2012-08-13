@@ -1,51 +1,85 @@
 /*
 Theme Name:FSSFive
 Theme URI:http://github.com/abledaccess/fssfive
-Description:An HTML5 WordPress theme employing Fluid's Skinning System -- ... And the solution is inclusion
+Description:An HTML5 WordPress theme employing the Fluid Skinning System and UIO -- ... And the solution is inclusion
 Author:Johnny Taylor
 Author URI:http://abledaccess.com
-Version:2.0.2
+Version:2.1
 */
 
-/* Additional resets: HTML5 display role reset
---------------------------------------------------------------------------- */
-article,aside,details,figcaption,figure,footer,
-header,hgroup,menu,nav,section{
+/* Start (with a few alterations) normalize.css CSS consistency "framework" -- 
+   "A modern, HTML5-ready alternative to CSS resets."
+ * (http://necolas.github.com/normalize.css/)
+   --------------------------------------------------------------------------- */
+
+/* Corrects `block` display not defined in IE6/7/8/9 & FF3. */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary{
 	display:block;
 }
 
-/* Global FSSFive theme specific container and body styles
---------------------------------------------------------------------------- */
-html{
-	background:#fff;
-	color:#222;
-}
-body{
-	font-family:Georgia, serif;
-	line-height:1.4;
-}
-.no-js body{
-	border-top:0.5em solid #333;
-}
-.fSS5-wrapper {
-	max-width:58.5em;
-	padding:0 3.5%;
-}
-.no-js .fSS5-wrapper {
-	padding-top:1.245em;
+/* Corrects `inline-block` display not defined in IE6/7/8/9 & FF3. */
+audio,
+canvas,
+video{
+	display:inline-block;
+	*display:inline;
+	*zoom:1;
 }
 
-/* Global FSSFive text styles
---------------------------------------------------------------------------- */
-h1,h2,h3,h4,h5,h6{
-	font-size:1.75em;
-	font-weight:bold;
-	line-height:1.2em;
-	margin-bottom:0.75em;
+/* Prevents modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS5 devices. */
+audio:not([controls]) {
+	display:none;
+	height:0;
 }
-p,ul,ol,blockquote,figure{
-	margin-bottom: 1em;
+
+/* Addresses styling for `hidden` attribute not present in IE7/8/9, FF3, S4.
+ * Known issue: no IE6 support. */
+[hidden]{
+display:none;
 }
+
+/* Base
+   ----------------------------------- */
+
+/* 1. Corrects text resizing oddly in IE6/7 when body `font-size` is set using
+ *    `em` units.
+ * 2. Prevents iOS text size adjust after orientation change, without disabling
+ *    user zoom. */
+html{
+	font-size:100%; /* 1 */
+	-webkit-text-size-adjust:100%; /* 2 */
+	-ms-text-size-adjust:100%; /* 2 */
+}
+
+/* Addresses `font-family` inconsistency between `textarea` and other form
+ * elements. */
+html,
+button,
+input,
+select,
+textarea{
+	font-family:sans-serif;
+}
+
+/* Addresses margins handled incorrectly in IE6/7. */
+body{
+	margin:0;
+}
+
+/* Links
+   ----------------------------------- */
+
 a:link{
 	color:#00f;
 	text-decoration:underline;
@@ -61,94 +95,448 @@ a:hover{
 a:hover:visited{
 	background:#609;
 }
-abbr[title],dfn[title]{
-	cursor:help;
-	border-bottom:1px dotted;
-}
-strong,b,mark{
-	font-weight:bold;
-	font-style:inherit;
-}
-em,i,cite,q,address,dfn,var{
-	font-style:italic;
-	font-weight:inherit;
-}
-abbr[title],dfn[title]{
-	cursor:help;
-	border-bottom:1px dotted;
-}
-ins{
-	border-bottom:1px solid;
-}
-a,u,ins{
+a:focus,
+input:focus,
+textarea:focus,
+select:focus,
+button:focus{
+	outline:4px solid #f00;
+	position:relative;
 	text-decoration:none;
-}
-del,s{
-	text-decoration:line-through;
-}
-pre,code,samp,kbd{
-	font-family:monospace;
-}
-small{
-	font-size:0.75em;
-}
-img{
-	border:none;
-	font-style:italic;
-}
-input,
-select,option,optgroup,
-textarea{
-	font:inherit;
+	z-index:1000;
 }
 
-/* fSS5-banner styles
---------------------------------------------------------------------------- */
-.no-js .fl-uiOptions-fatPanel .fl-panelBar {
-    display:none;
+/* Typography
+   ----------------------------------- */
+
+/* Addresses font sizes and margins set differently in IE6/7.
+ * Addresses font sizes within `section` and `article` in FF4+, Chrome, S5. */
+h1,.alpha{
+	font-size:2em;
+	margin:0.67em 0;
 }
-.fSS5-banner{
-	padding:1em 0;
+h2,.beta{
+	font-size:1.5em;
+	margin:0.83em 0;
 }
-#site-title{
-	font-size:2.5em;
-	font-weight:bold;
+h3,.gamma{
+	font-size:1.17em;
+	margin:1em 0;
+}
+h4,.delta{
+	font-size:1em;
+	margin:1.33em 0;
+}
+h5,.epsilon{
+	font-size:0.83em;
+	margin:1.67em 0;
+}
+h6,.zeta{
+	font-size:0.75em;
+	margin:2.33em 0;
+}
+
+/* Addresses styling not present in IE7/8/9, S5, Chrome. */
+abbr[title]{
+	border-bottom:1px dotted;
+}
+
+/* Addresses style set to `bolder` in FF3+, S4/5, Chrome. */
+b,
+strong{
+	font-weight:700;
+}
+
+blockquote{
+	margin:1em 0;
+	padding:0 40px;
+}
+
+/* Addresses styling not present in S5, Chrome. */
+dfn{
+	font-style:italic;
+	font-weight:300;
+}
+
+/* Addresses styling not present in IE6/7/8/9. */
+mark{
+	background:#ff0;
+	color: #000;
+}
+
+/* Addresses margins set differently in IE6/7. */
+p,
+pre{
+	margin: 1em 0;
+}
+
+/* Corrects font family set oddly in IE6, S4/5, Chrome.
+ * en.wikipedia.org/wiki/User:Davidgothberg/Test59 */
+
+code,
+kbd,
+pre,
+samp{
+	font-family: monospace, serif;
+	_font-family: 'courier new', monospace;
+	font-size: 85%;
+}
+
+/* Improves readability of pre-formatted text in all browsers. */
+pre{
+	white-space:pre;
+	white-space:pre-wrap;
+	word-wrap:break-word;
+}
+
+/* Addresses CSS quotes not supported in IE6/7. */
+q{
+	quotes:none;
+}
+
+/* Addresses `quotes` property not supported in S4.*/
+q:before,
+q:after{
+	content:'';
+	content:none;
+}
+small{
+	font-size:100%;
+}
+
+/* Prevents `sub` and `sup` affecting `line-height` in all browsers.
+ * gist.github.com/413930 */
+sub,
+sup{
+	font-size:75%;
+	line-height:0;
+	position:relative;
+	vertical-align:baseline;
+}
+sup{
+	top:-0.5em;
+}
+sub{
+	bottom:-0.25em;
+}
+
+/* Lists
+   ----------------------------------- */
+
+/* Addresses margins set differently in IE6/7. */
+dl,
+menu,
+ol,
+ul{
+	margin:1em 0;
+}
+dd{
+	margin:0 0 0 40px;
+}
+
+/* Addresses paddings set differently in IE6/7. */
+menu,
+ol,
+ul{
+	padding:0;
+}
+
+/* Corrects list images handled incorrectly in IE7. */
+nav ul,
+nav ol {
+	list-style: none;
+	list-style-image: none;
+}
+
+/* Embedded content
+   ----------------------------------- */
+
+/* 1. Removes border when inside `a` element in IE6/7/8/9, FF3.
+ * 2. Improves image quality when scaled in IE7.
+ *    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+img{
+	border: 0; /* 1 */
+	-ms-interpolation-mode:bicubic; /* 2 */
+}
+
+/* Corrects overflow displayed oddly in IE9. */
+svg:not(:root){
+	overflow:hidden;
+}
+
+/* Figures
+  ----------------------------------- */
+
+/* Addresses margin not present in IE6/7/8/9, S5, O11. */
+figure{
 	margin:0;
-	padding:0.45em 0;
 }
-h1#site-title{
-	padding:0.1em 0;
+
+/* Forms
+   ----------------------------------- */
+
+/* Corrects margin displayed oddly in IE6/7. */
+form{
+	margin:0;
 }
-#site-title a{
+
+/* Define consistent border, margin, and padding. */
+fieldset{
+	border:1px solid #555;
+	margin:0 2px;
+	padding: 0.35em 0.625em 0.75em;
+}
+
+/* 1. Corrects color not being inherited in IE6/7/8/9.
+ * 2. Corrects text not wrapping in FF3.
+ * 3. Corrects alignment displayed oddly in IE6/7. */
+legend{
+	border:0; /* 1 */
+	padding:0;
+	white-space:normal; /* 2 */
+	*margin-left:-7px; /* 3 */
+}
+
+/* 1. Corrects font size not being inherited in all browsers.
+ * 2. Addresses margins set differently in IE6/7, FF3+, S5, Chrome.
+ * 3. Improves appearance and consistency in all browsers. */
+button,
+input,
+select,
+textarea{
+	font-size:100%; /* 1 */
+	margin:0; /* 2 */
+	vertical-align:baseline; /* 3 */
+	*vertical-align:middle; /* 3 */
+}
+
+/* Addresses FF3/4 setting `line-height` on `input` using `!important` in the
+ * UA stylesheet. */
+button,
+input{
+	line-height:normal;
+}
+
+/* 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Corrects inability to style clickable `input` types in iOS.
+ * 3. Improves usability and consistency of cursor style between image-type
+ *    `input` and others.
+ * 4. Removes inner spacing in IE7 without affecting normal text inputs.
+ *    Known issue: inner spacing remains in IE6. */
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"]{
+	-webkit-appearance:button; /* 2 */
+	cursor:pointer; /* 3 */
+	*overflow:visible;  /* 4 */
+}
+
+/* Re-set default cursor for disabled elements. */
+button[disabled],
+input[disabled]{
+	cursor:default;
+}
+
+/* 1. Addresses box sizing set to content-box in IE8/9.
+ * 2. Removes excess padding in IE8/9.
+ * 3. Removes excess padding in IE7.
+ *    Known issue: excess padding remains in IE6. */
+input[type="checkbox"],
+input[type="radio"]{
+	box-sizing:border-box; /* 1 */
+	padding:0; /* 2 */
+	*height:13px; /* 3 */
+	*width:13px; /* 3 */
+}
+
+/* 1. Addresses `appearance` set to `searchfield` in S5, Chrome.
+ * 2. Addresses `box-sizing` set to `border-box` in S5, Chrome (include `-moz`
+ *    to future-proof). */
+input[type="search"]{
+	-webkit-appearance:textfield; /* 1 */
+	-moz-box-sizing:content-box;
+	-webkit-box-sizing:content-box; /* 2 */
+	box-sizing:content-box;
+}
+
+/* Removes inner padding and search cancel button in S5, Chrome on OS X. */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration{
+	-webkit-appearance:none;
+}
+
+/* Removes inner padding and border in FF3+. */
+button::-moz-focus-inner,
+input::-moz-focus-inner{
+	border:0;
+	padding:0;
+}
+
+/* 1. Removes default vertical scrollbar in IE6/7/8/9.
+ * 2. Improves readability and alignment in all browsers. */
+textarea{
+	overflow:auto; /* 1 */
+	vertical-align:top; /* 2 */
+}
+
+/* Tables
+   ----------------------------------- */
+
+/* Remove most spacing between table cells. */
+table{
+	border-collapse:collapse;
+	border-spacing:0;
+}
+
+/* Additional resets
+   ----------------------------------- */
+
+/* Flexible image media plus visually altering alt text from 
+   the text that surrounds it should an image not load. */
+img{
+	color:#f00;
+	font-style:italic;
+	font-weight:300;
+	height: auto;
+	max-width: 100%;
+}
+
+/* Text for screen readers. */
+.fSS5-screen-reader-text{
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding:0 !important;
+  border:0 !important;
+  height: 1px !important; 
+  width: 1px !important; 
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------- 
+   End normalize.css */
+
+/* Start fSS5 theme styles
+   --------------------------------------------------------------------------- */
+
+html{
+	background:#fff;
+	color:#333;
+}
+body{
+	font-family:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, "Lucida Grande", sans-serif;
+	font-size:125%;
+	font-weight:normal;
+	line-height:1.5;
+}
+.fSS5-theme{
+	background:#f7f7f7;
+}
+
+/* fSS5-skip-links
+   ----------------------------------- */
+
+.fSS5-skip-links a{
+	position:absolute;
+	top:-99em;
+	left:1em;
+	z-index:100;
+}
+.fSS5-skip-links a:focus{
+	top:0.9em;
+}
+
+/* UIOptions
+   ----------------------------------- */
+
+.fl-uiOptions-fatPanel .fl-toggleButton{
+	border:3px solid;
+	border-top-width:0;
+	-webkit-border-radius:0;
+	-moz-border-radius:0;
+	border-radius:0;
+	cursor:pointer;
+	font-size:0.75em;
+	font-weight:700;
+	margin-top:0;
+	margin-right:1.35em;
+	padding:0.55em;
+}
+.no-js .fl-toggleButton{
+	display:none;
+}
+.fl-uiOptions-fatPanel .fl-panelBar{
+	background-color:#333;
+	border:0;
+	height:0.5em;
+	position:relative;
+	z-index:100;
+}
+
+/* fSS5-wrapper
+   ----------------------------------- */
+
+.fSS5-wrapper{
+	max-width:38.5em;
+	padding:0.5em 1em 4em;
+	position:relative;
+}
+.lt-ie9 .fSS5-wrapper{
+	max-width:auto;
+	width:35em;
+}
+
+/* fSS5-banner
+   ----------------------------------- */
+
+.site-title{
+	font-size:3em;
+	font-weight:700;
+	margin:0.335em 0;
+}
+.site-title a{
 	color:#333;
 	text-decoration:none;
 }
-#site-title a:hover{
-	background:none;
-	text-decoration:none;
+.lt-ie7 .site-title a,
+.lt-ie7 .site-title a:visited{
+	background:#f7f7f7;
 }
-#site-description{
-	font-size:1.25em;
-	font-weight:bold;
-	margin:0;
+.site-title a:hover{
+	background:transparent;
 }
 .fl-tabs{
 	border:0 none;
 	padding:0;
 }
-.fSS5-access{
-	font-weight:bold;
-	padding:1em 0.55em 0.5em;
+.fSS5-access ul{
+	display:none;
+	margin-bottom:0.35em;
+}
+.no-js .fSS5-access ul{
+	display:block;
+}
+.fSS5-access select{
+	width:100%;
+}
+.lt-ie8 .fSS5-access select{
+	display:none;
+}
+.fSS5-access ul{
+	margin-top:0.15em;
 }
 .fSS5-access li{
-	font-size:1.25em;
-	padding:0.25em 0.3em;
+	font-size:1.15em;
+	font-weight:bold;
+	padding:0.15em 0.2em;
 }
 .fSS5-access li a{
 	-webkit-border-radius:2em;
 	-moz-border-radius:2em;
 	border-radius:2em;
-	border-width:0.15em;
+	border-width:3px;
 	border-color:#444;
 	color:#222;
 	padding:0.20em 0.75em 0.25em;
@@ -157,62 +545,54 @@ h1#site-title{
 .fSS5-access li a:visited{
 	background:#fff;
 }
-.fSS5-access li a:focus{
-	border:0.2em solid #f00;
-	outline:0 none;
-}
-/* 2 pixel downward shift on active tab links */
-.fSS5-access li a:active,
-input[type="submit"]:active {
-	background:#fff;
-	position:relative;
-	top:2px;
-}
 
-/* Main content styles
---------------------------------------------------------------------------- */
-.type-post,.type-page{
-	margin-right:0.25em;
-	padding-bottom:1.25em;
+/* fSS-main
+   ----------------------------------- */
+
+.fl-container-flex75,.fl-container-flex25{
+	float:none;
 }
-body.home h2.entry-title,body.blog h1.entry-title,body.single h1.entry-title,body.search h2.entry-title,body.archive h2.entry-title{
-	margin-bottom:0;
+.lt-ie8 .fl-container-flex75,.lt-ie8 .fl-container-flex25{
+	width:100%;
+}
+.entry-content{
+	margin-bottom:2em;
+}
+.entry-title{
+	margin-bottom:-0.25em;
+}
+.entry-sub-head,
+.widget-title{
+	margin-bottom:-0.2em;
+}
+i,
+em{
+	font-style:italic;
+	font-weight:300;
+}
+.figure{
+	margin-top:1.75em;
+}
+.lt-ie8 .figure img{
+	margin-bottom:0.25em;
+}
+blockquote,
+.figcaption{
+	color:#555;
+	font-size:85%;
+	line-height:1.8;
 }
 blockquote{
-	border-left:5px solid #eee;
-	font-style:italic;
-	padding-left:1.75em;
+	border-left:3px solid #ccc;
 }
-#search-results{
-	font-weight:bold;
-	margin-left:2em;
+.entry-utility{
+	margin:2em 0;
 }
-ol#search-results li{
-	list-style:decimal;
-	margin-bottom:2.5em;
+.entry-utility li{
+	list-style:disc outside;
 }
-ol#search-results li p{
-	font-weight:normal;
-}
-.entry-utility ul li,.comment-utility ul li{
-	font-style:italic;
-	list-style:disc inside;
-	margin-left:0.2%;
-}
-#search-results .entry-utility ul li{
-	font-weight:normal;
-	list-style:inside disc;
-	margin:0 0 0 0.2em;
-}
-.top{
-	font-style:normal;
-}
-.article-return{
-	display:none;
-}
-.fSS5-article-nav,
-.fSS5-comments-nav{
-	margin-bottom:2.5em;
+.fSS5-article-nav{
+	margin:2em 0;
 }
 .alignleft{
 	list-style:none;
@@ -223,434 +603,387 @@ ol#search-results li p{
 	float:right;
 }
 
-/* Comment styles
---------------------------------------------------------------------------- */
-#comments{
-	margin-right:1.4%;
+/* Comments
+   ----------------------------------- */
+
+.fSS5-comment{
+	margin:0 2em;
 }
-#reply-title{
-	margin:0;
+ol.fSS5-commentlist>li{
+	list-style:decimal outside;
 }
-ol.commentlist,ol.commentlist ul {
-	list-style:none;
-}
-ol.commentlist img.avatar{
+.fSS5-commentlist .avatar{
 	float:left;
 	height:3.75em;
 	margin:0.15em 1.25em 0 0;
 	width:3.75em;
 }
-ol.commentlist cite.fn{
+.fSS5-commentlist cite.fn{
 	font-size:1.25em;
-	font-weight:bold;
+	font-weight:700;
 }
-ol.commentlist .comment-content{
+.fSS5-commentlist .comment-content{
 	padding-left:5em;
 }
-ol.commentlist .comment-utility{
+.fSS5-commentlist .comment-utility{
 	clear:left;
 	margin:0 0 2em 5em;
 }
-ol.commentlist .comment{
+.fSS5-commentlist .comment{
 	margin:0 0.3em 2.5em 0;
 }
-ol.commentlist .comment.depth-2,ol.commentlist .comment.depth-3,ol.commentlist .comment.depth-4,ol.commentlist .comment.depth-4,ol.commentlist .comment.depth-5,ol.commentlist .comment.depth-7,ol.commentlist .comment.depth-8,ol.commentlist .comment.depth-9,ol.commentlist .comment.depth-10{
+.fSS5-commentlist .comment.depth-2,
+.fSS5-commentlist .comment.depth-3,
+.fSS5-commentlist .comment.depth-4,
+.fSS5-commentlist .comment.depth-4,
+.fSS5-commentlist .comment.depth-5,
+.fSS5-commentlist .comment.depth-7,
+.fSS5-commentlist .comment.depth-8,
+.fSS5-commentlist .comment.depth-9,
+.fSS5-commentlist .comment.depth-10{
 	clear:left;
 	margin:0 0 2em 5em;
 }
-ol.commentlist .comment-reply:before{
-	content:"\2008\2014\2008";
+.comment-reply{
+	padding-left:0.75em;
 }
 #respond{
-	margin-bottom:2.5em;
+	margin-bottom:2em;
 }
 
-/* Form styles
---------------------------------------------------------------------------- */
+/* Forms
+   ----------------------------------- */
 fieldset{
-	border:0;
-	padding-bottom:1em;
+	border:2px solid #dedede;
+	margin:1em 0;
 }
 legend{
-	font-size: 1.2em;
-	font-weight: bold;
-	padding-bottom: 0.5em;
+	font-size:125%;
+	font-weight:bold;
 }
 input,textarea,select{
 	font-family:inherit;
-	font-size:large;
+	font-size:100%;
 	font-weight:inherit;
 }
-input[type="url"],input[type="email"],input[type="search"],input[type="text"],textarea{
-	border:0.2em solid #333;
-	border-color:#444;
+input.text,
+input#author,
+input#email,
+input#url,
+textarea{
+	border:3px solid #333;
 	-webkit-border-radius:0;
 	-moz-border-radius:0;
 	border-radius:0;
 	display:block;
 	margin:0.25em 0 0.75em;
-	outline:0 none;
 	padding:0.25em;
-	width:41.5%;
+	width:50%;
 }
-input[type="url"]:focus,input[type="email"]:focus,input[type="search"]:focus,input[type="text"]:focus,textarea:focus,input[type="submit"]:focus{
-	border:0.2em solid #f00;
-	outline:0 none;
-}
-input[type="checkbox"]:focus {
-	border:0 none;
-	outline:2px solid #f00;
+input#s{
+	border:3px solid #333;
+	display:inline;
+	margin:0;
+	margin-right:0.05em;
+	padding:0.25em;
+	width:80%;
 }
 textarea{
-	-webkit-border-radius:0;
-	-moz-border-radius:0;
-	border-radius:0;
-	width:76.1%;
+	width:80%;
 }
-input[type="submit"]{
-	background:#fff;
-	border-color:#444;
-	-webkit-border-radius:2em;
-	-moz-border-radius:2em;
-	border-radius:2em;
-	border:0.2em solid #333;
-	color:#333;
+input.button,
+input#submit{
 	cursor:pointer;
-	font-size:medium;
-	font-weight:bold;
-	padding:0.25em 0.75em;
+	margin:0.5em 0;
+	padding:0.25em 0.5em;
 }
-article input[type="submit"]{
-	margin-top:0.5em;
+
+/* fSS-complementary
+   ----------------------------------- */
+
+.fSS5-commentlist>li{
+	list-style:none;
 }
-input[type="checkbox"]{
-	font-size:large;
+.fSS5-complementry>ul{
+	margin:0;
+}
+.fl-widget{
+	display:inline-block;
+	margin:0;
+	padding:0;
+	vertical-align:top;
+	width:47%;
+}
+/* IE7 hack to mimic inline-block on block elements */
+.lt-ie8 .fl-widget{
+	*display:inline;
+	*zoom:1;
+}
+.widget_search{
+	width:100%;
 }
 input#s{
 	display:inline;
 	margin:0;
-	width:50%;
+	margin-bottom:1.5em;
+	width:70%;
 }
 
-/* fSS5-complementry styles
---------------------------------------------------------------------------- */
-.fSS5-complementry{
-	padding-bottom:1.25em;
-}
-.fSS5-complementry>ul{
-	list-style:none;
-	padding-left:0.75em;
-}
-.fSS5-complementry h1,.fSS5-complementry h2,.fSS5-complementry h3,.fSS5-complementry h4,.fSS5-complementry h5,.fSS5-complementry h6{
-	font-size:1.25em;
-	margin-bottom:0.5em;
-}
-.fSS5-complementry ul li ul li{
-	list-style:inside disc;
-}
+/* fSS-contentinfo
+   ----------------------------------- */
 
-/* fSS5-colophon footer styles
---------------------------------------------------------------------------- */
 .fSS5-contentinfo{
-	height:4em;
-	padding-bottom:2em;
-	position:relative;
+	margin-left:-0.25em;
 }
-.fSS5-colophon{
-	margin:0 auto;
-	max-width:58.5em;
-}
-.fSS5-colophon ul li{
+.fSS5-contentinfo li{
 	display:inline;
-	list-style:none;
-}
-.fSS5-colophon ul li:before{
-	content:"\2008\2014\2008";
-}
-.fSS5-colophon ul li:first-child:before{
-	content:"";
+	float:left;
+	padding:0 0.25em;
 }
 
-/* uiOptions fat panel specific styles
---------------------------------------------------------------------------- */
-.fl-uiOptions-fatPanel{
-	border-bottom:0.5em solid #333;
-}
-.fl-uiOptions-fatPanel .fl-panelBar{
-	background-color:#333;
-	border:0;
-	height:0;
-}
-.fl-uiOptions-fatPanel .fl-toggleButton{
-	border:0.25em solid;
-	border-top-width:0;
-	-webkit-border-radius:0;
-	-moz-border-radius:0;
-	border-radius:0;
-	cursor:pointer;
-	font-family:Georgia, serif;
-	font-size:0.9em;
-	margin-top:0;
-	margin-right:3.5%;
-	padding:0.35em 0.55em;
-	position:relative;
-}
-.fl-uiOptions-fatPanel .fl-toggleButton:focus{
-	border:2px solid #f00;
-	border-top-width:0;
-	outline:0 none;
-}
-.fl-text-underline{
-	border:0;
-}
-a.fl-text-underline>abbr{
-	padding:0;
-}
+/* UIOptions black on white theme styles
+   ----------------------------------- */
 
-/* uiOptions black on white theme specific styles
---------------------------------------------------------------------------- */
-.fl-theme-uio-bw a{
-	text-decoration:underline;
-}
-.fl-theme-uio-bw abbr{
-	background:transparent !important;
+.fl-theme-uio-bw abbr,
+.fl-theme-uio-bw a.fl-text-underline{
+	background:#fff !important;
 }
 .fl-theme-uio-bw .fl-uiOptions-fatPanel .fl-panelBar{
 	background-color:#000 !important;
 }
-.fl-theme-uio-bw .fSS5-access li, .fl-theme-uio-wb .fl-inverted-color .fSS5-access li{
-  background-color:#ffffff !important;
+.fl-theme-uio-bw .fSS5-access li,
+.fl-theme-uio-wb .fl-inverted-color .fSS5-access li{
+  background-color:#fff !important;
 }
 .fl-theme-uio-bw .fSS5-access li a{
 	background:#fff !important;
 	color:#000 !important;
 }
-.fl-theme-uio-bw .fSS5-access li a{  
-	border-color:#000 !important;
-}
-.fl-theme-uio-bw .fl-widget, .fl-theme-uio-wb .fl-inverted-color .fl-widget {
+.fl-theme-uio-bw .fl-widget,
+.fl-theme-uio-bw .fl-inverted-color .fl-widget {
 	background-color:#fff !important;
 	border:0 none !important;
 }
-.fl-theme-uio-bw a.fl-text-underline{
-	background:transparent !important;
-}
 
-/* uiOptions white on black theme specific styles
---------------------------------------------------------------------------- */
-.fl-theme-uio-wb a{
-	text-decoration:underline;
+/* UIOptions white on black theme styles
+   ----------------------------------- */
+
+.fl-theme-uio-wb a:focus,
+.fl-theme-uio-wb input:focus,
+.fl-theme-uio-wb textarea:focus,
+.fl-theme-uio-wb select:focus,
+.fl-theme-uio-wb button:focus{
+	outline-color:#ff0;
 }
-.fl-theme-uio-wb abbr{
-	background:transparent !important;
+.fl-theme-uio-wb abbr,
+.fl-theme-uio-wb a.fl-text-underline{
+	background:#000 !important;
 }
 .fl-theme-uio-wb .fl-uiOptions-fatPanel .fl-panelBar{
 	background-color:#fff !important;
 }
-.fl-theme-uio-wb .fSS5-access li, .fl-theme-uio-wb .fl-inverted-color .fSS5-access li{
+.fl-theme-uio-wb .fSS5-access li,
+.fl-theme-uio-wb .fl-inverted-color .fSS5-access li{
   background-color:#000 !important;
 }
 .fl-theme-uio-wb .fSS5-access li a{
 	background:#000 !important;
 	color:#fff !important;
 }
-.fl-theme-uio-wb .fSS5-access li a{  
-	border-color:#fff !important;
-}
-.fl-theme-uio-wb .fl-widget, .fl-theme-uio-wb .fl-inverted-color .fl-widget {
+.fl-theme-uio-wb .fl-widget,
+.fl-theme-uio-wb .fl-inverted-color .fl-widget {
 	background-color:#000 !important;
 	border:0 none !important;
 }
-.fl-theme-uio-wb a.fl-text-underline{
-	background:transparent !important;
-}
 
-/* uiOptions black on yellow theme specific styles
---------------------------------------------------------------------------- */
-.fl-theme-uio-by a{
-	text-decoration:underline;
+/* UIOptions black on yellow theme styles
+   ----------------------------------- */
+
+.fl-theme-uio-by a:focus,
+.fl-theme-uio-by input:focus,
+.fl-theme-uio-by textarea:focus,
+.fl-theme-uio-by select:focus,
+.fl-theme-uio-by button:focus{
+	outline-color:#39f;
 }
-.fl-theme-uio-by abbr{
-	background:transparent !important;
+.fl-theme-uio-by abbr,
+.fl-theme-uio-by a.fl-text-underline{
+	background:#ff0 !important;
 }
 .fl-theme-uio-by .fl-uiOptions-fatPanel .fl-panelBar{
 	background-color:#000 !important;
 }
-.fl-theme-uio-by .fSS5-access li, .fl-theme-uio-wb .fl-inverted-color .fSS5-access li{
+.fl-theme-uio-by .fSS5-access li,
+.fl-theme-uio-wb .fl-inverted-color .fSS5-access li{
   background-color:#ff0 !important;
 }
 .fl-theme-uio-by .fSS5-access li a{
 	background:#ff0 !important;
 	color:#000 !important;
 }
-.fl-theme-uio-by .fSS5-access li a{  
-	border-color:#000 !important;
-}
-.fl-theme-uio-by .fl-widget, .fl-theme-uio-wb .fl-inverted-color .fl-widget {
+.fl-theme-uio-by .fl-widget,
+.fl-theme-uio-wb .fl-inverted-color .fl-widget {
 	background-color:#ff0 !important;
 	border:0 none !important;
 }
-.fl-theme-uio-by a.fl-text-underline{
-	background:transparent !important;
-}
 
-/* uiOptions yellow on black theme specific styles
---------------------------------------------------------------------------- */
-.fl-theme-uio-yb a{
-	text-decoration:underline;
+/* UIOptions yellow on black theme styles
+   ----------------------------------- */
+
+.fl-theme-uio-yb a:focus,
+.fl-theme-uio-yb input:focus,
+.fl-theme-uio-yb textarea:focus,
+.fl-theme-uio-yb select:focus,
+.fl-theme-uio-yb button:focus{
+	outline-color:#fff;
 }
-.fl-theme-uio-yb abbr{
-	background:transparent !important;
+.fl-theme-uio-yb abbr,
+.fl-theme-uio-yb a.fl-text-underline{
+	background:#000 !important;
 }
 .fl-theme-uio-yb .fl-uiOptions-fatPanel .fl-panelBar{
 	background-color:#ff0 !important;
 }
-.fl-theme-uio-yb .fSS5-access li, .fl-theme-uio-wb .fl-inverted-color .fSS5-access li{
+.fl-theme-uio-yb .fSS5-access li,
+.fl-theme-uio-wb .fl-inverted-color .fSS5-access li{
   background-color:#000 !important;
 }
 .fl-theme-uio-yb .fSS5-access li a{
 	background:#000 !important;
 	color:#ff0 !important;
 }
-.fl-theme-uio-yb .fSS5-access li a{  
-	border-color:#ff0 !important;
-}
-.fl-theme-uio-yb .fl-widget, .fl-theme-uio-wb .fl-inverted-color .fl-widget {
+.fl-theme-uio-yb .fl-widget,
+.fl-theme-uio-wb .fl-inverted-color .fl-widget {
 	background-color:#000 !important;
 	border:0 none !important;
 }
-.fl-theme-uio-yb a.fl-text-underline{
-	background:transparent !important;
-}
 
-/* Responsive screen styles for viewports from 320px (small screen) and exceeding 1024px (desktop and beyond)
---------------------------------------------------------------------------- */
-@media screen and (max-width: 1024px){
-	input#s{
-		width:40%;
+/* --------------------------------------------------------------------------- 
+   End fSS5 theme styles */
+
+/* Start media queries
+   --------------------------------------------------------------------------- */
+
+@media only screen{
+	*{
+		-webkit-box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		box-sizing:border-box;
 	}
-}
-
-@media screen and (max-width: 768px){
-input#s{
-		display:block;
-		margin-bottom:0.25em;
+	.fl-toggleButton{
+		display:none;
+	}
+	.entry-utility li{
+		list-style:disc inside;
+	}
+	.fSS5-commentlist .comment-content{
+		padding:0;
+	}
+	.fSS5-commentlist .comment-utility{
+		margin:0;
+	}
+	select{
+		-webkit-appearance:none;
+		background-image: url("images/dropdown-icon.png");
+		background-position:right center;
+		background-repeat:no-repeat;
+		background-size:contain;
+		-webkit-border-radius:0;
+		-moz-border-radius:0;
+		border-radius:0;
+		border:3px solid #444;
+		font-weight:bold;
+		padding:0.25em 0.35em;
+	}
+	input.button,
+	input#submit{
+		background:#fff;
+		-webkit-border-radius:2em;
+		-moz-border-radius:2em;
+		border-radius:2em;
+		border:3px solid #333;
+		color:#333;
+		font-weight:700;
+	}
+	input[type="url"],input[type="email"],input[type="search"],input[type="text"],textarea{
 		width:80%;
 	}
-	ol.commentlist .comment.depth-2,ol.commentlist .comment.depth-3,ol.commentlist .comment.depth-4,ol.commentlist .comment.depth-4,ol.commentlist .comment.depth-5,ol.commentlist .comment.depth-7,ol.commentlist .comment.depth-8,ol.commentlist .comment.depth-9,ol.commentlist .comment.depth-10 {
-		margin:0;
+	input#s{
+		width:72%;
 	}
-	ol.commentlist .comment.depth-2{
+	.fSS5-colophon li,
+	.comment-reply{
+		padding:0;
+	}
+	.fSS5-colophon li:before,
+	.comment-reply:before{
+		content:"\2008\2014\2008";
+	}
+	.fSS5-colophon li:first-child:before{
+		content:"";
+	}
+}
+
+@media screen and (min-width:34em){
+	.fl-uiOptions-fatPanel .fl-toggleButton{
+		margin-right:2.7em;
+	}
+	.fl-toggleButton{
+		display:block;
+	}
+	.fSS5-wrapper{
+		padding:0.5em 2em 4em;
+	}
+	.fSS5-access ul{
+		display:block;
+	}
+	.fSS5-access select{
+		display:none;
+	}
+	.entry-utility li{
+		list-style:disc outside;
+	}
+	input[type="url"],input[type="email"],input[type="search"],input[type="text"]{
+		width:50%;
+	}
+}
+
+@media screen and (min-width:50em){
+	.fSS5-wrapper{
+		max-width:54em;
+	}
+	.fSS5-skip-links a{
+		left:2em;
+	}
+	.fSS5-access ul{
+		display:block;
+	}
+	.fSS5-access select{
+		display:none;
+	}
+	.fl-container-flex75,.fl-container-flex25{
+		float:left;
+	}
+	.fSS5-main{
+		padding-right:2em;
+	}
+	.fSS5-commentlist .comment-content{
 		padding-left:5em;
 	}
-	#colophon ul li{
-		width:50%;
+	.fSS5-commentlist .comment-utility{
+		margin-left:5em;
 	}
-}
-
-@media screen and (max-width: 640px){
-	.fl-container-flex75,.fl-container-flex25{
-		float:none;
-	}
-	.fSS5-complementry>ul{
-		margin-left:0;
+	.fSS5-complementry{
+		margin-top:0.5em;
 	}
 	.fl-widget{
-		display:inline-block;
-		padding:0;
-		width:50%;
-		vertical-align:top;
-	}
-	.widget_search{
-		margin-bottom:2em;
-		width:100%;
+		display:block;
+		width:auto;
 	}
 	input#s{
-		display:inline;
-		margin:0;
-		width:70%;
+		width:45%;
 	}
 }
 
-@media screen and (max-width: 480px){
-	input[type="url"],input[type="email"],input[type="search"],input[type="text"]{
-		width:97%;
-	}
-	li.article-return{
-		display:block;
-	}
-	textarea{
-		width:97%;
-	}
-}
-
-@media screen and (max-width: 320px){
-	body{
-		border:0;
-	}
-	#branding{
-		padding:1em 0 0;
-	}
-	.fl-tabs{
-		padding:0;
-		margin-bottom:0.5em;
-		text-align:center;
-	}
-	.fSS5-access li{
-		clear:left;
-		display:block;
-		float:left;
-		margin:0 auto 0.25em;
-	}
-	.fSS5-access li a{
-		clear:left;
-		display:block;
-		float:left;
-		min-width:10em;
-	}
-	input#s{
-		display:inline;
-		margin:0;
-		width:50%;
-	}
-}
-
-/* Custom styles for abledaccess.com
---------------------------------------------------------------------------- */
-.figure {
-	margin: 0 4.9em 0.75em;
-	position: relative;
-}
-.figure img {
-	width: 100%;
-}
-img.bio {
-	border: 2px solid #333;
-}
-figcaption {
-	background: #333;
-	background-color: rgba(0,0,0,0.5);
-	bottom: 1em;
-	color: #fff;
-	font-size: 75%;
-	right: 0.5em;
-	padding: 0.2em 0.35em;
-	position: absolute;
-}
-#ec_math_a{
-	width:4em;
-}
-
-/* Custom responsive screen styles for viewports from 320px (small screen) and exceeding 1024px (desktop and beyond) on abledaccess.com
---------------------------------------------------------------------------- */
-@media screen and (max-width: 768px) {
-	.figure {
-		margin: 0 2em 0.75em;
-	}
-}
-
-@media screen and (max-width: 480px) {
-	.figure {
-		margin: 0 1em 0.75em;
-	}
-}
+/* --------------------------------------------------------------------------- 
+   End media queries */

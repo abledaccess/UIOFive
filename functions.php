@@ -16,17 +16,17 @@ function FSSFive_comment( $comment, $args, $depth ) {
 		<div id="comment-<?php comment_ID(); ?>">
 			<header class="comment-header comment-author vcard">
 				<p><?php echo get_avatar( $comment, '60', '', 'Comment authors avatar' ); ?>
-				<?php printf( __( '%s says:', 'FSSFive' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?></p>
+				<?php printf( __( '%s says:', 'FSSFive_comment' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?></p>
 			</header><!-- /.comment-author /.vcard -->
 			<?php if ( $comment->comment_approved == '0' ) : ?>
-				<em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation...', 'FSSFive' ); ?></em>
+				<em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation...', 'FSSFive_comment' ); ?></em>
 			<?php endif; ?>
 
 		<section class="comment-content"><?php comment_text(); ?></section>
 
 		<footer class="comment-utility">
 			<ul>
-				<li>Comment posted <time datetime="<?php the_time('Y-m-d') ?>" pubdate="pubdate"><?php printf( __( '%1$s', 'FSSFive' ), get_comment_date() ); ?></time><?php edit_comment_link( __( 'Edit', 'FSSFive' ), ' ' ); ?><?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?> &mdash; <span class="top"><a href="#nav:page-top" title="Return to the TOP of this page">TOP</a></span></li>
+				<li>Comment posted <time datetime="<?php the_time('Y-m-d') ?>"><?php printf( __( '%1$s', 'FSSFive_comment' ), get_comment_date() ); ?></time><?php edit_comment_link( __( 'Edit', 'FSSFive_comment' ), ' ' ); ?><?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?></li>
 			</ul>
 		</footer><!-- /.comment-utility -->
 
@@ -38,7 +38,7 @@ function FSSFive_comment( $comment, $args, $depth ) {
 		case 'trackback' :
 	?>
 	<li class="post pingback">
-		<p><?php _e( 'Pingback:', 'FSSFive' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( '(Edit)', 'FSSFive' ), ' ' ); ?></p>
+		<p><?php _e( 'Pingback:', 'FSSFive_comment' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( '(Edit)', 'FSSFive_comment' ), ' ' ); ?></p>
 	<?php
 			break;
 	endswitch;
@@ -46,7 +46,7 @@ function FSSFive_comment( $comment, $args, $depth ) {
 endif;
 
 // Customized comment reply link
-function my_replylink($c='',$post=null) {
+function FSSFive_replylink($c='',$post=null) {
   global $comment;
   // bypass
   if (!comments_open() || $comment->comment_type == "trackback" || $comment->comment_type == "pingback") return $c;
@@ -56,7 +56,7 @@ function my_replylink($c='',$post=null) {
   $o = '<span class="comment-reply"><a class="comment-reply-link" href="'.get_permalink().'?replytocom='.$id.'#respond">'.$reply.'</a></span>';
   return $o;
 }
-add_filter('comment_reply_link', 'my_replylink');
+add_filter('comment_reply_link', 'FSSFive_replylink');
 
 // remove WordPress version info from head and feeds
 	function complete_version_removal() {

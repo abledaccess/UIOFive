@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 
-<html id="fssfive" class="no-js" <?php language_attributes(); ?>>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7 no-js" <?php language_attributes(); ?>> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8 no-js" <?php language_attributes(); ?>> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9 no-js" <?php language_attributes(); ?>> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes(); ?>> <!--<![endif]-->
 
 <head>
 
@@ -8,37 +12,10 @@
 
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 
+<title><?php wp_title(''); ?></title>
+<base href="<?php echo esc_url(get_home_url()); ?>" />
+
 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-
-<title><?php if (function_exists('is_tag') && is_tag()) {
-          single_tag_title('Tag Archive for &quot;'); echo '&quot; &mdash; ';
-    } elseif (is_archive()) {
-          wp_title(''); echo ' Archive &mdash; ';
-    } elseif (is_search()) {
-          echo 'Search for &quot;'.wp_specialchars($s).'&quot; &mdash; ';
-    } elseif (!(is_404()) && (is_single()) || (is_page())) {
-          wp_title(''); echo ' &mdash; ';
-    } elseif (is_404()) {
-          echo '404 Error &mdash; Page not found &mdash; ';
-    }
-    if (is_home()) {
-          bloginfo('name'); echo ' &mdash; '; bloginfo('description');
-    } else {
-          bloginfo('name');
-    }
-    if ($paged > 1) {
-          echo ' &mdash; Page '. $paged;
-    } ?></title>
-
-<?php if(is_home() && (!$paged || $paged == 1) || is_single() || is_page()) { ?>
-<meta name="googlebot" content="index,archive,follow,noodp" />
-<meta name="robots" content="all,index,follow" />
-<meta name="msnbot" content="all,index,follow" />
-<?php } else { ?>
-<meta name="googlebot" content="noindex,noarchive,follow,noodp" />
-<meta name="robots" content="noindex,follow" />
-<meta name="msnbot" content="noindex,follow" />
-<?php } ?>
 <?php $template_url = get_bloginfo( 'template_url', 'display' ); ?>
 
 <link rel="stylesheet" type="text/css" href="<?php echo $template_url; ?>/infusion/framework/fss/css/fss-reset-global.css" media="all" />
@@ -59,8 +36,35 @@
 
 <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" media="all" />
 
-<script type="text/javascript" src="<?php echo $template_url; ?>/infusion/MyInfusion.js"></script>
-<script type="text/javascript" src="<?php echo $template_url; ?>/js/modernizr.js"></script>
+<script src="<?php echo $template_url; ?>/infusion/MyInfusion.js"></script>
+<script src="<?php echo $template_url; ?>/js/modernizr.js"></script>
+
+<script>
+ $(function() {
+     $("<select />").appendTo(".fSS5-access");
+     
+     // Create default option "Navigation Menu..."
+     $("<option />", {
+        "selected": "selected",
+        "value"   : "",
+        "text"    : "Navigation Menu..."
+     }).appendTo(".fSS5-access select");
+     
+     // Populate dropdown with menu items
+     $(".fSS5-access a").each(function() {
+      var el = $(this);
+      $("<option />", {
+          "value"   : el.attr("href"),
+          "text"    : el.text()
+      }).appendTo(".fSS5-access select");
+     });
+     
+     $(".fSS5-access select").change(function() {
+       window.location = $(this).find("option:selected").val();
+     });
+ 
+ });
+</script>
 
 <link rel="shortcut icon" href="<?php echo $template_url; ?>/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="<?php echo $template_url; ?>/apple-touch-icon.png"/>
@@ -77,7 +81,11 @@
 
 </head>
 
-<body id="nav:page-top" <?php body_class(); ?>>
+<body id="page-top" <?php body_class('fSS5-theme'); ?>>
+
+	<nav class="fSS5-skip-links" aria-labelledby="skip-to-main-content">
+		<a id="skip-to-main-content" href="<?php the_permalink() ?>#main">Skip to main content</a>
+	</nav><!-- /.fSS5-skip-links -->
 
   <div class="flc-uiOptions-fatPanel fl-uiOptions-fatPanel">
       <!-- This is the div that will contain the UI Options component -->
@@ -115,15 +123,18 @@
 			<section class="fSS5-branding">
 				<?php $heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'div'; ?>
 
-				<<?php echo $heading_tag; ?> id="site-title"><a href="<?php echo esc_url(get_home_url()); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?> &mdash; Home" rel="home"><?php bloginfo( 'name' ); ?></a></<?php echo $heading_tag; ?>>
-				<p id="site-description"><?php bloginfo('description'); ?></p>
+				<<?php echo $heading_tag; ?> class="site-title alpha"><a href="<?php echo esc_url(get_home_url()); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?> &mdash; Home" rel="home"><?php bloginfo( 'name' ); ?></a></<?php echo $heading_tag; ?>>
+				<p class="site-description fSS5-screen-reader-text"><?php bloginfo('description'); ?></p>
 			</section><!-- /.fSS5-branding -->
 
-			<nav class="fSS5-access fl-container-flex fl-clearfix" role="navigation">
+			<nav class="fSS5-access fl-container-flex fl-clearfix" role="navigation" aria-labelledby="main-menu-navigation">
 				<?php wp_nav_menu(array(
-					"container" => "ul", 
+					"container" => "ul",
 					"menu_class" => "fl-tabs fl-tabs-left", 
+					"menu_id" => "main-menu-navigation", 
 					"theme_location" => "main_nav" )); ?>
 
 			</nav><!-- /.fSS5-access -->
 		</header><!-- /.fSS5-banner -->
+
+		<div class="fSS5-content-container fl-clearfix fl-container fl-container-flex fl-push">
