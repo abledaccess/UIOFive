@@ -521,15 +521,12 @@ body{
 .fSS5-access select{
 	width:100%;
 }
-.lt-ie8 .fSS5-access select{
-	display:none;
-}
 .fSS5-access ul{
 	margin-top:0.15em;
 }
 .fSS5-access li{
 	font-size:1.15em;
-	font-weight:bold;
+	font-weight:700;
 	padding:0.15em 0.2em;
 }
 .fSS5-access li a{
@@ -659,7 +656,7 @@ fieldset{
 }
 legend{
 	font-size:125%;
-	font-weight:bold;
+	font-weight:700;
 }
 input,textarea,select{
 	font-family:inherit;
@@ -892,7 +889,7 @@ input#s{
 		-moz-border-radius:0;
 		border-radius:0;
 		border:3px solid #444;
-		font-weight:bold;
+		font-weight:700;
 		padding:0.25em 0.35em;
 	}
 	input.button,
