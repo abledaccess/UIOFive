@@ -1,10 +1,10 @@
 /*
-Theme Name:FSSFive
-Theme URI:http://github.com/abledaccess/fssfive
-Description:An HTML5 WordPress theme employing the Fluid Skinning System and UIO -- ... And the solution is inclusion
-Author:Johnny Taylor
-Author URI:http://abledaccess.com
-Version:2.1
+Theme Name:		FSSFive
+Theme URI:		http://github.com/abledaccess/fssfive
+Description:	An HTML5 WordPress theme employing the Fluid Skinning System and UIO -- ... And the solution is inclusion
+Author:				Johnny Taylor
+Author URI:		http://abledaccess.com/about
+Version:			2.1.2
 */
 
 /* Start (with a few alterations) normalize.css CSS consistency "framework" -- 
@@ -446,6 +446,9 @@ h6{
 /* fSS5-skip-links
    ----------------------------------- */
 
+.fSS5-theme .fSS5-skip-links a{
+	background:#f7f7f7;
+}
 .fSS5-skip-links a{
 	position:absolute;
 	top:-99em;
@@ -583,7 +586,7 @@ em{
 }
 blockquote,
 .figcaption{
-	color:#555;
+	color:#444;
 	font-size:85%;
 	line-height:1.8;
 }
