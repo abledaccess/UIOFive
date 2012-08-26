@@ -593,6 +593,9 @@ blockquote,
 blockquote{
 	border-left:3px solid #ccc;
 }
+.fSS5-touch abbr{
+	border-bottom:0;
+}
 .entry-utility{
 	margin:2em 0;
 }
