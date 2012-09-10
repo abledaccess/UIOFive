@@ -730,6 +730,9 @@ input#submit{
 	*display:inline;
 	*zoom:1;
 }
+.fl-widget li{
+	list-style:disc outside;
+}
 .widget_search{
 	width:100%;
 }
@@ -951,8 +954,9 @@ input#s{
 	.fSS5-access select{
 		display:none;
 	}
-	.entry-utility li{
-		list-style:disc outside;
+	.entry-utility li,
+	.fl-widget li{
+		list-style:outside;
 	}
 	input[type="url"],input[type="email"],input[type="search"],input[type="text"]{
 		width:50%;
@@ -976,7 +980,7 @@ input#s{
 		float:left;
 	}
 	.fSS5-main{
-		padding-right:2em;
+		padding-right:3em;
 	}
 	.fSS5-commentlist .comment-content{
 		padding-left:5em;

@@ -32,7 +32,8 @@
 
 						<?php endwhile; ?>
 
-					</ol>
+					</ol><!-- /.search-results -->
+
 				</section><!-- /.search -->
 
 				<?php 
