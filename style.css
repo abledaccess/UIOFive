@@ -599,11 +599,17 @@ blockquote{
 .entry-utility{
 	margin:2em 0;
 }
+.search-results li{
+	list-style:decimal inside;
+}
 .entry-utility li{
-	list-style:disc outside;
+	list-style:disc inside;
 }
 .fSS5-article-nav{
 	margin:2em 0;
+}
+.fSS5-article-nav li{
+	list-style:none;
 }
 .alignleft{
 	list-style:none;
@@ -667,6 +673,7 @@ ol.fSS5-commentlist>li{
 fieldset{
 	border:2px solid #dedede;
 	margin:1em 0;
+	padding-bottom:1.25em;
 }
 legend{
 	font-size:125%;
@@ -731,7 +738,7 @@ input#submit{
 	*zoom:1;
 }
 .fl-widget li{
-	list-style:disc outside;
+	list-style:disc inside;
 }
 .widget_search{
 	width:100%;
@@ -946,13 +953,16 @@ input#s{
 		display:block;
 	}
 	.fSS5-wrapper{
-		padding:0.5em 2em 4em;
+		padding:0.5em 2.5em 4em;
 	}
 	.fSS5-access ul{
 		display:block;
 	}
 	.fSS5-access select{
 		display:none;
+	}
+	.search-results li{
+		list-style:decimal outside;
 	}
 	.entry-utility li,
 	.fl-widget li{
