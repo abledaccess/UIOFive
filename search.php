@@ -39,7 +39,7 @@
 				<?php 
 				$next_posts = get_next_posts_link('More results &raquo;');
 				$prev_posts = get_previous_posts_link('&laquo; Previous results');
-				if( $next_posts || $prev_posts ) { ?><nav class="fSS5-article-nav">
+				if( $next_posts || $prev_posts ) { ?><nav class="fSS5-search-results-nav">
 					<ul class="fl-container-flex fl-clearfix">
 						<?php if( $next_posts ) echo '<li class="alignright">'.$next_posts.'</li>'; ?>
 

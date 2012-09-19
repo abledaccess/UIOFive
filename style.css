@@ -608,7 +608,8 @@ blockquote{
 .fSS5-article-nav{
 	margin:2em 0;
 }
-.fSS5-article-nav li{
+.fSS5-article-nav ul li,
+.fSS5-search-results-nav ul li{
 	list-style:none;
 }
 .alignleft{
