@@ -12,7 +12,27 @@
 
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 
-<title><?php wp_title(''); ?></title>
+<title>
+	<?php if (function_exists('is_tag') && is_tag()) {
+			single_tag_title('Tag Archive for &quot;'); echo '&quot; &mdash; ';
+		} elseif (is_archive()) {
+			wp_title(''); echo ' Archive &mdash; ';
+		} elseif (is_search()) {
+			echo 'Search for &quot;'.wp_specialchars($s).'&quot; &mdash; ';
+		} elseif (!(is_404()) && (is_single()) || (is_page())) {
+			wp_title(''); echo ' &mdash; ';
+		} elseif (is_404()) {
+			echo '404 Error &mdash; Page not found &mdash; ';
+		}
+		if (is_home()) {
+			bloginfo('name'); echo ' &mdash; '; bloginfo('description');
+		} else {
+			bloginfo('name');
+		}
+		if ($paged > 1) {
+			echo ' &mdash; Page '. $paged;
+		} ?>
+</title>
 <base href="<?php echo esc_url(get_home_url()); ?>" />
 
 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -84,7 +104,7 @@
 <body id="page-top" <?php body_class('fSS5-theme'); ?>>
 
 	<nav class="fSS5-skip-links" aria-labelledby="skip-to-main-content">
-		<a id="skip-to-main-content" href="<?php the_permalink() ?>#main">Skip to main content</a>
+		<a id="skip-to-main-content" href="<?php the_permalink() ?>#main">Skip to the main content</a>
 	</nav><!-- /.fSS5-skip-links -->
 
   <div class="flc-uiOptions-fatPanel fl-uiOptions-fatPanel">
