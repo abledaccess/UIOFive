@@ -35,7 +35,7 @@
 </title>
 <base href="<?php echo esc_url(get_home_url()); ?>" />
 
-<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0 width=device-width" />
 <?php $template_url = get_bloginfo( 'template_url', 'display' ); ?>
 
 <link rel="stylesheet" type="text/css" href="<?php echo $template_url; ?>/infusion/framework/fss/css/fss-reset-global.css" media="all" />
