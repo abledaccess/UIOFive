@@ -201,7 +201,7 @@ q:after{
 	content:none;
 }
 small{
-	font-size:100%;
+	font-size:75%;
 }
 
 /* Prevents `sub` and `sup` affecting `line-height` in all browsers.
@@ -725,6 +725,9 @@ input#submit{
 }
 .fSS5-complementry>ul{
 	margin:0;
+}
+.fSS5-complementry a{
+	text-decoration:none;
 }
 .fl-widget{
 	display:inline-block;
