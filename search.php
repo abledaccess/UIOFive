@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-			<section id="main" class="fSS5-main fl-clearfix fl-col fl-container-flex75" role="main">
+			<main class="fSS5-main fl-clearfix fl-col fl-container-flex75" role="main">
 
 				<?php if (have_posts()) : ?>
 
@@ -55,7 +55,7 @@
 
 				<?php endif; ?>
 
-			</section><!-- /.fSS5-main -->
+			</main><!-- /.fSS5-main -->
 
 <?php get_sidebar(); ?>
 

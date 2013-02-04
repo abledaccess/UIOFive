@@ -14,6 +14,7 @@ Version:			2.1.2
 
 /* Corrects `block` display not defined in IE6/7/8/9 & FF3. */
 article,
+main,
 aside,
 details,
 figcaption,
