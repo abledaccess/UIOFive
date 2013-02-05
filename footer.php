@@ -3,7 +3,7 @@
 
 		<footer class="fSS5-contentinfo fl-clearfix fl-push" role="contentinfo">
 
-			<section class="fSS5-colophon" role="navigation" aria-labelledby="copyright-and-syndication">
+			<section class="fSS5-colophon" aria-labelledby="copyright-and-syndication">
 				<ul id="copyright-and-syndication">
 					<li><small>&copy; <?= date('Y'); ?> <?php bloginfo('name'); ?></small></li>
 					<li><a href="<?php bloginfo('rss2_url'); ?>" title="Subscribe to Posts Feed">Entries (<abbr title="Really Simple Syndication">RSS</abbr>)</a></li>
