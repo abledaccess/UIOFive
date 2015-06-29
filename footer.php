@@ -1,23 +1,26 @@
+<?php
+/**
+ * The template for displaying the footer.
+ *
+ * Contains the closing of the #content div and all content after
+ *
+ * @package UIOFive
+ */
 
-		</div><!-- /fSS5-content-container -->
+?>
 
-		<footer class="fSS5-contentinfo fl-clearfix fl-push" role="contentinfo">
+	</div><!-- #content -->
 
-			<nav class="fSS5-colophon" aria-labelledby="copyright-and-syndication">
-				<ul id="copyright-and-syndication">
-					<li><small>&copy; <?= date('Y'); ?> <?php bloginfo('name'); ?></small></li>
-					<li><a href="<?php bloginfo('rss2_url'); ?>" title="Subscribe to Posts Feed">Entries (<abbr title="Really Simple Syndication">RSS</abbr>)</a></li>
-					<li><a href="<?php bloginfo('comments_rss2_url'); ?>" title="Subscribe to Comments Feed">Comments (<abbr title="Really Simple Syndication">RSS</abbr>)</a></li>
-					<li><a href="<?php the_permalink() ?>#page-top" title="Return to the top of this page">Back to top</a></li>
-				</ul>
-			</nav><!-- /fSS5-colophon -->
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="site-info">
+			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'uio5' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'uio5' ), 'WordPress' ); ?></a>
+			<span class="sep"> | </span>
+			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'uio5' ), 'uio5', '<a href="http://abledaccess.com" rel="designer">Johnny Taylor</a>' ); ?>
+		</div><!-- .site-info -->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
 
-		<?php wp_footer(); ?>
-
-		</footer><!-- /.fSS5-contentinfo -->
-
-	</div><!-- /.fSS5-wrapper -->
+<?php wp_footer(); ?>
 
 </body>
-
 </html>

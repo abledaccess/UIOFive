@@ -1,11 +1,27 @@
-# UIOFive (formally FSSFive) 
+# UIOFive
+
+An accessibility-ready starter WordPress theme employing [The Fluid Project](http://fluidproject.org/)'s UIO.
 
 ## About
 
-UIOFive, as of right now, is only different than FSSFive in name only. It's still a clean, simple and accessible WordPress blogging theme, employing components of [The Fluid Project](http://fluidproject.org/) Infusion framework, the Fluid Skinning System (FSS) and User Interface Options (UIOptions).
+UIOFive (formally FSSFive) is a [WorPress starter theme based on `_s` -- or `underscores`](http://underscores.me/). Why the rebranding? Well, as of the release of Infusion 1.5, Fluid Skinning System (FSS) has been depreciated from Infusion. "[There are no CSS Framework requirements for working with Infusion. Infusion's strategy going forward will be to use custom CSS for component specific styling and Foundation for demos, as needed](http://docs.fluidproject.org/infusion/development/DeprecationsIn1_5.html)." 
 
-Why the name change? Well, as of the release of Infusion 1.5, Fluid Skinning System (FSS) has been depreciated. "[There are no CSS Framework requirements for working with Infusion. Infusion's strategy going forward will be to use custom CSS for component specific styling and Foundation for demos, as needed](http://docs.fluidproject.org/infusion/development/DeprecationsIn1_5.html)."
+UIOFive a minimalistic and accessiblity-ready WordPress blogging theme from which to start developing a new theme from. Plus it employ's components of The Fluid Project's Infusion framework, User Interface Options (UIOptions) specifically.
 
-This is, or it is my hope that one day it very much will be, a solid a starting point. Granted much of what UIOFive uses to function as an accessible platform, mainly FSS and UIOptions, are still being developed. This will become ever more stable as time goes on. Both the work of the Fluid Project, as well as my own, specifically. Not by any stretch of your imagination is it finished, like most of everything on the web, it’s a work in progress.
+That said, technically, I'm not responsible for too much of what this theme is. I essentially, and with what is more than likely an element of irresponsibly (but with more responsibility than previous iterations of this theme), stitched it together from contributions of other people who are much smarter than I. However, I accept complete responsibility for any sloppiness I caused, and I'd love the opportunity to correct any mistakes should you find any. Please, let me know.
 
-UIOFive employs a lot of the standard WordPress elements, IDs and classes.
+## What's in the box?
+
+As of this moment, UIOFive is not equipped with Infusion or UIOptions -- inclusion of both are on a very short list of things I must do first, rather obviously. And [what follows was largely grabbed directly from the underscores README on its Github repository](https://github.com/Automattic/_s/blob/master/README.md):
+
+* Just right amount of lean, well-commented, modern, HTML5 templates.
+* A helpful 404 template.
+* A sample custom header implementation in `inc/custom-header.php` that can be activated by uncommenting one line in `functions.php` and adding the code snippet found in the comments of `inc/custom-header.php` to your `header.php` template.
+* Custom template tags in `inc/template-tags.php` that keep your templates clean and neat and prevent code duplication.
+* Some small tweaks in `inc/extras.php` that can improve your theming experience.
+* A script at `js/navigation.js` that makes your menu a toggled dropdown on small screens (like your phone), ready for CSS artistry. It's enqueued in `functions.php`.
+* 2 sample CSS layouts in `layouts/` for a sidebar on either side of your content.
+* Smartly organized starter CSS in `style.css` that will help you to quickly get your design off the ground.
+* Sass capable -- as the option to "_sassify" was provided in the "Advanced Options" when initially generating the original underscores theme. And I chose it.
+* Licensed under GPLv2 or later. :) Use it to make something cool.
+* More to follow.

@@ -1,119 +1,150 @@
 <?php
+/**
+ * UIOFive functions and definitions
+ *
+ * @package UIOFive
+ */
 
-// Deregister jQuery that ships with WordPress, Infusion ships with it's own copy
-if( !is_admin()){
-	wp_deregister_script('jquery');
+if ( ! function_exists( 'uio5_setup' ) ) :
+/**
+ * Sets up theme defaults and registers support for various WordPress features.
+ *
+ * Note that this function is hooked into the after_setup_theme hook, which
+ * runs before the init hook. The init hook is too late for some features, such
+ * as indicating support for post thumbnails.
+ */
+function uio5_setup() {
+	/*
+	 * Make theme available for translation.
+	 * Translations can be filed in the /languages/ directory.
+	 * If you're building a theme based on UIOFive, use a find and replace
+	 * to change 'uio5' to the name of your theme in all the template files
+	 */
+	load_theme_textdomain( 'uio5', get_template_directory() . '/languages' );
+
+	// Add default posts and comments RSS feed links to head.
+	add_theme_support( 'automatic-feed-links' );
+
+	/*
+	 * Let WordPress manage the document title.
+	 * By adding theme support, we declare that this theme does not use a
+	 * hard-coded <title> tag in the document head, and expect WordPress to
+	 * provide it for us.
+	 */
+	add_theme_support( 'title-tag' );
+
+	/*
+	 * Enable support for Post Thumbnails on posts and pages.
+	 *
+	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
+	 */
+	add_theme_support( 'post-thumbnails' );
+
+	// This theme uses wp_nav_menu() in one location.
+	register_nav_menus( array(
+		'primary' => esc_html__( 'Primary Menu', 'uio5' ),
+	) );
+
+	/*
+	 * Switch default core markup for search form, comment form, and comments
+	 * to output valid HTML5.
+	 */
+	add_theme_support( 'html5', array(
+		'search-form',
+		'comment-form',
+		'comment-list',
+		'gallery',
+		'caption',
+	) );
+
+	/*
+	 * Enable support for Post Formats.
+	 * See http://codex.wordpress.org/Post_Formats
+	 */
+	add_theme_support( 'post-formats', array(
+		'aside',
+		'image',
+		'video',
+		'quote',
+		'link',
+	) );
+
+	// Set up the WordPress core custom background feature.
+	add_theme_support( 'custom-background', apply_filters( 'uio5_custom_background_args', array(
+		'default-color' => 'ffffff',
+		'default-image' => '',
+	) ) );
 }
+endif; // uio5_setup
+add_action( 'after_setup_theme', 'uio5_setup' );
 
-// Custom comments
-if ( ! function_exists( 'FSSFive_comment' ) ) :
-function FSSFive_comment( $comment, $args, $depth ) {
-	$GLOBALS['comment'] = $comment;
-	switch ( $comment->comment_type ) :
-		case '' :
-	?>
-	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
-		<div id="comment-<?php comment_ID(); ?>">
-			<header class="comment-header comment-author vcard">
-				<p><?php echo get_avatar( $comment, '60', '', 'Comment authors avatar' ); ?>
-				<?php printf( __( '%s says:', 'FSSFive_comment' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?></p>
-			</header><!-- /.comment-author /.vcard -->
-			<?php if ( $comment->comment_approved == '0' ) : ?>
-				<em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation...', 'FSSFive_comment' ); ?></em>
-			<?php endif; ?>
-
-		<section class="comment-content"><?php comment_text(); ?></section>
-
-		<footer class="comment-utility">
-			<ul>
-				<li>Comment posted <time datetime="<?php the_time('Y-m-d') ?>"><?php printf( __( '%1$s', 'FSSFive_comment' ), get_comment_date() ); ?></time><?php edit_comment_link( __( 'Edit', 'FSSFive_comment' ), ' ' ); ?><?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?></li>
-			</ul>
-		</footer><!-- /.comment-utility -->
-
-	</div><!-- /#comment-##  -->
-
-	<?php
-			break;
-		case 'pingback'  :
-		case 'trackback' :
-	?>
-	<li class="post pingback">
-		<p><?php _e( 'Pingback:', 'FSSFive_comment' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( '(Edit)', 'FSSFive_comment' ), ' ' ); ?></p>
-	<?php
-			break;
-	endswitch;
+/**
+ * Set the content width in pixels, based on the theme's design and stylesheet.
+ *
+ * Priority 0 to make it available to lower priority callbacks.
+ *
+ * @global int $content_width
+ */
+function uio5_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'uio5_content_width', 640 );
 }
-endif;
+add_action( 'after_setup_theme', 'uio5_content_width', 0 );
 
-// Customized comment reply link
-function FSSFive_replylink($c='',$post=null) {
-  global $comment;
-  // bypass
-  if (!comments_open() || $comment->comment_type == "trackback" || $comment->comment_type == "pingback") return $c;
-  // patch
-  $id = $comment->comment_ID;
-  $reply = 'Reply to this comment...';
-  $o = '<span class="comment-reply"><a class="comment-reply-link" href="'.get_permalink().'?replytocom='.$id.'#respond">'.$reply.'</a></span>';
-  return $o;
+/**
+ * Register widget area.
+ *
+ * @link http://codex.wordpress.org/Function_Reference/register_sidebar
+ */
+function uio5_widgets_init() {
+	register_sidebar( array(
+		'name'          => esc_html__( 'Sidebar', 'uio5' ),
+		'id'            => 'sidebar-1',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h1 class="widget-title">',
+		'after_title'   => '</h1>',
+	) );
 }
-add_filter('comment_reply_link', 'FSSFive_replylink');
+add_action( 'widgets_init', 'uio5_widgets_init' );
 
-// remove WordPress version info from head and feeds
-	function complete_version_removal() {
-		return '';
+/**
+ * Enqueue scripts and styles.
+ */
+function uio5_scripts() {
+	wp_enqueue_style( 'uio5-style', get_stylesheet_uri() );
+
+	wp_enqueue_script( 'uio5-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+
+	wp_enqueue_script( 'uio5-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+		wp_enqueue_script( 'comment-reply' );
 	}
-	add_filter('the_generator', 'complete_version_removal');
+}
+add_action( 'wp_enqueue_scripts', 'uio5_scripts' );
 
-// register main navigation
-	add_action( 'init', 'register_main_nav_menu' );
+/**
+ * Implement the Custom Header feature.
+ */
+require get_template_directory() . '/inc/custom-header.php';
 
-	function register_main_nav_menu() {
-		register_nav_menu( 'main_nav', __( 'Main Navigation Menu' ) );
-	}
+/**
+ * Custom template tags for this theme.
+ */
+require get_template_directory() . '/inc/template-tags.php';
 
-// register sidebar widget
-	if (function_exists('register_sidebar')) {
-		register_sidebar(array(
-			'before_widget' => '<li class="fl-clearfix fl-widget %2$s">',
-			'after_widget' => '</li>',
-			'before_title' => '<h2 class="widget-title">',
-			'after_title' => '</h2>',
-		));
-	}
+/**
+ * Custom functions that act independently of the theme templates.
+ */
+require get_template_directory() . '/inc/extras.php';
 
-// prevent duplicate content for comments
-	function noDuplicateContentforComments() {
-		global $cpage, $post;
-		if($cpage > 1) {
-		echo "\n".'<link rel="canonical" href="'.get_permalink($post->ID).'" />'."\n";
-		}
-	}
-	add_action('wp_head', 'noDuplicateContentforComments');
+/**
+ * Customizer additions.
+ */
+require get_template_directory() . '/inc/customizer.php';
 
-// Remove the Login Error Message
-add_filter('login_errors',create_function('$a', "return null;"));
-
-// Credit
-	function custom_admin_footer() {
-		echo 'FSSFive is developed by <a href="http://abledaccess.com/">Abledaccess</a> in partnership with <a href="http://fluidproject.org/">The Fluid Project</a>.';
-	} 
-	add_filter('admin_footer_text', 'custom_admin_footer');
-
-// add Twitter handle in user profiles
-	function FSSFive_contactmethods($contactmethods) {
-		$contactmethods['twitter'] = 'Twitter Handle';
-		return $contactmethods;
-	}
-	
-	add_filter('user_contactmethods', 'FSSFive_contactmethods', 10, 1);
-
-// enable threaded comments
-	function enable_threaded_comments(){
-		if (!is_admin()) {
-			if (is_singular() AND comments_open() AND (get_option('thread_comments') == 1))
-				wp_enqueue_script('comment-reply');
-			}
-	}
-	add_action('get_header', 'enable_threaded_comments');
-
-?>
+/**
+ * Load Jetpack compatibility file.
+ */
+require get_template_directory() . '/inc/jetpack.php';

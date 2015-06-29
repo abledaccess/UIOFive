@@ -1,35 +1,35 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying all pages.
+ *
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages
+ * and that other 'pages' on your WordPress site will use a
+ * different template.
+ *
+ * @package UIOFive
+ */
 
-			<main class="fSS5-main fl-clearfix fl-col fl-container-flex75" role="main">
+get_header(); ?>
 
-				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
 
-				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> role="article">
+			<?php while ( have_posts() ) : the_post(); ?>
 
-					<header>
-						<h1 class="entry-title"><?php the_title(); ?></h1>
-					</header>
+				<?php get_template_part( 'template-parts/content', 'page' ); ?>
 
-					<div class="entry-content">
+				<?php
+					// If comments are open or we have at least one comment, load up the comment template.
+					if ( comments_open() || get_comments_number() ) :
+						comments_template();
+					endif;
+				?>
 
-						<?php the_content(); ?>
-						<?php wp_link_pages(array('before' => 'Pages: ', 'next_or_number' => 'number')); ?>
+			<?php endwhile; // End of the loop. ?>
 
-					</div><!-- /.entry-content -->
-					<footer class="entry-utility">
-
-						<?php include (TEMPLATEPATH . '/inc/meta.php' ); ?>
-
-					</footer><!-- /.entry-utility -->
-
-				</article><!-- /#post-<?php the_ID(); ?> -->
-
-				<?php endwhile; else: ?>
-
-				<?php endif; ?>
-
-			</main><!-- /.fSS5-main -->
+		</main><!-- #main -->
+	</div><!-- #primary -->
 
 <?php get_sidebar(); ?>
-
 <?php get_footer(); ?>

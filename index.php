@@ -1,51 +1,48 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The main template file.
+ *
+ * This is the most generic template file in a WordPress theme
+ * and one of the two required files for a theme (the other being style.css).
+ * It is used to display a page when nothing more specific matches a query.
+ * E.g., it puts together the home page when no home.php file exists.
+ * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package UIOFive
+ */
 
-			<main class="fSS5-main fl-clearfix fl-col fl-container-flex75" role="main">
+get_header(); ?>
 
-				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
 
-				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-					<header>
-						<h2 class="entry-title alpha"><?php the_title(); ?></h2>
-						<?php include (TEMPLATEPATH . '/inc/meta.php' ); ?>
-					</header>
-					<div class="entry-content">
+		<?php if ( have_posts() ) : ?>
 
-						<?php the_content('Continue reading "'.the_title('', '', false).'"...'); ?>
+			<?php /* Start the Loop */ ?>
+			<?php while ( have_posts() ) : the_post(); ?>
 
-					</div><!-- /.entry-content -->
-					<footer class="entry-utility">
-							<ul>
-								<li><a href="<?php the_permalink() ?>" rel="bookmark" title="Direct Link to <?php the_title_attribute(); ?>">Direct link to &quot;<?php the_title(); ?>&quot;</a></li>
-								<li>Filed under <?php the_category(', '); ?> &mdash; <?php comments_popup_link('Comment on this post&hellip;', '1 comment on this post&hellip;', '% comments&hellip;'); ?></li>
-							</ul>
+				<?php
 
-					</footer><!-- /.entry-utility -->
-				</article><!-- /#post-<?php the_ID(); ?> -->
+					/*
+					 * Include the Post-Format-specific template for the content.
+					 * If you want to override this in a child theme, then include a file
+					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+					 */
+					get_template_part( 'template-parts/content', get_post_format() );
+				?>
 
-				<?php endwhile; ?>
+			<?php endwhile; ?>
 
-				<?php 
-				$next_posts = get_next_posts_link('&laquo; Older articles');
-				$prev_posts = get_previous_posts_link('Newer articles &raquo;');
-				if( $next_posts || $prev_posts ) { ?><nav class="fSS5-article-nav">
-					<ul class="fl-container-flex fl-clearfix">
-						<?php if( $next_posts ) echo '<li class="alignleft">'.$next_posts.'</li>'; ?>
+			<?php the_posts_navigation(); ?>
 
-						<?php if( $prev_posts ) echo '<li class="alignright">'.$prev_posts.'</li>'; ?>
+		<?php else : ?>
 
-					</ul>
-				</nav><!-- /.fSS5-article-nav -->
-				<?php } ?>
+			<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
-				<?php else : ?>
+		<?php endif; ?>
 
-				<?php include (TEMPLATEPATH . '/inc/not-found.php' ); ?>
-
-				<?php endif; ?>
-
-			</main><!-- /.fSS5-main -->
+		</main><!-- #main -->
+	</div><!-- #primary -->
 
 <?php get_sidebar(); ?>
-
 <?php get_footer(); ?>

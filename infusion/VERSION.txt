@@ -1,4 +1,0 @@
-Version: 1.5-SNAPSHOT
-Revision: 60753cc5c7c8f4f41dcdc830f5363f2afd2171d4
-Custom Build:
-ant -lib lib/rhino customBuild -Dinclude="uiOptions" -DnoMinify="true"

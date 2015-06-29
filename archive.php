@@ -1,79 +1,51 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying archive pages.
+ *
+ * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package UIOFive
+ */
 
-			<main class="fSS5-main fl-clearfix fl-col fl-container-flex75" role="main">
+get_header(); ?>
 
-			<?php if (have_posts()) : ?>
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
 
-				<?php $post = $posts[0]; // hack: set $post so that the_date() works ?>
-				<?php if (is_category()) { ?>
-				<h1>Archive for the &quot;<?php single_cat_title(); ?>&quot; Category</h1>
-				<?php if (strlen(trim(category_description())) > 0 && trim(category_description()) != "<br />") {
-					echo category_description();
-					}
+		<?php if ( have_posts() ) : ?>
+
+			<header class="page-header">
+				<?php
+					the_archive_title( '<h1 class="page-title">', '</h1>' );
+					the_archive_description( '<div class="taxonomy-description">', '</div>' );
+				?>
+			</header><!-- .page-header -->
+
+			<?php /* Start the Loop */ ?>
+			<?php while ( have_posts() ) : the_post(); ?>
+
+				<?php
+
+					/*
+					 * Include the Post-Format-specific template for the content.
+					 * If you want to override this in a child theme, then include a file
+					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+					 */
+					get_template_part( 'template-parts/content', get_post_format() );
 				?>
 
-				<?php } elseif(is_tag()) { ?>
-				<h1>Posts Tagged &quot;<?php single_tag_title(); ?>&quot;</h1>
+			<?php endwhile; ?>
 
-				<?php } elseif (is_day()) { ?>
-				<h1>Archive for <?php the_time('F jS, Y'); ?></h1>
+			<?php the_posts_navigation(); ?>
 
-				<?php } elseif (is_month()) { ?>
-				<h1>Archive for <?php the_time('F, Y'); ?></h1>
+		<?php else : ?>
 
-				<?php } elseif (is_year()) { ?>
-				<h1>Archive for <?php the_time('Y'); ?></h1>
+			<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
-				<?php } elseif (is_author()) { ?>
-				<h1>Author Archive</h1>
+		<?php endif; ?>
 
-				<?php } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { ?>
-				<h1>Blog Archives</h1>
-
-			<?php } ?>
-			<?php query_posts($query_string . '&posts_per_page=10'); ?><?php while (have_posts()) : the_post(); ?>
-
-				<section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-					<header>
-						<h2 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Direct Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-						<p class="entry-meta">Posted <time datetime="<?php the_time('Y-m-d') ?>"><?php the_time('F jS, Y') ?></time> by <?php the_author(); ?></p>
-					</header>
-					<div class="entry-content">
-						<?php the_excerpt(); ?>
-					</div><!-- /.entry-content -->
-					<footer class="entry-utility">
-						<ul>
-							<li><a href="<?php the_permalink() ?>" rel="bookmark" title="Direct Link to <?php the_title_attribute(); ?>">Direct link to &quot;<?php the_title(); ?>&quot;</a></li>
-							<li>Filed under <?php the_category(', '); ?> &mdash; <?php comments_popup_link('Comment on this post&hellip;', '1 comment on this post&hellip;', '% comments&hellip;'); ?></li>
-							<li class="nav-to-top"><a href="#page-top" title="Return to the top of this page">Top of page</a>
-						</ul>
-
-					</footer><!-- /.entry-utility -->
-				</section><!-- /#post-<?php the_ID(); ?> -->
-
-				<?php endwhile; ?>
-
-				<?php 
-				$next_posts = get_next_posts_link('&laquo; Older archives');
-				$prev_posts = get_previous_posts_link('Newer archives &raquo;');
-				if( $next_posts || $prev_posts ) { ?><nav class="fSS5-article-nav">
-					<ul class="fl-container-flex fl-clearfix">
-						<?php if( $next_posts ) echo '<li class="alignleft">'.$next_posts.'</li>'; ?>
-
-						<?php if( $prev_posts ) echo '<li class="alignright">'.$prev_posts.'</li>'; ?>
-
-					</ul>
-				</nav><!-- /.fSS5-article-nav -->
-				<?php } ?>
-
-				<?php else : ?>
-
-				<?php include (TEMPLATEPATH . '/inc/not-found.php' ); ?>
-
-				<?php endif; ?>
-
-			</main><!-- /.fSS5-main -->
+		</main><!-- #main -->
+	</div><!-- #primary -->
 
 <?php get_sidebar(); ?>
-
 <?php get_footer(); ?>

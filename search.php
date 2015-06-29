@@ -1,62 +1,45 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying search results pages.
+ *
+ * @package UIOFive
+ */
 
-			<main class="fSS5-main fl-clearfix fl-col fl-container-flex75" role="main">
+get_header(); ?>
 
-				<?php if (have_posts()) : ?>
+	<section id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
 
-				<h1>Search results for &quot;<?php the_search_query(); ?>&quot;</h1>
+		<?php if ( have_posts() ) : ?>
 
-				<section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			<header class="page-header">
+				<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'uio5' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+			</header><!-- .page-header -->
 
-					<ol id="search-results">
+			<?php /* Start the Loop */ ?>
+			<?php while ( have_posts() ) : the_post(); ?>
 
-						<?php query_posts($query_string . '&posts_per_page=10'); ?><?php while (have_posts()) : the_post(); ?>
+				<?php
+				/**
+				 * Run the loop for the search to output the results.
+				 * If you want to overload this in a child theme then include a file
+				 * called content-search.php and that will be used instead.
+				 */
+				get_template_part( 'template-parts/content', 'search' );
+				?>
 
-						<li>
-							<header>
-								<h2 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Direct Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-								<p class="entry-meta">Posted <time datetime="<?php the_time('Y-m-d') ?>"><?php the_time('F jS, Y') ?></time> by <?php the_author(); ?></p>
-							</header>
-							<div class="entry-content">
-								<?php the_excerpt(); ?>
-							</div><!-- /.entry-content -->
-							<footer class="entry-utility">
-								<ul>
-									<li><a href="<?php the_permalink() ?>" rel="bookmark" title="Direct Link to <?php the_title_attribute(); ?>">Direct link to &quot;<?php the_title(); ?>&quot;</a></li>
-									<li>Filed under <?php the_category(', '); ?> &mdash; <?php comments_popup_link('Comment on this post&hellip;', '1 comment on this post&hellip;', '% comments&hellip;'); ?></li>
-									<li class="nav-to-top"><a href="#page-top" title="Return to the top of this page">Back to top</a>
-								</ul>
+			<?php endwhile; ?>
 
-							</footer><!-- /.entry-utility -->
-						</li>
+			<?php the_posts_navigation(); ?>
 
-						<?php endwhile; ?>
+		<?php else : ?>
 
-					</ol><!-- /.search-results -->
+			<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
-				</section><!-- /.search -->
+		<?php endif; ?>
 
-				<?php 
-				$next_posts = get_next_posts_link('More results &raquo;');
-				$prev_posts = get_previous_posts_link('&laquo; Previous results');
-				if( $next_posts || $prev_posts ) { ?><nav class="fSS5-search-results-nav">
-					<ul class="fl-container-flex fl-clearfix">
-						<?php if( $next_posts ) echo '<li class="alignright">'.$next_posts.'</li>'; ?>
-
-						<?php if( $prev_posts ) echo '<li class="alignleft">'.$prev_posts.'</li>'; ?>
-
-					</ul>
-				</nav><!-- /.fSS5-article-nav -->
-				<?php } ?>
-
-				<?php else : ?>
-
-				<?php include (TEMPLATEPATH . '/inc/search-not-found.php' ); ?>
-
-				<?php endif; ?>
-
-			</main><!-- /.fSS5-main -->
+		</main><!-- #main -->
+	</section><!-- #primary -->
 
 <?php get_sidebar(); ?>
-
 <?php get_footer(); ?>

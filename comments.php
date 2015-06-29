@@ -1,63 +1,80 @@
+<?php
+/**
+ * The template for displaying comments.
+ *
+ * The area of the page that contains both current comments
+ * and the comment form.
+ *
+ * @package UIOFive
+ */
 
-				<section id="comments" class="fSS5-commment">
-	<?php if ( post_password_required() ) : ?>
-					<p class="nopassword"><?php _e( 'This post is password protected. Enter the password to view any comments.', 'FSSFive' ); ?></p>
-				</div><!-- /#comments -->
-	<?php
-			return;
-		endif;
-	?>
+/*
+ * If the current post is protected by a password and
+ * the visitor has not yet entered the password we will
+ * return early without loading the comments.
+ */
+if ( post_password_required() ) {
+	return;
+}
+?>
+
+<div id="comments" class="comments-area">
+
+	<?php // You can start editing here -- including this comment! ?>
 
 	<?php if ( have_comments() ) : ?>
-				<h3 id="comments-title" class="beta"><?php
-				printf( _n( 'One Comment to %2$s', '%1$s Comments to %2$s', get_comments_number(), 'FSSFive' ),
-				number_format_i18n( get_comments_number() ), '&#8220;' . get_the_title() . '&#8221;' );
-				?></h3>
+		<h2 class="comments-title">
+			<?php
+				printf( // WPCS: XSS OK.
+					esc_html( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'uio5' ) ),
+					number_format_i18n( get_comments_number() ),
+					'<span>' . get_the_title() . '</span>'
+				);
+			?>
+		</h2>
 
-	<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
+		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
+		<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
+			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'uio5' ); ?></h2>
+			<div class="nav-links">
 
-	<?php endif; // check for comment navigation ?>
+				<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'uio5' ) ); ?></div>
+				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'uio5' ) ); ?></div>
 
-						<ol class="fSS5-commentlist">
-							<?php
-								wp_list_comments( array('callback' => 'FSSFive_comment' ) );
-							?>
-						</ol><!-- /.fSS5-commentlist -->
+			</div><!-- .nav-links -->
+		</nav><!-- #comment-nav-above -->
+		<?php endif; // Check for comment navigation. ?>
 
-	<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
-				<?php 
-				$next_posts = get_next_posts_link('&laquo; Older articles');
-				$prev_posts = get_previous_posts_link('Newer articles &raquo;');
-				if( $next_posts || $prev_posts ) { ?><nav class="fSS5-comments-nav">
-					<ul class="fl-container-flex fl-clearfix">
-						<?php if( $next_posts ) echo '<li class="alignleft">'.$next_posts.'</li>'; ?>
+		<ol class="comment-list">
+			<?php
+				wp_list_comments( array(
+					'style'      => 'ol',
+					'short_ping' => true,
+				) );
+			?>
+		</ol><!-- .comment-list -->
 
-						<?php if( $prev_posts ) echo '<li class="alignright">'.$prev_posts.'</li>'; ?>
+		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
+		<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
+			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'uio5' ); ?></h2>
+			<div class="nav-links">
 
-					</ul>
-				</nav><!-- /.fSS5-comments-nav -->
-				<?php } ?>
-	<?php endif; // check for comment navigation ?>
+				<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'uio5' ) ); ?></div>
+				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'uio5' ) ); ?></div>
 
-	<?php else : // or, if we don't have comments:
+			</div><!-- .nav-links -->
+		</nav><!-- #comment-nav-below -->
+		<?php endif; // Check for comment navigation. ?>
 
-		if ( ! comments_open() ) :
+	<?php endif; // Check for have_comments(). ?>
+
+	<?php
+		// If comments are closed and there are comments, let's leave a little note, shall we?
+		if ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
 	?>
-	<?php endif; // end ! comments_open() ?>
+		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'uio5' ); ?></p>
+	<?php endif; ?>
 
-	<?php endif; // end have_comments() ?>
+	<?php comment_form(); ?>
 
-	<?php comment_form(array(
-		'title_reply' => __( '<h3 class="reply-title beta">Got something you\'d like to add?</h3>' ),
-		'title_reply_to' => __( 'Leave a reply to %s\'s comment' ),
-		'cancel_reply_link' => __( 'Cancel your reply&hellip;' ),
-		'comment_notes_before' => '<p class="comment-notes">' . __( '... Leave it below. Your email address will not be published.' ) . '</p>',
-		'logged_in_as' => '<p class="logged-in-as">' . sprintf( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out</a>.' ), admin_url( 'profile.php' ), $user_identity, wp_logout_url( get_permalink() ) ) . '</p>',
-		'fields' => array(
-		'author' => '<p class="comment-form-author">' . '<label for="author">' . __( 'Name' ) . '</label> ' . ( $req ? '<span class="required">(required)</span>' : '' ) . '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30" /></p>',
-		'email' => '<p class="comment-form-email"><label for="email">' . __( 'Email' ) . '</label> ' . ( $req ? '<span class="required">(required)</span>' : '' ) . '<input id="email" name="email" type="email" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30" /></p>',
-		'url' => '<p class="comment-form-url"><label for="url">' . __( 'Website' ) . '</label>' . '<input id="url" name="url" type="url" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>'),
-		'label_submit' => __( 'Post!' )
-	)); ?>
-
-	</section><!-- /#comments -->
+</div><!-- #comments -->
