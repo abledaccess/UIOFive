@@ -23,5 +23,6 @@ As of this moment, UIOFive is not equipped with Infusion or UIOptions -- inclusi
 * 2 sample CSS layouts in `layouts/` for a sidebar on either side of your content.
 * Smartly organized starter CSS in `style.css` that will help you to quickly get your design off the ground.
 * Sass capable -- as the option to "_sassify" was provided in the "Advanced Options" when initially generating the original underscores theme. And I chose it.
+* Grunt capable -- currently only manages Sass related files.
 * Licensed under GPLv2 or later. :) Use it to make something cool.
 * More to follow.
