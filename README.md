@@ -4,9 +4,9 @@ An accessibility-ready starter WordPress theme employing [The Fluid Project](htt
 
 ## About
 
-UIOFive (formally FSSFive) is a [WorPress starter theme based on `_s` -- or `underscores`](http://underscores.me/). Why the rebranding? Well, as of the release of Infusion 1.5, Fluid Skinning System (FSS) has been depreciated from Infusion. "[There are no CSS Framework requirements for working with Infusion. Infusion's strategy going forward will be to use custom CSS for component specific styling and Foundation for demos, as needed](http://docs.fluidproject.org/infusion/development/DeprecationsIn1_5.html)." 
+UIOFive (formally FSSFive) is a [WorPress starter theme based on `_s` -- or `underscores`](http://underscores.me/). It's an accessiblity-ready WordPress blogging theme from which to start developing your new theme from. Plus it makes use of components of The Fluid Project's Infusion framework, User Interface Options (UIOptions) specifically.
 
-UIOFive a minimalistic and accessiblity-ready WordPress blogging theme from which to start developing a new theme from. Plus it employ's components of The Fluid Project's Infusion framework, User Interface Options (UIOptions) specifically.
+Why the rebranding? Well, as of the release of Infusion 1.5, Fluid Skinning System (FSS) has been depreciated from Infusion. "[There are no CSS Framework requirements for working with Infusion. Infusion's strategy going forward will be to use custom CSS for component specific styling](http://docs.fluidproject.org/infusion/development/DeprecationsIn1_5.html)." 
 
 That said, technically, I'm not responsible for too much of what this theme is. I essentially, and with what is more than likely an element of irresponsibly (but with more responsibility than previous iterations of this theme), stitched it together from contributions of other people who are much smarter than I. However, I accept complete responsibility for any sloppiness I caused, and I'd love the opportunity to correct any mistakes should you find any. Please, let me know.
 
@@ -22,7 +22,7 @@ As of this moment, UIOFive is not equipped with Infusion or UIOptions -- inclusi
 * A script at `js/navigation.js` that makes your menu a toggled dropdown on small screens (like your phone), ready for CSS artistry. It's enqueued in `functions.php`.
 * 2 sample CSS layouts in `layouts/` for a sidebar on either side of your content.
 * Smartly organized starter CSS in `style.css` that will help you to quickly get your design off the ground.
-* Sass capable -- as the option to "_sassify" was provided in the "Advanced Options" when initially generating the original underscores theme. And I chose it.
-* Grunt capable -- currently only manages Sass related files.
+* Sass capable, as the option to "_sassify" was provided in the "Advanced Options" when initially generating the original underscores theme. And I chose it.
+* Grunt capable (currently only manages Sass related files).
 * Licensed under GPLv2 or later. :) Use it to make something cool.
 * More to follow.
