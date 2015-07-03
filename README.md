@@ -10,7 +10,7 @@ Why the rebranding? Well, as of the release of Infusion 1.5, Fluid Skinning Syst
 
 That said, technically, I'm not responsible for too much of what this theme is. I essentially, and with what is more than likely an element of irresponsibly (but with more responsibility than previous iterations of this theme), stitched it together from contributions of other people who are much smarter than I. However, I accept complete responsibility for any sloppiness I caused, and I'd love the opportunity to correct any mistakes should you find any. Please, let me know.
 
-## What's in the box?
+## What's Provided?
 
 As of this moment, UIOFive is not equipped with Infusion or UIOptions -- inclusion of both are on a very short list of things I must do first, rather obviously. And [what follows was largely grabbed directly from the underscores README on its Github repository](https://github.com/Automattic/_s/blob/master/README.md):
 
@@ -21,8 +21,7 @@ As of this moment, UIOFive is not equipped with Infusion or UIOptions -- inclusi
 * Some small tweaks in `inc/extras.php` that can improve your theming experience.
 * A script at `js/libs/navigation.js`, which is includeed in the minified `js/build/global.min.js` script, that makes your menu a toggled dropdown on small screens (like your phone), ready for CSS artistry. The global  script is enqueued in `functions.php`.
 * 2 sample CSS layouts in `layouts/` for a sidebar on either side of your content.
-* Smartly organized starter CSS in `style.css` that will help you to quickly get your design off the ground.
-* Sass capable, as the option to "_sassify" was provided in the "Advanced Options" when initially generating the original underscores theme. And I chose it.
+* The option to "_sassify" was provided in the "Advanced Options" when initially generating the original underscores theme, meaning UIOFive is Sass capable, thereby providing smartly organized modules of styles. You'll find all the raw Sass files in the `sass` directory, they will help you to quickly get your design off the ground. 
 * Grunt capable, and currently managing Sass and Javascript related assets.
 * Licensed under GPLv2 or later. :) Use it to make something cool.
 * More to follow.
