@@ -11,37 +11,37 @@
 	</a>
 	<?php endif; // End header image check. ?>
  *
- * @package UIOFive
+ * @package UIO5
  */
 
 /**
  * Set up the WordPress core custom header feature.
  *
- * @uses uio5_header_style()
- * @uses uio5_admin_header_style()
- * @uses uio5_admin_header_image()
+ * @uses UIO5_header_style()
+ * @uses UIO5_admin_header_style()
+ * @uses UIO5_admin_header_image()
  */
-function uio5_custom_header_setup() {
-	add_theme_support( 'custom-header', apply_filters( 'uio5_custom_header_args', array(
+function UIO5_custom_header_setup() {
+	add_theme_support( 'custom-header', apply_filters( 'UIO5_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => '000000',
 		'width'                  => 1000,
 		'height'                 => 250,
 		'flex-height'            => true,
-		'wp-head-callback'       => 'uio5_header_style',
-		'admin-head-callback'    => 'uio5_admin_header_style',
-		'admin-preview-callback' => 'uio5_admin_header_image',
+		'wp-head-callback'       => 'UIO5_header_style',
+		'admin-head-callback'    => 'UIO5_admin_header_style',
+		'admin-preview-callback' => 'UIO5_admin_header_image',
 	) ) );
 }
-add_action( 'after_setup_theme', 'uio5_custom_header_setup' );
+add_action( 'after_setup_theme', 'UIO5_custom_header_setup' );
 
-if ( ! function_exists( 'uio5_header_style' ) ) :
+if ( ! function_exists( 'UIO5_header_style' ) ) :
 /**
  * Styles the header image and text displayed on the blog
  *
- * @see uio5_custom_header_setup().
+ * @see UIO5_custom_header_setup().
  */
-function uio5_header_style() {
+function UIO5_header_style() {
 	$header_text_color = get_header_textcolor();
 
 	// If no custom options for text are set, let's bail
@@ -74,15 +74,15 @@ function uio5_header_style() {
 	</style>
 	<?php
 }
-endif; // uio5_header_style
+endif; // UIO5_header_style
 
-if ( ! function_exists( 'uio5_admin_header_style' ) ) :
+if ( ! function_exists( 'UIO5_admin_header_style' ) ) :
 /**
  * Styles the header image displayed on the Appearance > Header admin panel.
  *
- * @see uio5_custom_header_setup().
+ * @see UIO5_custom_header_setup().
  */
-function uio5_admin_header_style() {
+function UIO5_admin_header_style() {
 ?>
 	<style type="text/css">
 		.appearance_page_custom-header #headimg {
@@ -102,15 +102,15 @@ function uio5_admin_header_style() {
 	</style>
 <?php
 }
-endif; // uio5_admin_header_style
+endif; // UIO5_admin_header_style
 
-if ( ! function_exists( 'uio5_admin_header_image' ) ) :
+if ( ! function_exists( 'UIO5_admin_header_image' ) ) :
 /**
  * Custom header image markup displayed on the Appearance > Header admin panel.
  *
- * @see uio5_custom_header_setup().
+ * @see UIO5_custom_header_setup().
  */
-function uio5_admin_header_image() {
+function UIO5_admin_header_image() {
 ?>
 	<div id="headimg">
 		<h1 class="displaying-header-text">
@@ -123,4 +123,4 @@ function uio5_admin_header_image() {
 	</div>
 <?php
 }
-endif; // uio5_admin_header_image
+endif; // UIO5_admin_header_image

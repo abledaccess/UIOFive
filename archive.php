@@ -4,7 +4,7 @@
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package UIOFive
+ * @package UIO5
  */
 
 get_header(); ?>

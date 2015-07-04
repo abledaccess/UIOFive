@@ -4,7 +4,7 @@
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package UIOFive
+ * @package UIO5
  */
 
 ?>
@@ -15,7 +15,7 @@
 
 		<?php if ( 'post' == get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php uio5_posted_on(); ?>
+			<?php UIO5_posted_on(); ?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
@@ -25,7 +25,7 @@
 	</div><!-- .entry-summary -->
 
 	<footer class="entry-footer">
-		<?php uio5_entry_footer(); ?>
+		<?php UIO5_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
 

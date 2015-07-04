@@ -2,7 +2,7 @@
 /**
  * Template part for displaying single posts.
  *
- * @package UIOFive
+ * @package UIO5
  */
 
 ?>
@@ -12,7 +12,7 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
 		<div class="entry-meta">
-			<?php uio5_posted_on(); ?>
+			<?php UIO5_posted_on(); ?>
 		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
 
@@ -20,14 +20,14 @@
 		<?php the_content(); ?>
 		<?php
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'uio5' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'UIO5' ),
 				'after'  => '</div>',
 			) );
 		?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php uio5_entry_footer(); ?>
+		<?php UIO5_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
 

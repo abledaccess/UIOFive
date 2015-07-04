@@ -2,7 +2,7 @@
 /**
  * The template for displaying all single posts.
  *
- * @package UIOFive
+ * @package UIO5
  */
 
 get_header(); ?>

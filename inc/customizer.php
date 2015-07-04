@@ -1,8 +1,8 @@
 <?php
 /**
- * UIOFive Theme Customizer
+ * UIO5 Theme Customizer
  *
- * @package UIOFive
+ * @package UIO5
  */
 
 /**
@@ -10,17 +10,17 @@
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-function uio5_customize_register( $wp_customize ) {
+function UIO5_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 }
-add_action( 'customize_register', 'uio5_customize_register' );
+add_action( 'customize_register', 'UIO5_customize_register' );
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
-function uio5_customize_preview_js() {
-	wp_enqueue_script( 'uio5_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20130508', true );
+function UIO5_customize_preview_js() {
+	wp_enqueue_script( 'UIO5_customizer', get_template_directory_uri() . '/js/libs/customizer.js', array( 'customize-preview' ), '2015702', true );
 }
-add_action( 'customize_preview_init', 'uio5_customize_preview_js' );
+add_action( 'customize_preview_init', 'UIO5_customize_preview_js' );

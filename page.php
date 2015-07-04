@@ -7,7 +7,7 @@
  * and that other 'pages' on your WordPress site will use a
  * different template.
  *
- * @package UIOFive
+ * @package UIO5
  */
 
 get_header(); ?>
