@@ -114,6 +114,16 @@ add_action( 'widgets_init', 'UIO5_widgets_init' );
 function UIO5_scripts() {
 	wp_enqueue_style( 'UIO5-style', get_stylesheet_uri() );
 
+	wp_enqueue_style( 'UIO5-infusion-fluid-style', get_template_directory_uri() . '/infusion/src/framework/core/css/fluid.css', array(), '20150708', false );
+
+	wp_enqueue_style( 'UIO5-infusion-enactors', get_template_directory_uri() . '/infusion/src/framework/preferences/css/Enactors.css', array(), '20150708', false );
+
+	wp_enqueue_style( 'UIO5-infusion-prefseditor', get_template_directory_uri() . '/infusion/src/framework/preferences/css/PrefsEditor.css', array(), '20150708', false );
+
+	wp_enqueue_style( 'UIO5-infusion-separatedpanelprefseditor', get_template_directory_uri() . '/infusion/src/framework/preferences/css/SeparatedPanelPrefsEditor.css', array(), '20150708', false );
+
+	wp_enqueue_script( 'UIO5-infusion', get_template_directory_uri() . '/infusion/infusion-UIO.min.js', array(), '20150707', false );
+
 	wp_enqueue_script( 'UIO5-globalJS', get_template_directory_uri() . '/js/build/global.min.js', array(), '20150702', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
