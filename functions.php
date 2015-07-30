@@ -122,7 +122,7 @@ function UIO5_scripts() {
 
 	wp_enqueue_style( 'UIO5-infusion-separatedpanelprefseditor', get_template_directory_uri() . '/infusion/src/framework/preferences/css/SeparatedPanelPrefsEditor.css', array(), '20150708', false );
 
-	wp_enqueue_script( 'UIO5-infusion', get_template_directory_uri() . '/infusion/infusion-UIO.min.js', array(), '20150707', false );
+	wp_enqueue_script( 'UIO5-infusion', get_template_directory_uri() . '/infusion/infusion-UIO5.min.js', array(), '20150707', false );
 
 	wp_enqueue_script( 'UIO5-globalJS', get_template_directory_uri() . '/js/build/global.min.js', array(), '20150702', true );
 
